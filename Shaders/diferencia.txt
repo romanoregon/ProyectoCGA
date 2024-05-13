@@ -1,0 +1,27 @@
+38c38
+<  
+---
+> 
+50a51,53
+> uniform sampler2D textura1;
+> uniform sampler2D textura2;
+> 
+60c63,66
+<     vec3 ambient  = light.ambient * vec3(texture(texture1, our_uv));
+---
+>     //vec3 ambient  = light.ambient * vec3(texture(texture1, our_uv));
+> 	vec4 colorText1 = texture(texture1, our_uv);
+> 	vec4 colorText2 = texture(texture2, our_uv);
+> 	vec4 colorText3 = mix(colorText1,colorText2,0.3);
+66c72
+<     vec3 diffuse  = light.diffuse * (diff * vec3(texture(texture1, our_uv)));
+---
+>     vec3 diffuse  = light.diffuse * (diff * vec3 colorText3);// vec3(texture(texture1, our_uv)));
+73c79
+<     vec3 specular = light.specular * (spec * vec3(texture(texture1, our_uv)));  
+---
+>     vec3 specular = light.specular * (spec * vec3 colorText3);//vec3(texture(texture1, our_uv)));  
+105c111
+< 	vec4 colorText = texture(texture1, our_uv);
+---
+> 	vec4 colorText3 = texture(Texture1,our_uv);
