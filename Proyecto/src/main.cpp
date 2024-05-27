@@ -79,7 +79,12 @@ Box boxCollider;
 Sphere sphereCollider(10, 10);
 Cylinder rayModel(10, 10, 1.0, 1.0, 1.0);
 Box boxIntro;
-// Models complex instances
+// Modelos
+Model Pino;
+Model MuroPiedra;
+Model Casa;
+Model CasaArbol;
+
 
 // Modelos animados
 // Mayow
@@ -87,7 +92,7 @@ Model mayowModelAnimate;
 
 
 // Terrain model instance
-Terrain terrain(-1, -1, 400, 10, "../Textures/Mapas_de_alturas/heightmap(3).png");
+Terrain terrain(-1, -1, 100, 8, "../Textures/Mapas_de_alturas/heightmap.png");
 
 GLuint textureCespedID, textureWallID, textureWindowID, textureHighwayID, textureLandingPadID;
 GLuint textureTerrainRID, textureTerrainGID, textureTerrainBID, textureTerrainBlendMapID;
@@ -120,6 +125,10 @@ int lastMousePosY, offsetY = 0;
 
 // Model matrix definitions
 glm::mat4 modelMatrixMayow = glm::mat4(1.0f);
+glm::mat4 modelMatrixPino = glm::mat4(1.0f);
+glm::mat4 modelMatrixMuro = glm::mat4(1.0f);
+glm::mat4 modelMatrixCasa = glm::mat4(1.0f);
+
 int animationMayowIndex = 1;
 int modelSelected = 0;
 bool enableCountSelected = true;
@@ -130,59 +139,52 @@ std::ofstream myfile;
 std::string fileName = "";
 bool record = false;
 
-// Joints interpolations Dart Lego
-std::vector<std::vector<float>> keyFramesDartJoints;
-std::vector<std::vector<glm::mat4>> keyFramesDart;
-int indexFrameDartJoints = 0;
-int indexFrameDartJointsNext = 1;
-float interpolationDartJoints = 0.0;
-int maxNumPasosDartJoints = 20;
-int numPasosDartJoints = 0;
-int indexFrameDart = 0;
-int indexFrameDartNext = 1;
-float interpolationDart = 0.0;
-int maxNumPasosDart = 200;
-int numPasosDart = 0;
 
-// Joints interpolations Buzz
-std::vector<std::vector<float>> keyFramesBuzzJoints;
-std::vector<std::vector<glm::mat4>> keyFramesBuzz;
-int indexFrameBuzzJoints = 0;
-int indexFrameBuzzJointsNext = 1;
-float interpolationBuzzJoints = 0.0;
-int maxNumPasosBuzzJoints = 20;
-int numPasosBuzzJoints = 0;
-int indexFrameBuzz = 0;
-int indexFrameBuzzNext = 1;
-float interpolationBuzz = 0.0;
-int maxNumPasosBuzz = 100;
-int numPasosBuzz = 0;
+//Posiciones de los pinos 
+std::vector<glm::vec3> PinoPos1 = {
+	glm::vec3(-70.0,0,34.0),
+	glm::vec3(-46.0,0,-46.0),
+	glm::vec3(-48.0,0,-50.0),
+	glm::vec3(-6.0,0,-98.0),
+	glm::vec3(-36.0,0,-140.0)
+	//,
+/*	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
 
-// Var animate helicopter
-float rotHelHelY = 0.0;
-float rotHelHelBack = 0.0;
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
 
-// Var animate lambo dor
-int stateDoor = 0;
-float dorRotCount = 0.0;
-float rotWheelsX = 0.0;
-float rotWheelsY = 0.0;
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
 
-// Lamps position
-std::vector<glm::vec3> lamp1Position = {
-	glm::vec3(-7.03, 0, -19.14),
-	glm::vec3(24.41, 0, -34.57),
-	glm::vec3(-10.15, 0, -54.1)
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
+	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0)
+*/
+};
+
+std::vector<glm::vec3> PinoPos2 = {
+	glm::vec3(-7.03, 0, -19.14)
+	//,
+	//glm::vec3(24.41, 0, -34.57),
+	//glm::vec3(-10.15, 0, -54.1)
 };
 std::vector<float> lamp1Orientation = {
 	-17.0, -82.67, 23.70
-};
-std::vector<glm::vec3> lamp2Position = {
-	glm::vec3(-36.52, 0, -23.24),
-	glm::vec3(-52.73, 0, -3.90)
-};
-std::vector<float> lamp2Orientation = {
-	21.37 + 90, -65.0 + 90
 };
 
 // Blending model unsorted
@@ -353,6 +355,11 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	mayowModelAnimate.loadModel("../models/mayow/personaje2.fbx");
 	mayowModelAnimate.setShader(&shaderMulLighting);
 
+	//Pino
+	//Pino.loadModel("../models/arboles/pino.obj");
+	Pino.loadModel("../models/arboles/Sequoia_OBJ/Sequoia_1.obj");
+	Pino.setShader(&shaderMulLighting);
+
 	// Terreno
 	terrain.init();
 	terrain.setShader(&shaderTerrain);
@@ -388,7 +395,7 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	}
 
 	// Definiendo la textura a utilizar
-	Texture textureCesped("../Textures/grassy2.png");
+	Texture textureCesped("../Textures/Texturas_bosque/suelo/Suelo.png");
 	// Carga el mapa de bits (FIBITMAP es el tipo de dato de la libreria)
 	textureCesped.loadImage();
 	// Creando la textura con id 1
@@ -525,7 +532,7 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 
 	// Defininiendo texturas del mapa de mezclas
 	// Definiendo la textura
-	Texture textureR("../Textures/mud.png");
+	Texture textureR("../Textures/Texturas_bosque/suelo/Piedra.png");
 	textureR.loadImage(); // Cargar la textura
 	glGenTextures(1, &textureTerrainRID); // Creando el id de la textura del landingpad
 	glBindTexture(GL_TEXTURE_2D, textureTerrainRID); // Se enlaza la textura
@@ -544,7 +551,7 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	textureR.freeImage(); // Liberamos memoria
 
 	// Definiendo la textura
-	Texture textureG("../Textures/grassFlowers.png");
+	Texture textureG("../Textures/Texturas_bosque/suelo/Borde.png");
 	textureG.loadImage(); // Cargar la textura
 	glGenTextures(1, &textureTerrainGID); // Creando el id de la textura del landingpad
 	glBindTexture(GL_TEXTURE_2D, textureTerrainGID); // Se enlaza la textura
@@ -563,7 +570,7 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	textureG.freeImage(); // Liberamos memoria
 
 	// Definiendo la textura
-	Texture textureB("../Textures/path.png");
+	Texture textureB("../Textures/Texturas_bosque/suelo/Camino.png");
 	textureB.loadImage(); // Cargar la textura
 	glGenTextures(1, &textureTerrainBID); // Creando el id de la textura del landingpad
 	glBindTexture(GL_TEXTURE_2D, textureTerrainBID); // Se enlaza la textura
@@ -582,7 +589,7 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	textureB.freeImage(); // Liberamos memoria
 
 	// Definiendo la textura
-	Texture textureBlendMap("../Textures/blendMap.png");
+	Texture textureBlendMap("../Textures/Mapas_de_alturas/blendMap.png");
 	textureBlendMap.loadImage(); // Cargar la textura
 	glGenTextures(1, &textureTerrainBlendMapID); // Creando el id de la textura del landingpad
 	glBindTexture(GL_TEXTURE_2D, textureTerrainBlendMapID); // Se enlaza la textura
@@ -746,6 +753,7 @@ void destroy() {
 	// Custom objects Delete
 
 	mayowModelAnimate.destroy();
+	Pino.destroy();
 
 	// Terrains objects Delete
 	terrain.destroy();
@@ -949,8 +957,10 @@ void applicationLoop() {
 	glm::vec3 target;
 	float angleTarget;
 
-	modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(13.0f, 0.05f, -5.0f));
+	//posicion inicial
+	modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(0.0f,0.0f,0.0f));//(13.0f, 0.05f, -5.0f));
 	modelMatrixMayow = glm::rotate(modelMatrixMayow, glm::radians(-90.0f), glm::vec3(0, 1, 0));
+	
 
 	lastTime = TimeManager::Instance().GetTime();
 
@@ -1089,7 +1099,12 @@ void applicationLoop() {
 		/*******************************************
 		 * Custom objects obj
 		 *******************************************/
-		
+		for(int i = 0; i< PinoPos1.size() ; i++ ){
+			PinoPos1[i].y =terrain.getHeightTerrain(PinoPos1[i].x,PinoPos1[i].z);
+			Pino.setPosition(PinoPos1[i]);
+			Pino.setScale(glm::vec3(0.08));			
+			Pino.render();
+		}
 
 
 		// Dart lego
