@@ -92,7 +92,7 @@ Model mayowModelAnimate;
 
 
 // Terrain model instance
-Terrain terrain(-1, -1, 100, 8, "../Textures/Mapas_de_alturas/heightmap.png");
+Terrain terrain(-1, -1, 200, 5, "../Textures/Mapas_de_alturas/heightmap.png");
 
 GLuint textureCespedID, textureWallID, textureWindowID, textureHighwayID, textureLandingPadID;
 GLuint textureTerrainRID, textureTerrainGID, textureTerrainBID, textureTerrainBlendMapID;
@@ -142,39 +142,104 @@ bool record = false;
 
 //Posiciones de los pinos 
 std::vector<glm::vec3> PinoPos1 = {
-	glm::vec3(-70.0,0,34.0),
-	glm::vec3(-46.0,0,-46.0),
-	glm::vec3(-48.0,0,-50.0),
-	glm::vec3(-6.0,0,-98.0),
-	glm::vec3(-36.0,0,-140.0)
-	//,
-/*	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),
-	glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0),glm::vec3(1.0,0,1.0)
-*/
+glm::vec3(	-94.5	,	0	,	7.0	),
+glm::vec3(	-94.1	,	0	,	19.1	),
+glm::vec3(	-96.1	,	0	,	36.7	),
+glm::vec3(	-88.7	,	0	,	29.7	),
+glm::vec3(	-82.0	,	0	,	8.6	),
+glm::vec3(	-78.1	,	0	,	20.3	),
+glm::vec3(	-73.8	,	0	,	28.9	),
+glm::vec3(	-69.1	,	0	,	8.2	),
+glm::vec3(	-59.0	,	0	,	7.8	),
+glm::vec3(	-67.2	,	0	,	18.4	),
+glm::vec3(	-61.3	,	0	,	29.7	),
+glm::vec3(	-37.9	,	0	,	7.8	),
+glm::vec3(	-30.5	,	0	,	7.0	),
+glm::vec3(	-17.6	,	0	,	6.3	),
+glm::vec3(	-6.6	,	0	,	9.8	),
+glm::vec3(	-30.5	,	0	,	17.6	),
+glm::vec3(	-22.7	,	0	,	14.8	),
+glm::vec3(	-12.9	,	0	,	16.8	),
+glm::vec3(	-20.7	,	0	,	24.6	),
+glm::vec3(	-12.9	,	0	,	25.8	),
+glm::vec3(	-3.1	,	0	,	26.2	),
+glm::vec3(	8.6	,	0	,	5.9	),
+glm::vec3(	8.2	,	0	,	13.3	),
+glm::vec3(	7.0	,	0	,	26.2	),
+glm::vec3(	14.8	,	0	,	18.0	),
+glm::vec3(	20.7	,	0	,	9.0	),
+glm::vec3(	27.7	,	0	,	10.9	),
+glm::vec3(	34.8	,	0	,	6.6	),
+glm::vec3(	41.8	,	0	,	7.0	),
+glm::vec3(	48.8	,	0	,	6.6	),
+glm::vec3(	47.7	,	0	,	16.8	),
+glm::vec3(	-23.4	,	0	,	46.9	),
+glm::vec3(	-73.8	,	0	,	51.2	),
+glm::vec3(	-62.9	,	0	,	52.0	),
+glm::vec3(	-52.7	,	0	,	51.6	),
+glm::vec3(	-39.8	,	0	,	54.3	),
+glm::vec3(	-31.3	,	0	,	50.8	),
+glm::vec3(	-87.1	,	0	,	52.0	),
+glm::vec3(	-94.9	,	0	,	72.3	),
+glm::vec3(	-80.9	,	0	,	59.8	),
+glm::vec3(	-71.1	,	0	,	72.3	),
+glm::vec3(	-62.9	,	0	,	63.7	),
+glm::vec3(	-51.6	,	0	,	60.2	),
+glm::vec3(	-94.1	,	0	,	73.0	),
+glm::vec3(	-84.0	,	0	,	68.4	),
+glm::vec3(	-71.9	,	0	,	71.1	),
+glm::vec3(	-94.5	,	0	,	82.8	),
+glm::vec3(	-84.4	,	0	,	80.5	),
+glm::vec3(	-94.1	,	0	,	95.7	),
+glm::vec3(	-84.8	,	0	,	88.3	),
+glm::vec3(	-73.4	,	0	,	94.5	),
+glm::vec3(	-62.1	,	0	,	87.5	),
+glm::vec3(	-56.6	,	0	,	94.9	),
+glm::vec3(	-51.2	,	0	,	89.5	),
+glm::vec3(	-42.2	,	0	,	95.7	),
+glm::vec3(	-39.5	,	0	,	86.3	),
+glm::vec3(	-44.9	,	0	,	81.6	),
+glm::vec3(	-30.1	,	0	,	93.4	),
+glm::vec3(	-35.2	,	0	,	80.5	),
+glm::vec3(	-26.6	,	0	,	86.3	),
+glm::vec3(	-19.9	,	0	,	91.8	),
+glm::vec3(	-14.5	,	0	,	96.1	),
+glm::vec3(	-6.3	,	0	,	95.7	),
+glm::vec3(	-3.1	,	0	,	76.2	),
+glm::vec3(	-9.0	,	0	,	70.3	),
+glm::vec3(	-16.4	,	0	,	63.7	),
+glm::vec3(	-2.0	,	0	,	65.2	),
+glm::vec3(	-11.3	,	0	,	60.5	),
+glm::vec3(	-0.4	,	0	,	56.3	),
+glm::vec3(	11.3	,	0	,	58.0	),
+glm::vec3(	7.8	,	0	,	72.3	),
+glm::vec3(	11.3	,	0	,	87.5	),
+glm::vec3(	18.4	,	0	,	94.1	),
+glm::vec3(	25.4	,	0	,	60.9	),
+glm::vec3(	17.6	,	0	,	71.1	),
+glm::vec3(	26.2	,	0	,	87.9	),
+glm::vec3(	29.3	,	0	,	73.0	),
+glm::vec3(	25.0	,	0	,	60.5	),
+glm::vec3(	46.9	,	0	,	92.6	),
+glm::vec3(	42.2	,	0	,	83.2	),
+glm::vec3(	47.3	,	0	,	73.0	),
+glm::vec3(	37.9	,	0	,	62.9	),
+glm::vec3(	46.1	,	0	,	60.5	),
+glm::vec3(	58.2	,	0	,	74.6	),
+glm::vec3(	57.8	,	0	,	84.0	),
+glm::vec3(	61.3	,	0	,	94.1	),
+glm::vec3(	66.0	,	0	,	86.3	),
+glm::vec3(	71.1	,	0	,	92.6	),
+glm::vec3(	78.5	,	0	,	94.1	),
+glm::vec3(	85.5	,	0	,	91.4	),
+glm::vec3(	94.1	,	0	,	90.6	),
+glm::vec3(	93.8	,	0	,	80.9	),
+glm::vec3(	93.8	,	0	,	68.4	),
+glm::vec3(	84.0	,	0	,	71.5	),
+glm::vec3(	88.7	,	0	,	60.2	),
+glm::vec3(	82.4	,	0	,	62.9	),
+glm::vec3(	73.0	,	0	,	63.7	),
+glm::vec3(	75.4	,	0	,	56.6	)
 };
 
 std::vector<glm::vec3> PinoPos2 = {
@@ -356,8 +421,9 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	mayowModelAnimate.setShader(&shaderMulLighting);
 
 	//Pino
-	//Pino.loadModel("../models/arboles/pino.obj");
-	Pino.loadModel("../models/arboles/Sequoia_OBJ/Sequoia_1.obj");
+	Pino.loadModel("../models/arboles/CartoonTree.obj");
+	//Pino.loadModel("../models/arboles/Sequoia_OBJ/Sequoia_1.obj");
+	//Pino.loadModel("../models/arboles/pino.fbx");
 	Pino.setShader(&shaderMulLighting);
 
 	// Terreno
@@ -1102,7 +1168,7 @@ void applicationLoop() {
 		for(int i = 0; i< PinoPos1.size() ; i++ ){
 			PinoPos1[i].y =terrain.getHeightTerrain(PinoPos1[i].x,PinoPos1[i].z);
 			Pino.setPosition(PinoPos1[i]);
-			Pino.setScale(glm::vec3(0.08));			
+			Pino.setScale(glm::vec3(3.0));			
 			Pino.render();
 		}
 
