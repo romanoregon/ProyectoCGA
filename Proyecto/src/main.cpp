@@ -49,6 +49,9 @@
 // Include Colision headers functions
 #include "Headers/Colisiones.h"
 
+//Include shadows
+
+
 #define ARRAY_SIZE_IN_ELEMENTS(a) (sizeof(a)/sizeof(a[0]))
 
 int screenWidth;
@@ -126,8 +129,8 @@ int lastMousePosY, offsetY = 0;
 
 // Model matrix definitions
 glm::mat4 modelMatrixMayow = glm::mat4(1.0f);
-glm::mat4 modelMatrixCasa1 = glm::mat4(1.0f);
-glm::mat4 modelMatrixCasa2 = glm::mat4(1.0f);
+glm::mat4 modelMatrixCasaAban = glm::mat4(1.0f);
+glm::mat4 modelMatrixCasaArb = glm::mat4(1.0f);
 
 
 int animationMayowIndex = 1;
@@ -198,6 +201,11 @@ std::vector<glm::vec3> Muros = {
 	glm::vec3(0.0,0.0,-1.5),glm::vec3(20.0,0.0,-1.5),glm::vec3(40.0,0.0,-1.5),glm::vec3(60.0,0.0,-1.5),glm::vec3(80.0,0.0,-1.5),
 	glm::vec3(100.0,0.0,-1.5),glm::vec3(-20.0,0.0,-1.5),glm::vec3(-40.0,0.0,-1.5),glm::vec3(-60.0,0.0,-1.5),glm::vec3(-80.0,0.0,-1.5)
 	,glm::vec3(-100.0,0.0,-1.5)
+};
+
+std::vector<glm::vec3> Casas = {
+	glm::vec3(32.8125,0,36.71875),
+	glm::vec3(-73.828125,0,-51.171875)
 };
 
 // Blending model unsorted
@@ -377,6 +385,12 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	//hogera
 	Hogera.loadModel("../models/Hogera/Hogera.obj");
 	Hogera.setShader(&shaderMulLighting);
+	//casa abandonada
+	Casa.loadModel("../models/Casa_avandonada/CasaAban.obj");
+	Casa.setShader(&shaderMulLighting);
+	//casa arbol
+	CasaArbol.loadModel("../models/Casa_del_arbol/10783_TreeHouse_v7_LOD3.obj");
+	CasaArbol.setShader(&shaderMulLighting);
 
 	// Terreno
 	terrain.init();
@@ -943,22 +957,20 @@ bool processInput(bool continueApplication) {
 		myfile.open(fileName);
 	}
 
-
-
 	// Controles de mayow
 	if (modelSelected == 0 && glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
-		modelMatrixMayow = glm::rotate(modelMatrixMayow, 0.02f, glm::vec3(0, 1, 0));
+		modelMatrixMayow = glm::rotate(modelMatrixMayow, 0.04f, glm::vec3(0, 1, 0));
 		animationMayowIndex = 0;
 	} else if (modelSelected == 0 && glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS){
-		modelMatrixMayow = glm::rotate(modelMatrixMayow, -0.02f, glm::vec3(0, 1, 0));
+		modelMatrixMayow = glm::rotate(modelMatrixMayow, -0.04f, glm::vec3(0, 1, 0));
 		animationMayowIndex = 0;
 	}
 	if (modelSelected == 0 && glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
-		modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(0.0, 0.0, 0.1));
+		modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(0.0, 0.0, 0.3));
 		animationMayowIndex = 0;
 	}
 	else if (modelSelected == 0 && glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
-		modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(0.0, 0.0, -0.1));
+		modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(0.0, 0.0, -0.3));
 		animationMayowIndex = 0;
 	}
 
@@ -983,7 +995,9 @@ void applicationLoop() {
 	//posicion inicial
 	modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(0.0f,0.0f,0.0f));//(13.0f, 0.05f, -5.0f));
 	modelMatrixMayow = glm::rotate(modelMatrixMayow, glm::radians(-90.0f), glm::vec3(0, 1, 0));
-	
+
+	//modelMatrixCasaAban = glm::translate(modelMatrixCasaAban,glm::vec3(0.0f,0.0f,0.0f));
+	//modelMatrixCasaArb = glm::translate(modelMatrixCasaArb,glm::vec3(0.0f,0.0f,0.0f));
 
 	lastTime = TimeManager::Instance().GetTime();
 
@@ -1079,8 +1093,33 @@ void applicationLoop() {
 		/*******************************************
 		 * Propiedades PointLights
 		 *******************************************/
-		shaderMulLighting.setInt("pointLightCount",0);
-		shaderTerrain.setInt("pointLightCount",0);
+		shaderMulLighting.setInt("pointLightCount",Hogeras.size());
+		shaderTerrain.setInt("pointLightCount",Hogeras.size());
+		//hogeras
+		for(int i = 0; i< Hogeras.size(); i++){
+			glm::mat4 matrixAdjustLamp = glm::mat4(1.0);
+			matrixAdjustLamp = glm::translate(matrixAdjustLamp, Hogeras[i]);
+			//matrixAdjustLamp = glm::rotate(matrixAdjustLamp, glm::radians(-180.0f), glm::vec3(0, 1, 0));
+			matrixAdjustLamp = glm::scale(matrixAdjustLamp, glm::vec3(1.0));
+			matrixAdjustLamp = glm::translate(matrixAdjustLamp, glm::vec3(0.0, 2.6, 0));
+			glm::vec3 lampPosition = glm::vec3(matrixAdjustLamp[3]);
+
+			shaderMulLighting.setVectorFloat3("pointLights["+ std::to_string(i) + "].ligth.ambient", glm::value_ptr(glm::vec3(0.2, 0.16, 0.01)));
+			shaderMulLighting.setVectorFloat3("pointLights["+ std::to_string(i) + "].ligth.diffuse", glm::value_ptr(glm::vec3(0.4, 0.32, 0.02)));
+			shaderMulLighting.setVectorFloat3("pointLights["+ std::to_string(i) + "].ligth.specular", glm::value_ptr(glm::vec3(0.6, 0.58, 0.03)));
+			shaderMulLighting.setVectorFloat3("pointLights["+ std::to_string(i) + "].position", glm::value_ptr(lampPosition));
+			shaderMulLighting.setFloat("pointLights["+ std::to_string(i) + "].constant", 1.0);
+			shaderMulLighting.setFloat("pointLights["+ std::to_string(i) + "].linear", 0.09);
+			shaderMulLighting.setFloat("pointLights["+ std::to_string(i) + "].quadratic", 0.02);
+			shaderTerrain.setVectorFloat3("pointLights["+ std::to_string(i) + "].ligth.ambient", glm::value_ptr(glm::vec3(0.2, 0.16, 0.01)));
+			shaderTerrain.setVectorFloat3("pointLights["+ std::to_string(i) + "].ligth.diffuse", glm::value_ptr(glm::vec3(0.4, 0.32, 0.02)));
+			shaderTerrain.setVectorFloat3("pointLights["+ std::to_string(i) + "].ligth.specular", glm::value_ptr(glm::vec3(0.6, 0.58, 0.03)));
+			shaderTerrain.setVectorFloat3("pointLights["+ std::to_string(i) + "].position", glm::value_ptr(lampPosition));
+			shaderTerrain.setFloat("pointLights["+ std::to_string(i) + "].constant", 1.0);
+			shaderTerrain.setFloat("pointLights["+ std::to_string(i) + "].linear", 0.09);
+			shaderTerrain.setFloat("pointLights["+ std::to_string(i) + "].quadratic", 0.02);
+		}
+
 
 		/************Render de imagen de frente**************/
 		if(!iniciaPartida){
@@ -1122,34 +1161,37 @@ void applicationLoop() {
 		/*******************************************
 		 * Custom objects obj
 		 *******************************************/
+		//glActiveTexture(GL_TEXTURE0);
+		//primera mitad arboles
 		for(int i = 0; i< PinoPos1.size() ; i++ ){
 			PinoPos1[i].y =terrain.getHeightTerrain(PinoPos1[i].x,PinoPos1[i].z);
 			Pino.setPosition(PinoPos1[i]);
 			Pino.setScale(glm::vec3(3.0));			
 			Pino.render();
 		}
+		//hogeras
 		for(int i = 0; i< Hogeras.size() ; i++ ){
 			Hogeras[i].y =terrain.getHeightTerrain(Hogeras[i].x,Hogeras[i].z);
 			Hogera.setPosition(Hogeras[i]);
 			Hogera.setScale(glm::vec3(1.0));			
 			Hogera.render();
 		}
+		//muro
 		for(int i = 0; i< Muros.size() ; i++ ){
 			Muros[i].y =terrain.getHeightTerrain(Muros[i].x,Muros[i].z);
 			Muro.setPosition(Muros[i]);
 			Muro.setScale(glm::vec3(0.08));			
 			Muro.render();
 		}
-
-
-		// Dart lego
-		// Se deshabilita el cull faces IMPORTANTE para la capa
-//		glDisable(GL_CULL_FACE);
-
-		// Se regresa el cull faces IMPORTANTE para la capa
-//		glEnable(GL_CULL_FACE);
-
-
+		glDisable(GL_CULL_FACE);
+		//casa abandonada
+		for(int i = 0; i< Casas.size() ; i++ ){
+			Casas[i].y =terrain.getHeightTerrain(Casas[i].x,Casas[i].z);
+			Casa.setPosition(Casas[i]);
+			Casa.setScale(glm::vec3(3.0));			
+			Casa.render();
+		}
+		glEnable(GL_CULL_FACE);
 
 		/*****************************************
 		 * Objetos animados por huesos
