@@ -81,7 +81,8 @@ Cylinder rayModel(10, 10, 1.0, 1.0, 1.0);
 Box boxIntro;
 // Modelos
 Model Pino;
-Model MuroPiedra;
+Model Muro;
+Model Hogera;
 Model Casa;
 Model CasaArbol;
 
@@ -125,9 +126,9 @@ int lastMousePosY, offsetY = 0;
 
 // Model matrix definitions
 glm::mat4 modelMatrixMayow = glm::mat4(1.0f);
-glm::mat4 modelMatrixPino = glm::mat4(1.0f);
-glm::mat4 modelMatrixMuro = glm::mat4(1.0f);
-glm::mat4 modelMatrixCasa = glm::mat4(1.0f);
+glm::mat4 modelMatrixCasa1 = glm::mat4(1.0f);
+glm::mat4 modelMatrixCasa2 = glm::mat4(1.0f);
+
 
 int animationMayowIndex = 1;
 int modelSelected = 0;
@@ -140,116 +141,63 @@ std::string fileName = "";
 bool record = false;
 
 
-//Posiciones de los pinos 
+//coordenadas de los arboles primera midad
 std::vector<glm::vec3> PinoPos1 = {
-glm::vec3(	-94.5	,	0	,	7.0	),
-glm::vec3(	-94.1	,	0	,	19.1	),
-glm::vec3(	-96.1	,	0	,	36.7	),
-glm::vec3(	-88.7	,	0	,	29.7	),
-glm::vec3(	-82.0	,	0	,	8.6	),
-glm::vec3(	-78.1	,	0	,	20.3	),
-glm::vec3(	-73.8	,	0	,	28.9	),
-glm::vec3(	-69.1	,	0	,	8.2	),
-glm::vec3(	-59.0	,	0	,	7.8	),
-glm::vec3(	-67.2	,	0	,	18.4	),
-glm::vec3(	-61.3	,	0	,	29.7	),
-glm::vec3(	-37.9	,	0	,	7.8	),
-glm::vec3(	-30.5	,	0	,	7.0	),
-glm::vec3(	-17.6	,	0	,	6.3	),
-glm::vec3(	-6.6	,	0	,	9.8	),
-glm::vec3(	-30.5	,	0	,	17.6	),
-glm::vec3(	-22.7	,	0	,	14.8	),
-glm::vec3(	-12.9	,	0	,	16.8	),
-glm::vec3(	-20.7	,	0	,	24.6	),
-glm::vec3(	-12.9	,	0	,	25.8	),
-glm::vec3(	-3.1	,	0	,	26.2	),
-glm::vec3(	8.6	,	0	,	5.9	),
-glm::vec3(	8.2	,	0	,	13.3	),
-glm::vec3(	7.0	,	0	,	26.2	),
-glm::vec3(	14.8	,	0	,	18.0	),
-glm::vec3(	20.7	,	0	,	9.0	),
-glm::vec3(	27.7	,	0	,	10.9	),
-glm::vec3(	34.8	,	0	,	6.6	),
-glm::vec3(	41.8	,	0	,	7.0	),
-glm::vec3(	48.8	,	0	,	6.6	),
-glm::vec3(	47.7	,	0	,	16.8	),
-glm::vec3(	-23.4	,	0	,	46.9	),
-glm::vec3(	-73.8	,	0	,	51.2	),
-glm::vec3(	-62.9	,	0	,	52.0	),
-glm::vec3(	-52.7	,	0	,	51.6	),
-glm::vec3(	-39.8	,	0	,	54.3	),
-glm::vec3(	-31.3	,	0	,	50.8	),
-glm::vec3(	-87.1	,	0	,	52.0	),
-glm::vec3(	-94.9	,	0	,	72.3	),
-glm::vec3(	-80.9	,	0	,	59.8	),
-glm::vec3(	-71.1	,	0	,	72.3	),
-glm::vec3(	-62.9	,	0	,	63.7	),
-glm::vec3(	-51.6	,	0	,	60.2	),
-glm::vec3(	-94.1	,	0	,	73.0	),
-glm::vec3(	-84.0	,	0	,	68.4	),
-glm::vec3(	-71.9	,	0	,	71.1	),
-glm::vec3(	-94.5	,	0	,	82.8	),
-glm::vec3(	-84.4	,	0	,	80.5	),
-glm::vec3(	-94.1	,	0	,	95.7	),
-glm::vec3(	-84.8	,	0	,	88.3	),
-glm::vec3(	-73.4	,	0	,	94.5	),
-glm::vec3(	-62.1	,	0	,	87.5	),
-glm::vec3(	-56.6	,	0	,	94.9	),
-glm::vec3(	-51.2	,	0	,	89.5	),
-glm::vec3(	-42.2	,	0	,	95.7	),
-glm::vec3(	-39.5	,	0	,	86.3	),
-glm::vec3(	-44.9	,	0	,	81.6	),
-glm::vec3(	-30.1	,	0	,	93.4	),
-glm::vec3(	-35.2	,	0	,	80.5	),
-glm::vec3(	-26.6	,	0	,	86.3	),
-glm::vec3(	-19.9	,	0	,	91.8	),
-glm::vec3(	-14.5	,	0	,	96.1	),
-glm::vec3(	-6.3	,	0	,	95.7	),
-glm::vec3(	-3.1	,	0	,	76.2	),
-glm::vec3(	-9.0	,	0	,	70.3	),
-glm::vec3(	-16.4	,	0	,	63.7	),
-glm::vec3(	-2.0	,	0	,	65.2	),
-glm::vec3(	-11.3	,	0	,	60.5	),
-glm::vec3(	-0.4	,	0	,	56.3	),
-glm::vec3(	11.3	,	0	,	58.0	),
-glm::vec3(	7.8	,	0	,	72.3	),
-glm::vec3(	11.3	,	0	,	87.5	),
-glm::vec3(	18.4	,	0	,	94.1	),
-glm::vec3(	25.4	,	0	,	60.9	),
-glm::vec3(	17.6	,	0	,	71.1	),
-glm::vec3(	26.2	,	0	,	87.9	),
-glm::vec3(	29.3	,	0	,	73.0	),
-glm::vec3(	25.0	,	0	,	60.5	),
-glm::vec3(	46.9	,	0	,	92.6	),
-glm::vec3(	42.2	,	0	,	83.2	),
-glm::vec3(	47.3	,	0	,	73.0	),
-glm::vec3(	37.9	,	0	,	62.9	),
-glm::vec3(	46.1	,	0	,	60.5	),
-glm::vec3(	58.2	,	0	,	74.6	),
-glm::vec3(	57.8	,	0	,	84.0	),
-glm::vec3(	61.3	,	0	,	94.1	),
-glm::vec3(	66.0	,	0	,	86.3	),
-glm::vec3(	71.1	,	0	,	92.6	),
-glm::vec3(	78.5	,	0	,	94.1	),
-glm::vec3(	85.5	,	0	,	91.4	),
-glm::vec3(	94.1	,	0	,	90.6	),
-glm::vec3(	93.8	,	0	,	80.9	),
-glm::vec3(	93.8	,	0	,	68.4	),
-glm::vec3(	84.0	,	0	,	71.5	),
-glm::vec3(	88.7	,	0	,	60.2	),
-glm::vec3(	82.4	,	0	,	62.9	),
-glm::vec3(	73.0	,	0	,	63.7	),
-glm::vec3(	75.4	,	0	,	56.6	)
+	glm::vec3(-94.5,0,7.0),glm::vec3(-94.1,0,19.1),glm::vec3(-96.1,0,36.7),
+	glm::vec3(-73.8,0,28.9),glm::vec3(-69.1,0,8.2),glm::vec3(-59.0,0,7.8),
+	glm::vec3(-30.5,0,7.0),glm::vec3(-17.6,0,6.3),glm::vec3(-6.6,0,9.8),
+	glm::vec3(-20.7,0,24.6),glm::vec3(-12.9,0,25.8),glm::vec3(-3.1,0,26.2),
+	glm::vec3(14.8,0,18.0),glm::vec3(20.7,0,9.0),glm::vec3(27.7,0,10.9),
+	glm::vec3(47.7,0,16.8),glm::vec3(-23.4,0,46.9),glm::vec3(-73.8,0,51.2),
+	glm::vec3(-31.3,0,50.8),glm::vec3(-87.1,0,52.0),glm::vec3(-94.9,0,72.3),
+	glm::vec3(-51.6,0,60.2),glm::vec3(-94.1,0,73.0),glm::vec3(-84.0,0,68.4),
+	glm::vec3(-94.1,0,95.7),glm::vec3(-84.8,0,88.3),glm::vec3(-73.4,0,94.5),
+	glm::vec3(-42.2,0,95.7),glm::vec3(-39.5,0,86.3),glm::vec3(-44.9,0,81.6),
+	glm::vec3(-19.9,0,91.8),glm::vec3(-14.5,0,96.1),glm::vec3(-6.3,0,95.7),
+	glm::vec3(-2.0,0,65.2),glm::vec3(-11.3,0,60.5),glm::vec3(-0.4,0,56.3),
+	glm::vec3(18.4,0,94.1),glm::vec3(25.4,0,60.9),glm::vec3(17.6,0,71.1),
+	glm::vec3(46.9,0,92.6),glm::vec3(42.2,0,83.2),glm::vec3(47.3,0,73.0),
+	glm::vec3(57.8,0,84.0),glm::vec3(61.3,0,94.1),glm::vec3(66.0,0,86.3),
+	glm::vec3(94.1,0,90.6),glm::vec3(93.8,0,80.9),glm::vec3(93.8,0,68.4),
+	glm::vec3(73.0,0,63.7),glm::vec3(75.4,0,56.6)
+};
+//coordenadas segunda mitad del mapa
+std::vector<glm::vec3> PinoPos2 = {
+	glm::vec3(-93.8,0,-92.578125),glm::vec3(-94.5,0,-57.421875),glm::vec3(-91.4,0,-67.1875),
+	glm::vec3(-70.7,0,-82.8125),glm::vec3(-58.2,0,-84.765625),glm::vec3(-53.5,0,-94.53125),
+	glm::vec3(-31.6,0,-90.234375),glm::vec3(-25.0,0,-67.96875),glm::vec3(-24.2,0,-80.078125),
+	glm::vec3(-7.8,0,-86.328125),glm::vec3(0.0,0,-59.375),glm::vec3(-2.0,0,-75.78125),
+	glm::vec3(9.8,0,-62.5),glm::vec3(10.5,0,-76.5625),glm::vec3(19.5,0,-87.5),
+	glm::vec3(23.4,0,-43.75),glm::vec3(29.7,0,-39.0625),glm::vec3(33.2,0,-94.53125),
+	glm::vec3(67.2,0,-92.578125),glm::vec3(57.4,0,-81.25),glm::vec3(46.9,0,-76.5625),
+	glm::vec3(63.3,0,-66.796875),glm::vec3(48.4,0,-57.03125),glm::vec3(56.3,0,-59.765625),
+	glm::vec3(56.6,0,-46.09375),glm::vec3(65.2,0,-44.921875),glm::vec3(87.1,0,-95.3125),
+	glm::vec3(92.6,0,-65.234375),glm::vec3(-95.3,0,-43.359375),glm::vec3(-89.1,0,-27.34375),
+	glm::vec3(-64.1,0,-25.78125),glm::vec3(-56.3,0,-16.796875),glm::vec3(-49.2,0,-38.671875),
+	glm::vec3(-37.9,0,-37.5),glm::vec3(-30.1,0,-11.71875),glm::vec3(-23.8,0,-22.65625),
+	glm::vec3(-5.5,0,-12.890625),glm::vec3(3.5,0,-22.265625),glm::vec3(5.5,0,-9.375),
+	glm::vec3(43.8,0,-12.109375),glm::vec3(52.3,0,-10.9375),glm::vec3(57.8,0,-18.75),
+	glm::vec3(71.1,0,-11.328125),glm::vec3(79.3,0,-15.234375),glm::vec3(76.2,0,-24.21875),
+	glm::vec3(93.8,0,-19.53125),glm::vec3(96.5,0,-27.734375)
+};
+//coordenadas de las hogeras y las luces
+std::vector<glm::vec3> Hogeras = {
+	glm::vec3(-82.4,0,78.1),
+	glm::vec3(-73.4,0,23.4),
+	glm::vec3(9.0,0,72.3),
+	glm::vec3(-5.5,0,16.0),
+	glm::vec3(79.3,0,52.3),
+	glm::vec3(-73.4,0,-19.9),
+	glm::vec3(-34.0,0,-82.8),
+	glm::vec3(10.2,0,-52.7),
+	glm::vec3(50.0,0,-18.8),
+	glm::vec3(64.5,0,-59.4)
 };
 
-std::vector<glm::vec3> PinoPos2 = {
-	glm::vec3(-7.03, 0, -19.14)
-	//,
-	//glm::vec3(24.41, 0, -34.57),
-	//glm::vec3(-10.15, 0, -54.1)
-};
-std::vector<float> lamp1Orientation = {
-	-17.0, -82.67, 23.70
+std::vector<glm::vec3> Muros = {
+	glm::vec3(0.0,0.0,-1.5),glm::vec3(20.0,0.0,-1.5),glm::vec3(40.0,0.0,-1.5),glm::vec3(60.0,0.0,-1.5),glm::vec3(80.0,0.0,-1.5),
+	glm::vec3(100.0,0.0,-1.5),glm::vec3(-20.0,0.0,-1.5),glm::vec3(-40.0,0.0,-1.5),glm::vec3(-60.0,0.0,-1.5),glm::vec3(-80.0,0.0,-1.5)
+	,glm::vec3(-100.0,0.0,-1.5)
 };
 
 // Blending model unsorted
@@ -421,10 +369,14 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	mayowModelAnimate.setShader(&shaderMulLighting);
 
 	//Pino
-	Pino.loadModel("../models/arboles/CartoonTree.obj");
-	//Pino.loadModel("../models/arboles/Sequoia_OBJ/Sequoia_1.obj");
-	//Pino.loadModel("../models/arboles/pino.fbx");
+	Pino.loadModel("../models/arboles/arbolLowPoly/CartoonTree.obj");
 	Pino.setShader(&shaderMulLighting);
+	//muro
+	Muro.loadModel("../models/Pared/CaveWalls3_C.obj");
+	Muro.setShader(&shaderMulLighting);
+	//hogera
+	Hogera.loadModel("../models/Hogera/Hogera.obj");
+	Hogera.setShader(&shaderMulLighting);
 
 	// Terreno
 	terrain.init();
@@ -820,6 +772,11 @@ void destroy() {
 
 	mayowModelAnimate.destroy();
 	Pino.destroy();
+	Hogera.destroy();
+	Muro.destroy();
+	Casa.destroy();
+	CasaArbol.destroy();
+
 
 	// Terrains objects Delete
 	terrain.destroy();
@@ -1170,6 +1127,18 @@ void applicationLoop() {
 			Pino.setPosition(PinoPos1[i]);
 			Pino.setScale(glm::vec3(3.0));			
 			Pino.render();
+		}
+		for(int i = 0; i< Hogeras.size() ; i++ ){
+			Hogeras[i].y =terrain.getHeightTerrain(Hogeras[i].x,Hogeras[i].z);
+			Hogera.setPosition(Hogeras[i]);
+			Hogera.setScale(glm::vec3(1.0));			
+			Hogera.render();
+		}
+		for(int i = 0; i< Muros.size() ; i++ ){
+			Muros[i].y =terrain.getHeightTerrain(Muros[i].x,Muros[i].z);
+			Muro.setPosition(Muros[i]);
+			Muro.setScale(glm::vec3(0.08));			
+			Muro.render();
 		}
 
 
