@@ -144,6 +144,7 @@ int lastMousePosY, offsetY = 0;
 
 // Model matrix definitions
 glm::mat4 modelMatrixMayow = glm::mat4(1.0f);
+glm::mat4 modelMatrixFountain = glm::mat4(1.0f);
 int animationMayowIndex = 1;
 int animationMainIndex = 1;
 int animationMain1Index = 1;

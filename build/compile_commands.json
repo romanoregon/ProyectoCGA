@@ -1,92 +1,77 @@
 [
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL -DCGALib_EXPORTS @CMakeFiles/CGALib.dir/includes_CXX.rsp -g -o CMakeFiles\\CGALib.dir\\src\\Bones.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\src\\Bones.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Bones.cpp",
-  "output": "CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Bones.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Bones.cpp"
 },
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL -DCGALib_EXPORTS @CMakeFiles/CGALib.dir/includes_CXX.rsp -g -o CMakeFiles\\CGALib.dir\\src\\Box.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\src\\Box.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Box.cpp",
-  "output": "CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Box.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Box.cpp"
 },
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL -DCGALib_EXPORTS @CMakeFiles/CGALib.dir/includes_CXX.rsp -g -o CMakeFiles\\CGALib.dir\\src\\Cylinder.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\src\\Cylinder.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Cylinder.cpp",
-  "output": "CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Cylinder.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Cylinder.cpp"
 },
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL -DCGALib_EXPORTS @CMakeFiles/CGALib.dir/includes_CXX.rsp -g -o CMakeFiles\\CGALib.dir\\src\\FirstPersonCamera.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\src\\FirstPersonCamera.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/FirstPersonCamera.cpp",
-  "output": "CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/FirstPersonCamera.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/FirstPersonCamera.cpp"
 },
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL -DCGALib_EXPORTS @CMakeFiles/CGALib.dir/includes_CXX.rsp -g -o CMakeFiles\\CGALib.dir\\src\\FontTypeRendering.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\src\\FontTypeRendering.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/FontTypeRendering.cpp",
-  "output": "CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/FontTypeRendering.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/FontTypeRendering.cpp"
 },
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL -DCGALib_EXPORTS @CMakeFiles/CGALib.dir/includes_CXX.rsp -g -o CMakeFiles\\CGALib.dir\\src\\Mesh.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\src\\Mesh.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Mesh.cpp",
-  "output": "CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Mesh.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Mesh.cpp"
 },
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL -DCGALib_EXPORTS @CMakeFiles/CGALib.dir/includes_CXX.rsp -g -o CMakeFiles\\CGALib.dir\\src\\Model.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\src\\Model.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Model.cpp",
-  "output": "CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Model.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Model.cpp"
 },
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL -DCGALib_EXPORTS @CMakeFiles/CGALib.dir/includes_CXX.rsp -g -o CMakeFiles\\CGALib.dir\\src\\Shader.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\src\\Shader.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Shader.cpp",
-  "output": "CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Shader.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Shader.cpp"
 },
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL -DCGALib_EXPORTS @CMakeFiles/CGALib.dir/includes_CXX.rsp -g -o CMakeFiles\\CGALib.dir\\src\\ShadowBox.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\src\\ShadowBox.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/ShadowBox.cpp",
-  "output": "CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/ShadowBox.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/ShadowBox.cpp"
 },
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL -DCGALib_EXPORTS @CMakeFiles/CGALib.dir/includes_CXX.rsp -g -o CMakeFiles\\CGALib.dir\\src\\Sphere.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\src\\Sphere.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Sphere.cpp",
-  "output": "CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Sphere.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Sphere.cpp"
 },
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL -DCGALib_EXPORTS @CMakeFiles/CGALib.dir/includes_CXX.rsp -g -o CMakeFiles\\CGALib.dir\\src\\Terrain.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\src\\Terrain.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Terrain.cpp",
-  "output": "CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Terrain.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Terrain.cpp"
 },
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL -DCGALib_EXPORTS @CMakeFiles/CGALib.dir/includes_CXX.rsp -g -o CMakeFiles\\CGALib.dir\\src\\Texture.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\src\\Texture.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Texture.cpp",
-  "output": "CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Texture.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Texture.cpp"
 },
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL -DCGALib_EXPORTS @CMakeFiles/CGALib.dir/includes_CXX.rsp -g -o CMakeFiles\\CGALib.dir\\src\\ThirdPersonCamera.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\src\\ThirdPersonCamera.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/ThirdPersonCamera.cpp",
-  "output": "CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/ThirdPersonCamera.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/ThirdPersonCamera.cpp"
 },
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL -DCGALib_EXPORTS @CMakeFiles/CGALib.dir/includes_CXX.rsp -g -o CMakeFiles\\CGALib.dir\\src\\TimeManager.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\src\\TimeManager.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/TimeManager.cpp",
-  "output": "CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/TimeManager.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/TimeManager.cpp"
 },
 {
-  "directory": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/Proyecto",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DBUILDING_DLL @CMakeFiles/Proyecto.dir/includes_CXX.rsp -g -o CMakeFiles\\Proyecto.dir\\src\\main.cpp.obj -c C:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\Proyecto\\src\\main.cpp",
-  "file": "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/Proyecto/src/main.cpp",
-  "output": "Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.obj"
+  "directory": "/home/roman/Documentos/ProyectoCGA/build",
+  "command": "/usr/bin/g++-13 -DBUILDING_DLL -I/home/roman/Documentos/ProyectoCGA/CGALib/include -I/usr/include/freetype2 -O3 -DNDEBUG -o Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.o -c /home/roman/Documentos/ProyectoCGA/Proyecto/src/main.cpp",
+  "file": "/home/roman/Documentos/ProyectoCGA/Proyecto/src/main.cpp"
 }
 ]
