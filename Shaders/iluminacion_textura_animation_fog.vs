@@ -9,6 +9,10 @@ layout (location = 5) in vec4 weights;
 out vec3 our_normal;
 out vec3 fragPos;
 out vec2 our_uv;
+out float visibility;
+
+uniform float density = 0.019;
+uniform float gradient = 0.5;
 
 uniform mat4 projection;
 uniform mat4 view;
@@ -32,6 +36,7 @@ void main(){
 	else
 		boneTransform = mat4(1.0);
 	vec4 fragPosWorldSpace = model * boneTransform * vec4(in_position, 1.0);
+	vec3 fragPosViewSpace = vec3(view * fragPosWorldSpace);
 	gl_Position = projection * view * fragPosWorldSpace;
 	fragPos = vec3(fragPosWorldSpace);
 	our_normal = mat3(transpose(inverse(model * boneTransform))) * in_normal;
@@ -41,4 +46,7 @@ void main(){
 		our_uv = scaleUV * in_uv;
 	our_uv.x += offsetX.x;
 	our_uv.y += offsetX.y;
+	float distance = length(fragPosViewSpace);
+	visibility = exp(-pow((distance * density), gradient));
+	visibility = clamp(visibility,0.0,1.0);
 }
