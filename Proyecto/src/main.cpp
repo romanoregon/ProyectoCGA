@@ -179,7 +179,7 @@ std::vector<glm::vec3> PinoPos1 = {
 	glm::vec3(14.8,0,18.0),glm::vec3(20.7,0,9.0),glm::vec3(27.7,0,10.9),
 	glm::vec3(47.7,0,16.8),glm::vec3(-23.4,0,46.9),glm::vec3(-73.8,0,51.2),
 	glm::vec3(-31.3,0,50.8),glm::vec3(-87.1,0,52.0),glm::vec3(-94.9,0,72.3),
-	glm::vec3(-51.6,0,60.2),glm::vec3(-94.1,0,73.0),glm::vec3(-84.0,0,68.4),
+	glm::vec3(-51.6,0,60.2),glm::vec3(-90.1,0,75.0),glm::vec3(-84.0,0,68.4),
 	glm::vec3(-94.1,0,95.7),glm::vec3(-84.8,0,88.3),glm::vec3(-73.4,0,94.5),
 	glm::vec3(-42.2,0,95.7),glm::vec3(-39.5,0,86.3),glm::vec3(-44.9,0,81.6),
 	glm::vec3(-19.9,0,91.8),glm::vec3(-14.5,0,96.1),glm::vec3(-6.3,0,95.7),
@@ -401,30 +401,22 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	//casa abandonada
 	Casa.loadModel("../models/Casa_avandonada/CasaAban.obj");
 	Casa.setShader(&shaderMulLighting);
-	//casa arbol
-	CasaArbol.loadModel("../models/Casa_del_arbol/10783_TreeHouse_v7_LOD3.obj");
-	CasaArbol.setShader(&shaderMulLighting);
 
 	// Mayow
 	mayowModelAnimate.loadModel("../models/mayow/personaje2.fbx");
 	mayowModelAnimate.setShader(&shaderMulLighting);
-
 	//Main
 	mainModelAnimate.loadModel("../models/Estudiante/1.fbx");
 	mainModelAnimate.setShader(&shaderMulLighting);
-
 	//Main1
 	main1ModelAnimate.loadModel("../models/Guarda/1.fbx");
 	main1ModelAnimate.setShader(&shaderMulLighting);
-
 	//Main1
 	main2ModelAnimate.loadModel("../models/Explorador/1.fbx");
 	main2ModelAnimate.setShader(&shaderMulLighting);
-
 	//Zombie
 	zombieModelAnimate.loadModel("../models/zombie/1.fbx");
 	zombieModelAnimate.setShader(&shaderMulLighting);
-
 	//Zombie1
 	zombie1ModelAnimate.loadModel("../models/Zombie 1/1.fbx");
 	zombie1ModelAnimate.setShader(&shaderMulLighting);
@@ -873,36 +865,21 @@ bool processInput(bool continueApplication) {
 	else if(glfwGetKey(window, GLFW_KEY_TAB) == GLFW_RELEASE)
 		enableCountSelected = true;
 
-	// Guardar key frames
-	if(glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS
-			&& glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS){
-		record = true;
-		if(myfile.is_open())
-			myfile.close();
-		myfile.open(fileName);
-	}
-
-	if(availableSave && glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS){
-		saveFrame = true;
-		availableSave = false;
-	}if(glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_RELEASE)
-		availableSave = true;
-
 	// Controles de mayow
 	if (modelSelected == 0 && glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
-		modelMatrixMayow = glm::rotate(modelMatrixMayow, 0.05f, glm::vec3(0, 1, 0));
-		animationMayowIndex = 0;
+		modelMatrixMayow = glm::rotate(modelMatrixMayow, 0.1f, glm::vec3(0, 1, 0));
+		animationMayowIndex = 1;
 	} else if (modelSelected == 0 && glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS){
-		modelMatrixMayow = glm::rotate(modelMatrixMayow, -0.05f, glm::vec3(0, 1, 0));
-		animationMayowIndex = 0;
+		modelMatrixMayow = glm::rotate(modelMatrixMayow, -0.1f, glm::vec3(0, 1, 0));
+		animationMayowIndex = 1;
 	}
 	if (modelSelected == 0 && glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
 		modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(0.0, 0.0, 0.06));
-		animationMayowIndex = 0;
+		animationMayowIndex = 1;
 	}
 	else if (modelSelected == 0 && glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
 		modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(0.0, 0.0, -0.06));
-		animationMayowIndex = 0;
+		animationMayowIndex = 1;
 	}
 
 	bool keySpaceStatus = glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS;
@@ -1009,7 +986,6 @@ void renderSolidScene(){
 	// Forze to enable the unit texture to 0 always ----------------- IMPORTANT
 	glActiveTexture(GL_TEXTURE0);
 
-
 	// Se regresa el cull faces IMPORTANTE para la capa
 	//glEnable(GL_CULL_FACE);
 	//primera mitad arboles
@@ -1046,6 +1022,7 @@ void renderSolidScene(){
 	/*****************************************
 	 * Objetos animados por huesos
 	 * **************************************/
+
 	glm::vec3 ejey = glm::normalize(terrain.getNormalTerrain(modelMatrixMayow[3][0], modelMatrixMayow[3][2]));
 	glm::vec3 ejex = glm::vec3(modelMatrixMayow[0]);
 	glm::vec3 ejez = glm::normalize(glm::cross(ejex, ejey));
@@ -1063,7 +1040,7 @@ void renderSolidScene(){
 	modelMatrixMayowBody = glm::scale(modelMatrixMayowBody, glm::vec3(0.021f));
 	mayowModelAnimate.setAnimationIndex(animationMayowIndex);
 	mayowModelAnimate.render(modelMatrixMayowBody);
-	//animationMayowIndex = 1;
+	animationMayowIndex = 0;
 
 	glm::vec3 ejey1 = glm::normalize(terrain.getNormalTerrain(modelMatrixMain[3][0], modelMatrixMain[3][2]));
 	glm::vec3 ejex1 = glm::vec3(modelMatrixMain[0]);
@@ -1134,14 +1111,13 @@ void renderSolidScene(){
 	zombie1ModelAnimate.setAnimationIndex(animationZombie1Index);
 	zombie1ModelAnimate.render(modelMatrixZombie1Body);
 	animationZombie1Index = 2; //El 2 es la siguiente animacion, 0 la primera
-		
 
 	// Fountain
-	glDisable(GL_CULL_FACE);
-	modelMatrixFountain[3][1] = terrain.getHeightTerrain(modelMatrixFountain[3][0] , modelMatrixFountain[3][2]) + 0.2;
-	glm::mat4 modelMatrixFountainCopy = glm::scale(modelMatrixFountain, glm::vec3(10.0f, 10.0f, 10.0f));
-	modelFountain.render(modelMatrixFountainCopy);
-	glEnable(GL_CULL_FACE);
+	//glDisable(GL_CULL_FACE);
+	//modelMatrixFountain[3][1] = terrain.getHeightTerrain(modelMatrixFountain[3][0] , modelMatrixFountain[3][2]) + 0.2;
+	//glm::mat4 modelMatrixFountainCopy = glm::scale(modelMatrixFountain, glm::vec3(10.0f, 10.0f, 10.0f));
+	//modelFountain.render(modelMatrixFountainCopy);
+	//glEnable(GL_CULL_FACE);
 
 	/*******************************************
 	 * Skybox
@@ -1338,15 +1314,15 @@ void applicationLoop() {
 		 * Propiedades Luz direccional
 		 *******************************************/
 		shaderMulLighting.setVectorFloat3("viewPos", glm::value_ptr(camera->getPosition()));
-		shaderMulLighting.setVectorFloat3("directionalLight.light.ambient", glm::value_ptr(glm::vec3(0.3, 0.3, 0.3)));
-		shaderMulLighting.setVectorFloat3("directionalLight.light.diffuse", glm::value_ptr(glm::vec3(0.7, 0.7, 0.7)));
-		shaderMulLighting.setVectorFloat3("directionalLight.light.specular", glm::value_ptr(glm::vec3(0.9, 0.9, 0.9)));
+		shaderMulLighting.setVectorFloat3("directionalLight.light.ambient", glm::value_ptr(glm::vec3(0.04, 0.04, 0.04)));
+		shaderMulLighting.setVectorFloat3("directionalLight.light.diffuse", glm::value_ptr(glm::vec3(0.2, 0.2, 0.2)));
+		shaderMulLighting.setVectorFloat3("directionalLight.light.specular", glm::value_ptr(glm::vec3(0.3, 0.3, 0.3)));
 		shaderMulLighting.setVectorFloat3("directionalLight.direction", glm::value_ptr(glm::vec3(-0.707106781, -0.707106781, 0.0)));
 
 		shaderTerrain.setVectorFloat3("viewPos", glm::value_ptr(camera->getPosition()));
-		shaderTerrain.setVectorFloat3("directionalLight.light.ambient", glm::value_ptr(glm::vec3(0.3, 0.3, 0.3)));
-		shaderTerrain.setVectorFloat3("directionalLight.light.diffuse", glm::value_ptr(glm::vec3(0.7, 0.7, 0.7)));
-		shaderTerrain.setVectorFloat3("directionalLight.light.specular", glm::value_ptr(glm::vec3(0.9, 0.9, 0.9)));
+		shaderTerrain.setVectorFloat3("directionalLight.light.ambient", glm::value_ptr(glm::vec3(0.04, 0.04, 0.04)));
+		shaderTerrain.setVectorFloat3("directionalLight.light.diffuse", glm::value_ptr(glm::vec3(0.2, 0.2, 0.2)));
+		shaderTerrain.setVectorFloat3("directionalLight.light.specular", glm::value_ptr(glm::vec3(0.3, 0.3, 0.3)));
 		shaderTerrain.setVectorFloat3("directionalLight.direction", glm::value_ptr(glm::vec3(-0.707106781, -0.707106781, 0.0)));
 
 		/*******************************************
@@ -1361,23 +1337,17 @@ void applicationLoop() {
 		shaderMulLighting.setInt("pointLightCount", Hogeras.size());
 		shaderTerrain.setInt("pointLightCount", Hogeras.size());
 		for(int i = 0; i < Hogeras.size(); i++){
-			glm::mat4 matrixAdjustLamp = glm::mat4(1.0);
-			matrixAdjustLamp = glm::translate(matrixAdjustLamp, Hogeras[i]);
-			matrixAdjustLamp = glm::rotate(matrixAdjustLamp, glm::radians(90.f), glm::vec3(0, 1, 0));
-			matrixAdjustLamp = glm::scale(matrixAdjustLamp, glm::vec3(0.5));
-			matrixAdjustLamp = glm::translate(matrixAdjustLamp, glm::vec3(0.0, 10.35, 0));
-			glm::vec3 lampPosition = glm::vec3(matrixAdjustLamp[3]);
 			shaderMulLighting.setVectorFloat3("pointLights[" + std::to_string(i) + "].light.ambient", glm::value_ptr(glm::vec3(0.2, 0.16, 0.01)));
 			shaderMulLighting.setVectorFloat3("pointLights[" + std::to_string(i) + "].light.diffuse", glm::value_ptr(glm::vec3(0.4, 0.32, 0.02)));
 			shaderMulLighting.setVectorFloat3("pointLights[" + std::to_string(i) + "].light.specular", glm::value_ptr(glm::vec3(0.6, 0.58, 0.03)));
-			shaderMulLighting.setVectorFloat3("pointLights[" + std::to_string(i) + "].position", glm::value_ptr(lampPosition));
+			shaderMulLighting.setVectorFloat3("pointLights[" + std::to_string(i) + "].position", glm::value_ptr(Hogeras[i]));
 			shaderMulLighting.setFloat("pointLights[" + std::to_string(i) + "].constant", 1.0);
 			shaderMulLighting.setFloat("pointLights[" + std::to_string(i) + "].linear", 0.09);
 			shaderMulLighting.setFloat("pointLights[" + std::to_string(i) + "].quadratic", 0.02);
 			shaderTerrain.setVectorFloat3("pointLights[" + std::to_string(i) + "].light.ambient", glm::value_ptr(glm::vec3(0.2, 0.16, 0.01)));
 			shaderTerrain.setVectorFloat3("pointLights[" + std::to_string(i) + "].light.diffuse", glm::value_ptr(glm::vec3(0.4, 0.32, 0.02)));
 			shaderTerrain.setVectorFloat3("pointLights[" + std::to_string(i) + "].light.specular", glm::value_ptr(glm::vec3(0.6, 0.58, 0.03)));
-			shaderTerrain.setVectorFloat3("pointLights[" + std::to_string(i) + "].position", glm::value_ptr(lampPosition));
+			shaderTerrain.setVectorFloat3("pointLights[" + std::to_string(i) + "].position", glm::value_ptr(Hogeras[i]));
 			shaderTerrain.setFloat("pointLights[" + std::to_string(i) + "].constant", 1.0);
 			shaderTerrain.setFloat("pointLights[" + std::to_string(i) + "].linear", 0.09);
 			shaderTerrain.setFloat("pointLights[" + std::to_string(i) + "].quadratic", 0.02);
@@ -1409,21 +1379,6 @@ void applicationLoop() {
 		renderScene();
 		glCullFace(GL_BACK);
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-		/*******************************************
-		 * Debug to view the texture view map
-		 *******************************************/
-		
-
-
-		// Dart lego
-		// Se deshabilita el cull faces IMPORTANTE para la capa
-//		glDisable(GL_CULL_FACE);
-
-		// Se regresa el cull faces IMPORTANTE para la capa
-//		glEnable(GL_CULL_FACE);
-
-
 
 		/*****************************************
 		 * Objetos animados por huesos
@@ -1535,24 +1490,50 @@ void applicationLoop() {
 		 * Creacion de colliders
 		 * IMPORTANT do this before interpolations
 		 *******************************************/
-/*
-		// Lamps1 colliders
-		for (int i = 0; i < lamp1Position.size(); i++){
-			AbstractModel::OBB lampCollider;
-			glm::mat4 modelMatrixColliderLamp = glm::mat4(1.0);
-			modelMatrixColliderLamp = glm::translate(modelMatrixColliderLamp, lamp1Position[i]);
-			modelMatrixColliderLamp = glm::rotate(modelMatrixColliderLamp, glm::radians(lamp1Orientation[i]),
-					glm::vec3(0, 1, 0));
-			addOrUpdateColliders(collidersOBB, "lamp1-" + std::to_string(i), lampCollider, modelMatrixColliderLamp);
+
+		//Arboles colliders
+		for (int i = 0; i < PinoPos1.size(); i++){
+			AbstractModel::OBB pinoCollider;
+			glm::mat4 modelMatrixColliderPino= glm::mat4(1.0);
+			modelMatrixColliderPino = glm::translate(modelMatrixColliderPino, PinoPos1[i]);
+			addOrUpdateColliders(collidersOBB, "Pino-" + std::to_string(i), pinoCollider, modelMatrixColliderPino);
 			// Set the orientation of collider before doing the scale
-			lampCollider.u = glm::quat_cast(modelMatrixColliderLamp);
-			modelMatrixColliderLamp = glm::scale(modelMatrixColliderLamp, glm::vec3(0.5, 0.5, 0.5));
-			modelMatrixColliderLamp = glm::translate(modelMatrixColliderLamp, modelLamp1.getObb().c);
-			lampCollider.c = glm::vec3(modelMatrixColliderLamp[3]);
-			lampCollider.e = modelLamp1.getObb().e * glm::vec3(0.5, 0.5, 0.5);
-			std::get<0>(collidersOBB.find("lamp1-" + std::to_string(i))->second) = lampCollider;
+			pinoCollider.u = glm::quat_cast(modelMatrixColliderPino);
+			modelMatrixColliderPino = glm::scale(modelMatrixColliderPino, glm::vec3(0.5, 0.5, 0.5));
+			modelMatrixColliderPino = glm::translate(modelMatrixColliderPino, Pino.getObb().c);
+			pinoCollider.c = glm::vec3(modelMatrixColliderPino[3]);
+			pinoCollider.e = Pino.getObb().e * glm::vec3(0.5, 0.5, 0.5);
+			std::get<0>(collidersOBB.find("Pino-" + std::to_string(i))->second) = pinoCollider;
 		}
-*/
+		//Hogeras colliders
+		for (int i = 0; i < Hogeras.size(); i++){
+			AbstractModel::OBB hogeraCollider;
+			glm::mat4 modelMatrixColliderHogera= glm::mat4(1.0);
+			modelMatrixColliderHogera = glm::translate(modelMatrixColliderHogera, Hogeras[i]);
+			addOrUpdateColliders(collidersOBB, "Hogera-" + std::to_string(i), hogeraCollider, modelMatrixColliderHogera);
+			// Set the orientation of collider before doing the scale
+			hogeraCollider.u = glm::quat_cast(modelMatrixColliderHogera);
+			modelMatrixColliderHogera = glm::scale(modelMatrixColliderHogera, glm::vec3(0.5, 0.5, 0.5));
+			modelMatrixColliderHogera = glm::translate(modelMatrixColliderHogera, Pino.getObb().c);
+			hogeraCollider.c = glm::vec3(modelMatrixColliderHogera[3]);
+			hogeraCollider.e = Hogera.getObb().e * glm::vec3(0.5, 0.5, 0.5);
+			std::get<0>(collidersOBB.find("Hogera-" + std::to_string(i))->second) = hogeraCollider;
+		}		
+		//Muros colliders
+		for (int i = 0; i < Muros.size(); i++){
+			AbstractModel::OBB muroCollider;
+			glm::mat4 modelMatrixColliderMuro= glm::mat4(1.0);
+			modelMatrixColliderMuro = glm::translate(modelMatrixColliderMuro, Muros[i]);
+			//modelMatrixColliderMuro = glm::rotate(modelMatrixColliderMuro, glm::radians(lamp1Orientation[i]),glm::vec3(0, 1, 0));
+			addOrUpdateColliders(collidersOBB, "Muro-" + std::to_string(i), muroCollider, modelMatrixColliderMuro);
+			// Set the orientation of collider before doing the scale
+			muroCollider.u = glm::quat_cast(modelMatrixColliderMuro);
+			modelMatrixColliderMuro = glm::scale(modelMatrixColliderMuro, glm::vec3(0.078, 0.078, 0.078));
+			modelMatrixColliderMuro = glm::translate(modelMatrixColliderMuro, Muro.getObb().c);
+			muroCollider.c = glm::vec3(modelMatrixColliderMuro[3]);
+			muroCollider.e = Muro.getObb().e * glm::vec3(0.078, 0.078, 0.078);
+			std::get<0>(collidersOBB.find("Muro-" + std::to_string(i))->second) = muroCollider;
+		}
 		// Collider de mayow
 		AbstractModel::OBB mayowCollider;
 		glm::mat4 modelmatrixColliderMayow = glm::mat4(modelMatrixMayow);
