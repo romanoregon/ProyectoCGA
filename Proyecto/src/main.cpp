@@ -80,10 +80,6 @@ float distanceFromTarget = 7.0;
 
 Sphere skyboxSphere(20, 20);
 Box boxCesped;
-Box boxWalls;
-Box boxHighway;
-Box boxLandingPad;
-Sphere esfera1(10, 10);
 Box boxCollider;
 Sphere sphereCollider(10, 10);
 Cylinder rayModel(10, 10, 1.0, 1.0, 1.0);
@@ -151,6 +147,14 @@ glm::mat4 modelMatrixMain2 = glm::mat4(1.0f);
 glm::mat4 modelMatrixZombie = glm::mat4(1.0f);
 glm::mat4 modelMatrixZombie1 = glm::mat4(1.0f);
 glm::mat4 modelMatrixFountain= glm::mat4(1.0f);
+
+//Model matrix ecenario
+glm::mat4 modelMatrixPino = glm::mat4(1.0f);
+glm::mat4 modelMatrixCasa = glm::mat4(1.0f);
+glm::mat4 modelMatrixMuro = glm::mat4(1.0f);
+//glm::mat4 modelMatrix = glm::mat4(1.0f);
+
+//variables de animacion modelos
 int animationMayowIndex = 1;
 int animationMainIndex = 1;
 int animationMain1Index = 1;
@@ -377,18 +381,6 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 
 	boxCesped.init();
 	boxCesped.setShader(&shaderMulLighting);
-
-	boxWalls.init();
-	boxWalls.setShader(&shaderMulLighting);
-
-	boxHighway.init();
-	boxHighway.setShader(&shaderMulLighting);
-
-	boxLandingPad.init();
-	boxLandingPad.setShader(&shaderMulLighting);
-
-	esfera1.init();
-	esfera1.setShader(&shaderMulLighting);
 
 	boxIntro.init();
 	boxIntro.setShader(&shaderTexture);
@@ -714,10 +706,6 @@ void destroy() {
 	// Basic objects Delete
 	skyboxSphere.destroy();
 	boxCesped.destroy();
-	boxWalls.destroy();
-	boxHighway.destroy();
-	boxLandingPad.destroy();
-	esfera1.destroy();
 	boxCollider.destroy();
 	sphereCollider.destroy();
 	rayModel.destroy();
