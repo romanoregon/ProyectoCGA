@@ -104,6 +104,7 @@ Model mainModelAnimate;
 Model main1ModelAnimate;
 Model main2ModelAnimate;
 Model zombieModelAnimate;
+Model zombie1ModelAnimate;
 
 // Fountain
 Model modelFountain;
@@ -144,12 +145,18 @@ int lastMousePosY, offsetY = 0;
 
 // Model matrix definitions
 glm::mat4 modelMatrixMayow = glm::mat4(1.0f);
-glm::mat4 modelMatrixFountain = glm::mat4(1.0f);
+glm::mat4 modelMatrixMain = glm::mat4(1.0f);
+glm::mat4 modelMatrixMain1 = glm::mat4(1.0f);
+glm::mat4 modelMatrixMain2 = glm::mat4(1.0f);
+glm::mat4 modelMatrixZombie = glm::mat4(1.0f);
+glm::mat4 modelMatrixZombie1 = glm::mat4(1.0f);
+glm::mat4 modelMatrixFountain= glm::mat4(1.0f);
 int animationMayowIndex = 1;
 int animationMainIndex = 1;
 int animationMain1Index = 1;
 int animationMain2Index = 1;
 int animationZombieIndex = 1;
+int animationZombie1Index = 1;
 int modelSelected = 0;
 bool enableCountSelected = true;
 
@@ -409,6 +416,26 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	// Mayow
 	mayowModelAnimate.loadModel("../models/mayow/personaje2.fbx");
 	mayowModelAnimate.setShader(&shaderMulLighting);
+
+	//Main
+	mainModelAnimate.loadModel("../models/Estudiante/1.fbx");
+	mainModelAnimate.setShader(&shaderMulLighting);
+
+	//Main1
+	main1ModelAnimate.loadModel("../models/Guarda/1.fbx");
+	main1ModelAnimate.setShader(&shaderMulLighting);
+
+	//Main1
+	main2ModelAnimate.loadModel("../models/Explorador/1.fbx");
+	main2ModelAnimate.setShader(&shaderMulLighting);
+
+	//Zombie
+	zombieModelAnimate.loadModel("../models/zombie/1.fbx");
+	zombieModelAnimate.setShader(&shaderMulLighting);
+
+	//Zombie1
+	zombie1ModelAnimate.loadModel("../models/Zombie 1/1.fbx");
+	zombie1ModelAnimate.setShader(&shaderMulLighting);
 
 	// Terreno
 	terrain.init();
@@ -699,6 +726,11 @@ void destroy() {
 
 	// Custom objects Delete
 	mayowModelAnimate.destroy();
+	mainModelAnimate.destroy();
+	main1ModelAnimate.destroy();
+	main2ModelAnimate.destroy();
+	zombieModelAnimate.destroy();
+	zombie1ModelAnimate.destroy();
 
 	// Terrains objects Delete
 	terrain.destroy();
@@ -902,6 +934,21 @@ void prepareScene(){
 
 	//Mayow
 	mayowModelAnimate.setShader(&shaderMulLighting);
+	//Main
+	mainModelAnimate.setShader(&shaderMulLighting);
+
+	//Main1
+	main1ModelAnimate.setShader(&shaderMulLighting);
+
+	//Main2
+	main2ModelAnimate.setShader(&shaderMulLighting);
+
+	//Zombie
+	zombieModelAnimate.setShader(&shaderMulLighting);
+
+	//Zombie1
+	zombie1ModelAnimate.setShader(&shaderMulLighting);
+
 	//casa
 	Casa.setShader(&shaderMulLighting);
 	//muro
@@ -919,6 +966,16 @@ void prepareDepthScene(){
 	terrain.setShader(&shaderDepth);
 	//Mayow
 	mayowModelAnimate.setShader(&shaderDepth);
+	//Main
+	mainModelAnimate.setShader(&shaderDepth);
+	//Main1
+	main1ModelAnimate.setShader(&shaderDepth);
+	//Main2
+	main2ModelAnimate.setShader(&shaderDepth);
+	//Zombie
+	zombieModelAnimate.setShader(&shaderDepth);
+	//Zombie1
+	zombie1ModelAnimate.setShader(&shaderDepth);
 	//casa
 	Casa.setShader(&shaderDepth);
 	//muro
@@ -1020,6 +1077,77 @@ void renderSolidScene(){
 	mayowModelAnimate.render(modelMatrixMayowBody);
 	//animationMayowIndex = 1;
 
+	glm::vec3 ejey1 = glm::normalize(terrain.getNormalTerrain(modelMatrixMain[3][0], modelMatrixMain[3][2]));
+	glm::vec3 ejex1 = glm::vec3(modelMatrixMain[0]);
+	glm::vec3 ejez1 = glm::normalize(glm::cross(ejex1, ejey1));
+	ejex1 = glm::normalize(glm::cross(ejey1, ejez1));
+	modelMatrixMain[0] = glm::vec4(ejex1, 0.0);
+	modelMatrixMain[1] = glm::vec4(ejey1, 0.0);
+	modelMatrixMain[2] = glm::vec4(ejez1, 0.0);
+	modelMatrixMain[3][1] = terrain.getHeightTerrain(modelMatrixMain[3][0], modelMatrixMain[3][2]);
+	glm::mat4 modelMatrixMainBody = glm::mat4(modelMatrixMain);
+	modelMatrixMainBody = glm::scale(modelMatrixMainBody, glm::vec3(0.021f));
+	mainModelAnimate.setAnimationIndex(animationMainIndex);
+	mainModelAnimate.render(modelMatrixMainBody);
+	animationMainIndex = 2; //El 2 es la siguiente animacion, 0 la primera
+
+	glm::vec3 ejey3 = glm::normalize(terrain.getNormalTerrain(modelMatrixMain1[3][0], modelMatrixMain1[3][2]));
+	glm::vec3 ejex3 = glm::vec3(modelMatrixMain1[0]);
+	glm::vec3 ejez3 = glm::normalize(glm::cross(ejex3, ejey3));
+	ejex3 = glm::normalize(glm::cross(ejey3, ejez3));
+	modelMatrixMain1[0] = glm::vec4(ejex3, 0.0);
+	modelMatrixMain1[1] = glm::vec4(ejey3, 0.0);
+	modelMatrixMain1[2] = glm::vec4(ejez3, 0.0);
+	modelMatrixMain1[3][1] = terrain.getHeightTerrain(modelMatrixMain1[3][0], modelMatrixMain1[3][2]);
+	glm::mat4 modelMatrixMain1Body = glm::mat4(modelMatrixMain1);
+	modelMatrixMain1Body = glm::scale(modelMatrixMain1Body, glm::vec3(0.021f));
+	main1ModelAnimate.setAnimationIndex(animationMain1Index);
+	main1ModelAnimate.render(modelMatrixMain1Body);
+	animationMain1Index = 2; //El 2 es la siguiente animacion, 0 la primera
+
+	glm::vec3 ejey4 = glm::normalize(terrain.getNormalTerrain(modelMatrixMain2[3][0], modelMatrixMain2[3][2]));
+	glm::vec3 ejex4 = glm::vec3(modelMatrixMain2[0]);
+	glm::vec3 ejez4 = glm::normalize(glm::cross(ejex4, ejey4));
+	ejex4 = glm::normalize(glm::cross(ejey4, ejez4));
+	modelMatrixMain2[0] = glm::vec4(ejex4, 0.0);
+	modelMatrixMain2[1] = glm::vec4(ejey4, 0.0);
+	modelMatrixMain2[2] = glm::vec4(ejez4, 0.0);
+	modelMatrixMain2[3][1] = terrain.getHeightTerrain(modelMatrixMain2[3][0], modelMatrixMain2[3][2]);
+	glm::mat4 modelMatrixMain2Body = glm::mat4(modelMatrixMain2);
+	modelMatrixMain2Body = glm::scale(modelMatrixMain2Body, glm::vec3(0.021f));
+	main2ModelAnimate.setAnimationIndex(animationMain2Index);
+	main2ModelAnimate.render(modelMatrixMain2Body);
+	animationMain2Index = 1; //El 2 es la siguiente animacion, 0 la primera
+
+	glm::vec3 ejey2 = glm::normalize(terrain.getNormalTerrain(modelMatrixZombie[3][0], modelMatrixZombie[3][2]));
+	glm::vec3 ejex2 = glm::vec3(modelMatrixZombie[0]);
+	glm::vec3 ejez2 = glm::normalize(glm::cross(ejex2, ejey2));
+	ejex2 = glm::normalize(glm::cross(ejey2, ejez2));
+	modelMatrixZombie[0] = glm::vec4(ejex2, 0.0);
+	modelMatrixZombie[1] = glm::vec4(ejey2, 0.0);
+	modelMatrixZombie[2] = glm::vec4(ejez2, 0.0);
+	modelMatrixZombie[3][1] = terrain.getHeightTerrain(modelMatrixZombie[3][0], modelMatrixZombie[3][2]);
+	glm::mat4 modelMatrixZombieBody = glm::mat4(modelMatrixZombie);
+	modelMatrixZombieBody = glm::scale(modelMatrixZombieBody, glm::vec3(0.021f));
+	zombieModelAnimate.setAnimationIndex(animationZombieIndex);
+	zombieModelAnimate.render(modelMatrixZombieBody);
+	animationZombieIndex = 2; //El 2 es la siguiente animacion, 0 la primera
+
+	glm::vec3 ejey5 = glm::normalize(terrain.getNormalTerrain(modelMatrixZombie1[3][0], modelMatrixZombie1[3][2]));
+	glm::vec3 ejex5 = glm::vec3(modelMatrixZombie1[0]);
+	glm::vec3 ejez5 = glm::normalize(glm::cross(ejex5, ejey5));
+	ejex5 = glm::normalize(glm::cross(ejey5, ejez5));
+	modelMatrixZombie1[0] = glm::vec4(ejex5, 0.0);
+	modelMatrixZombie1[1] = glm::vec4(ejey5, 0.0);
+	modelMatrixZombie1[2] = glm::vec4(ejez5, 0.0);
+	modelMatrixZombie1[3][1] = terrain.getHeightTerrain(modelMatrixZombie1[3][0], modelMatrixZombie1[3][2]);
+	glm::mat4 modelMatrixZombie1Body = glm::mat4(modelMatrixZombie1);
+	modelMatrixZombie1Body = glm::scale(modelMatrixZombie1Body, glm::vec3(0.021f));
+	zombie1ModelAnimate.setAnimationIndex(animationZombie1Index);
+	zombie1ModelAnimate.render(modelMatrixZombie1Body);
+	animationZombie1Index = 2; //El 2 es la siguiente animacion, 0 la primera
+		
+
 	// Fountain
 	glDisable(GL_CULL_FACE);
 	modelMatrixFountain[3][1] = terrain.getHeightTerrain(modelMatrixFountain[3][0] , modelMatrixFountain[3][2]) + 0.2;
@@ -1105,6 +1233,22 @@ void applicationLoop() {
 
 	modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(0.0f, 0.0f, 0.0f));
 	modelMatrixMayow = glm::rotate(modelMatrixMayow, glm::radians(-90.0f), glm::vec3(0, 1, 0));
+
+	modelMatrixMain = glm::translate(modelMatrixMain, glm::vec3(10.0f, 0.0f, 0.0f));
+	modelMatrixMain = glm::rotate(modelMatrixMain, glm::radians(-90.0f), glm::vec3(0, 1, 0));
+
+	modelMatrixMain1 = glm::translate(modelMatrixMain1, glm::vec3(-13.0f, 0.0f, -20.0f));
+	modelMatrixMain1 = glm::rotate(modelMatrixMain1, glm::radians(-90.0f), glm::vec3(0, 1, 0));
+
+	modelMatrixMain2 = glm::translate(modelMatrixMain2, glm::vec3(-13.0f, 0.0f, 20.0f));
+	modelMatrixMain2 = glm::rotate(modelMatrixMain2, glm::radians(-90.0f), glm::vec3(0, 1, 0));
+
+	modelMatrixZombie = glm::translate(modelMatrixZombie, glm::vec3(-20.0f, 0.0f, -10.0f));
+	modelMatrixZombie = glm::rotate(modelMatrixZombie, glm::radians(-90.0f), glm::vec3(0, 1, 0));
+
+	modelMatrixZombie1 = glm::translate(modelMatrixZombie1, glm::vec3(-30.0f, 0.0f, -10.0f));
+	modelMatrixZombie1 = glm::rotate(modelMatrixZombie1, glm::radians(-90.0f), glm::vec3(0, 1, 0));
+
 
 	lastTime = TimeManager::Instance().GetTime();
 
@@ -1315,6 +1459,77 @@ void applicationLoop() {
 		mayowModelAnimate.setAnimationIndex(animationMayowIndex);
 		mayowModelAnimate.render(modelMatrixMayowBody);
 		animationMayowIndex = 1;
+
+		glm::vec3 ejey1 = glm::normalize(terrain.getNormalTerrain(modelMatrixMain[3][0], modelMatrixMain[3][2]));
+		glm::vec3 ejex1 = glm::vec3(modelMatrixMain[0]);
+		glm::vec3 ejez1 = glm::normalize(glm::cross(ejex1, ejey1));
+		ejex1 = glm::normalize(glm::cross(ejey1, ejez1));
+		modelMatrixMain[0] = glm::vec4(ejex1, 0.0);
+		modelMatrixMain[1] = glm::vec4(ejey1, 0.0);
+		modelMatrixMain[2] = glm::vec4(ejez1, 0.0);
+		modelMatrixMain[3][1] = terrain.getHeightTerrain(modelMatrixMain[3][0], modelMatrixMain[3][2]);
+		glm::mat4 modelMatrixMainBody = glm::mat4(modelMatrixMain);
+		modelMatrixMainBody = glm::scale(modelMatrixMainBody, glm::vec3(0.021f));
+		mainModelAnimate.setAnimationIndex(animationMainIndex);
+		mainModelAnimate.render(modelMatrixMainBody);
+		animationMainIndex = 2; //El 2 es la siguiente animacion, 0 la primera
+
+		glm::vec3 ejey3 = glm::normalize(terrain.getNormalTerrain(modelMatrixMain1[3][0], modelMatrixMain1[3][2]));
+		glm::vec3 ejex3 = glm::vec3(modelMatrixMain1[0]);
+		glm::vec3 ejez3 = glm::normalize(glm::cross(ejex3, ejey3));
+		ejex3 = glm::normalize(glm::cross(ejey3, ejez3));
+		modelMatrixMain1[0] = glm::vec4(ejex3, 0.0);
+		modelMatrixMain1[1] = glm::vec4(ejey3, 0.0);
+		modelMatrixMain1[2] = glm::vec4(ejez3, 0.0);
+		modelMatrixMain1[3][1] = terrain.getHeightTerrain(modelMatrixMain1[3][0], modelMatrixMain1[3][2]);
+		glm::mat4 modelMatrixMain1Body = glm::mat4(modelMatrixMain1);
+		modelMatrixMain1Body = glm::scale(modelMatrixMain1Body, glm::vec3(0.021f));
+		main1ModelAnimate.setAnimationIndex(animationMain1Index);
+		main1ModelAnimate.render(modelMatrixMain1Body);
+		animationMain1Index = 2; //El 2 es la siguiente animacion, 0 la primera
+
+		glm::vec3 ejey4 = glm::normalize(terrain.getNormalTerrain(modelMatrixMain2[3][0], modelMatrixMain2[3][2]));
+		glm::vec3 ejex4 = glm::vec3(modelMatrixMain2[0]);
+		glm::vec3 ejez4 = glm::normalize(glm::cross(ejex4, ejey4));
+		ejex4 = glm::normalize(glm::cross(ejey4, ejez4));
+		modelMatrixMain2[0] = glm::vec4(ejex4, 0.0);
+		modelMatrixMain2[1] = glm::vec4(ejey4, 0.0);
+		modelMatrixMain2[2] = glm::vec4(ejez4, 0.0);
+		modelMatrixMain2[3][1] = terrain.getHeightTerrain(modelMatrixMain2[3][0], modelMatrixMain2[3][2]);
+		glm::mat4 modelMatrixMain2Body = glm::mat4(modelMatrixMain2);
+		modelMatrixMain2Body = glm::scale(modelMatrixMain2Body, glm::vec3(0.021f));
+		main2ModelAnimate.setAnimationIndex(animationMain2Index);
+		main2ModelAnimate.render(modelMatrixMain2Body);
+		animationMain2Index = 1; //El 2 es la siguiente animacion, 0 la primera
+
+		glm::vec3 ejey2 = glm::normalize(terrain.getNormalTerrain(modelMatrixZombie[3][0], modelMatrixZombie[3][2]));
+		glm::vec3 ejex2 = glm::vec3(modelMatrixZombie[0]);
+		glm::vec3 ejez2 = glm::normalize(glm::cross(ejex2, ejey2));
+		ejex2 = glm::normalize(glm::cross(ejey2, ejez2));
+		modelMatrixZombie[0] = glm::vec4(ejex2, 0.0);
+		modelMatrixZombie[1] = glm::vec4(ejey2, 0.0);
+		modelMatrixZombie[2] = glm::vec4(ejez2, 0.0);
+		modelMatrixZombie[3][1] = terrain.getHeightTerrain(modelMatrixZombie[3][0], modelMatrixZombie[3][2]);
+		glm::mat4 modelMatrixZombieBody = glm::mat4(modelMatrixZombie);
+		modelMatrixZombieBody = glm::scale(modelMatrixZombieBody, glm::vec3(0.021f));
+		zombieModelAnimate.setAnimationIndex(animationZombieIndex);
+		zombieModelAnimate.render(modelMatrixZombieBody);
+		animationZombieIndex = 2; //El 2 es la siguiente animacion, 0 la primera
+
+		glm::vec3 ejey5 = glm::normalize(terrain.getNormalTerrain(modelMatrixZombie1[3][0], modelMatrixZombie1[3][2]));
+		glm::vec3 ejex5 = glm::vec3(modelMatrixZombie1[0]);
+		glm::vec3 ejez5 = glm::normalize(glm::cross(ejex5, ejey5));
+		ejex5 = glm::normalize(glm::cross(ejey5, ejez5));
+		modelMatrixZombie1[0] = glm::vec4(ejex5, 0.0);
+		modelMatrixZombie1[1] = glm::vec4(ejey5, 0.0);
+		modelMatrixZombie1[2] = glm::vec4(ejez5, 0.0);
+		modelMatrixZombie1[3][1] = terrain.getHeightTerrain(modelMatrixZombie1[3][0], modelMatrixZombie1[3][2]);
+		glm::mat4 modelMatrixZombie1Body = glm::mat4(modelMatrixZombie1);
+		modelMatrixZombie1Body = glm::scale(modelMatrixZombie1Body, glm::vec3(0.021f));
+		zombie1ModelAnimate.setAnimationIndex(animationZombie1Index);
+		zombie1ModelAnimate.render(modelMatrixZombie1Body);
+		animationZombie1Index = 2; //El 2 es la siguiente animacion, 0 la primera
+		
 
 		/*******************************************
 		 * 2.- We render the normal objects
