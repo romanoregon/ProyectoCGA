@@ -467,7 +467,8 @@ Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.obj: \
  C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/postprocess.h \
  C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/include/Headers/Terrain.h \
  C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/include/Headers/AnimationUtils.h \
+ C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/include/Headers/Colisiones.h \
+ C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/include/Headers/ShadowBox.h \
  C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/freealut/include/AL/alut.h \
  C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/OpenAL/include/AL/al.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/OpenAL/include/AL/alc.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/include/Headers/Colisiones.h
+ C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/OpenAL/include/AL/alc.h

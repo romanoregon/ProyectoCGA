@@ -418,7 +418,7 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	zombieModelAnimate.loadModel("../models/zombie/1.fbx");
 	zombieModelAnimate.setShader(&shaderMulLighting);
 	//Zombie1
-	zombie1ModelAnimate.loadModel("../models/Zombie 1/1.fbx");
+	zombie1ModelAnimate.loadModel("../models/zombie 1/1.fbx");
 	zombie1ModelAnimate.setShader(&shaderMulLighting);
 
 	// Terreno
@@ -1195,7 +1195,7 @@ void applicationLoop() {
 	glm::vec3 target;
 	float angleTarget;
 
-	modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(0.0f, 0.0f, 0.0f));
+	modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(-10.0f, 0.0f, -20.0f));
 	modelMatrixMayow = glm::rotate(modelMatrixMayow, glm::radians(-90.0f), glm::vec3(0, 1, 0));
 
 	modelMatrixMain = glm::translate(modelMatrixMain, glm::vec3(10.0f, 0.0f, 0.0f));
