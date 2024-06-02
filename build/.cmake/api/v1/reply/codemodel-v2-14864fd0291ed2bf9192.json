@@ -11,7 +11,7 @@
 						1,
 						2
 					],
-					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0.0"
@@ -21,7 +21,7 @@
 				},
 				{
 					"build" : "CGALib",
-					"jsonFile" : "directory-CGALib-Debug-c25a36b81c9fe6cb6742.json",
+					"jsonFile" : "directory-CGALib-Release-a44a7ab7607dc5913aba.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0.0"
@@ -36,7 +36,7 @@
 				},
 				{
 					"build" : "Proyecto",
-					"jsonFile" : "directory-Proyecto-Debug-4bd4e22ef9aa0e7f8389.json",
+					"jsonFile" : "directory-Proyecto-Release-7c261c164c2b9452f1af.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0.0"
@@ -50,7 +50,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "Release",
 			"projects" : 
 			[
 				{
@@ -73,14 +73,14 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "CGALib::@1a9f62cd0483ef4537e7",
-					"jsonFile" : "target-CGALib-Debug-04d6d95346abb687ff2e.json",
+					"jsonFile" : "target-CGALib-Release-de62f02224176797d6a9.json",
 					"name" : "CGALib",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "Proyecto::@b3d659ccca68cc8557a5",
-					"jsonFile" : "target-Proyecto-Debug-3757d9c040a8390af86d.json",
+					"jsonFile" : "target-Proyecto-Release-cf1ed063c98b7fca2624.json",
 					"name" : "Proyecto",
 					"projectIndex" : 0
 				}
@@ -90,12 +90,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build",
-		"source" : "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA"
+		"build" : "/home/roman/Documentos/ProyectoCGA/build",
+		"source" : "/home/roman/Documentos/ProyectoCGA"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 7
+		"minor" : 3
 	}
 }

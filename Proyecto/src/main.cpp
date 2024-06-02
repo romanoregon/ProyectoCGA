@@ -112,10 +112,10 @@ ShadowBox * shadowBox;
 GLuint textureCespedID;
 GLuint textureTerrainRID, textureTerrainGID, textureTerrainBID, textureTerrainBlendMapID;
 GLuint skyboxTextureID;
-GLuint textureInit1ID, textureInit2ID, textureActivaID, textureScreenID;
+GLuint textureInit1ID,textureInit2ID,textureInit3ID,textureInit4ID,textureActivaID,textureScreen1ID,textureScreen2ID,textureScreen3ID;
 GLuint textureParticleFountainID;
 
-bool iniciaPartida = false, presionarOpcion = false;
+bool iniciaPartida = false, presionarOpcion = false, presionarEnter = false;; 
 
 // Modelo para el render del texto
 FontTypeRendering::FontTypeRendering *modelText;
@@ -544,7 +544,7 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	textureBlendMap.freeImage(); // Liberamos memoria
 
 	// Definiendo la textura
-	Texture textureIntro1("../Textures/Intro1.png");
+	Texture textureIntro1("../Textures/Intro.png");
 	textureIntro1.loadImage(); // Cargar la textura
 	glGenTextures(1, &textureInit1ID); // Creando el id de la textura del landingpad
 	glBindTexture(GL_TEXTURE_2D, textureInit1ID); // Se enlaza la textura
@@ -563,7 +563,7 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	textureIntro1.freeImage(); // Liberamos memoria
 
 	// Definiendo la textura
-	Texture textureIntro2("../Textures/Intro2.png");
+	Texture textureIntro2("../Textures/Personaje1.png");
 	textureIntro2.loadImage(); // Cargar la textura
 	glGenTextures(1, &textureInit2ID); // Creando el id de la textura del landingpad
 	glBindTexture(GL_TEXTURE_2D, textureInit2ID); // Se enlaza la textura
@@ -582,23 +582,99 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	textureIntro2.freeImage(); // Liberamos memoria
 
 	// Definiendo la textura
-	Texture textureScreen("../Textures/Screen.png");
-	textureScreen.loadImage(); // Cargar la textura
-	glGenTextures(1, &textureScreenID); // Creando el id de la textura del landingpad
-	glBindTexture(GL_TEXTURE_2D, textureScreenID); // Se enlaza la textura
+	Texture textureIntro3("../Textures/Personaje2.png");
+	textureIntro3.loadImage(); // Cargar la textura
+	glGenTextures(1, &textureInit3ID); // Creando el id de la textura del landingpad
+	glBindTexture(GL_TEXTURE_2D, textureInit3ID); // Se enlaza la textura
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // Wrapping en el eje u
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); // Wrapping en el eje v
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // Filtering de minimización
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // Filtering de maximimizacion
-	if(textureScreen.getData()){
+	if(textureIntro3.getData()){
 		// Transferir los datos de la imagen a la tarjeta
-		glTexImage2D(GL_TEXTURE_2D, 0, textureScreen.getChannels() == 3 ? GL_RGB : GL_RGBA, textureScreen.getWidth(), textureScreen.getHeight(), 0,
-		textureScreen.getChannels() == 3 ? GL_RGB : GL_RGBA, GL_UNSIGNED_BYTE, textureScreen.getData());
+		glTexImage2D(GL_TEXTURE_2D, 0, textureIntro3.getChannels() == 3 ? GL_RGB : GL_RGBA, textureIntro3.getWidth(), textureIntro3.getHeight(), 0,
+		textureIntro3.getChannels() == 3 ? GL_RGB : GL_RGBA, GL_UNSIGNED_BYTE, textureIntro3.getData());
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
 	else 
 		std::cout << "Fallo la carga de textura" << std::endl;
-	textureScreen.freeImage(); // Liberamos memoria
+	textureIntro3.freeImage(); // Liberamos memoria
+
+	// Definiendo la textura
+	Texture textureIntro4("../Textures/Personaje3.png");
+	textureIntro4.loadImage(); // Cargar la textura
+	glGenTextures(1, &textureInit4ID); // Creando el id de la textura del landingpad
+	glBindTexture(GL_TEXTURE_2D, textureInit4ID); // Se enlaza la textura
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // Wrapping en el eje u
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); // Wrapping en el eje v
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // Filtering de minimización
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // Filtering de maximimizacion
+	if(textureIntro4.getData()){
+		// Transferir los datos de la imagen a la tarjeta
+		glTexImage2D(GL_TEXTURE_2D, 0, textureIntro4.getChannels() == 3 ? GL_RGB : GL_RGBA, textureIntro4.getWidth(), textureIntro4.getHeight(), 0,
+		textureIntro4.getChannels() == 3 ? GL_RGB : GL_RGBA, GL_UNSIGNED_BYTE, textureIntro4.getData());
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else 
+		std::cout << "Fallo la carga de textura" << std::endl;
+	textureIntro4.freeImage(); // Liberamos memoria
+
+	// Definiendo la textura
+	Texture textureScreen1("../Textures/Vida3.png");
+	textureScreen1.loadImage(); // Cargar la textura
+	glGenTextures(1, &textureScreen1ID); // Creando el id de la textura del landingpad
+	glBindTexture(GL_TEXTURE_2D, textureScreen1ID); // Se enlaza la textura
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // Wrapping en el eje u
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); // Wrapping en el eje v
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // Filtering de minimización
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // Filtering de maximimizacion
+	if(textureScreen1.getData()){
+		// Transferir los datos de la imagen a la tarjeta
+		glTexImage2D(GL_TEXTURE_2D, 0, textureScreen1.getChannels() == 3 ? GL_RGB : GL_RGBA, textureScreen1.getWidth(), textureScreen1.getHeight(), 0,
+		textureScreen1.getChannels() == 3 ? GL_RGB : GL_RGBA, GL_UNSIGNED_BYTE, textureScreen1.getData());
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else 
+		std::cout << "Fallo la carga de textura" << std::endl;
+	textureScreen1.freeImage(); // Liberamos memoria
+
+	// Definiendo la textura
+	Texture textureScreen2("../Textures/Vida2.png");
+	textureScreen2.loadImage(); // Cargar la textura
+	glGenTextures(1, &textureScreen2ID); // Creando el id de la textura del landingpad
+	glBindTexture(GL_TEXTURE_2D, textureScreen2ID); // Se enlaza la textura
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // Wrapping en el eje u
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); // Wrapping en el eje v
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // Filtering de minimización
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // Filtering de maximimizacion
+	if(textureScreen2.getData()){
+		// Transferir los datos de la imagen a la tarjeta
+		glTexImage2D(GL_TEXTURE_2D, 0, textureScreen2.getChannels() == 3 ? GL_RGB : GL_RGBA, textureScreen2.getWidth(), textureScreen2.getHeight(), 0,
+		textureScreen2.getChannels() == 3 ? GL_RGB : GL_RGBA, GL_UNSIGNED_BYTE, textureScreen2.getData());
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else 
+		std::cout << "Fallo la carga de textura" << std::endl;
+	textureScreen2.freeImage(); // Liberamos memoria
+
+	// Definiendo la textura
+	Texture textureScreen3("../Textures/Vida1.png");
+	textureScreen3.loadImage(); // Cargar la textura
+	glGenTextures(1, &textureScreen3ID); // Creando el id de la textura del landingpad
+	glBindTexture(GL_TEXTURE_2D, textureScreen3ID); // Se enlaza la textura
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // Wrapping en el eje u
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); // Wrapping en el eje v
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // Filtering de minimización
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // Filtering de maximimizacion
+	if(textureScreen3.getData()){
+		// Transferir los datos de la imagen a la tarjeta
+		glTexImage2D(GL_TEXTURE_2D, 0, textureScreen3.getChannels() == 3 ? GL_RGB : GL_RGBA, textureScreen3.getWidth(), textureScreen3.getHeight(), 0,
+		textureScreen3.getChannels() == 3 ? GL_RGB : GL_RGBA, GL_UNSIGNED_BYTE, textureScreen3.getData());
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else 
+		std::cout << "Fallo la carga de textura" << std::endl;
+	textureScreen3.freeImage(); // Liberamos memoria
 
 	/*******************************************
 	 * OpenAL init
@@ -724,7 +800,9 @@ void destroy() {
 	glDeleteTextures(1, &textureTerrainBlendMapID);
 	glDeleteTextures(1, &textureInit1ID);
 	glDeleteTextures(1, &textureInit2ID);
-	glDeleteTextures(1, &textureScreenID);
+	glDeleteTextures(1, &textureScreen1ID);
+	glDeleteTextures(1, &textureScreen2ID);
+	glDeleteTextures(1, &textureScreen3ID);
 	glDeleteTextures(1, &textureParticleFountainID);
 
 	// Cube Maps Delete
@@ -784,20 +862,37 @@ bool processInput(bool continueApplication) {
 	}
 
 	if(!iniciaPartida){
-		bool presionarEnter = glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS;
-		if(textureActivaID == textureInit1ID && presionarEnter){
-			iniciaPartida = true;
-			textureActivaID = textureScreenID;
+		if (!presionarEnter && glfwGetKey(window, GLFW_KEY_ENTER)== GLFW_PRESS){
+			presionarEnter = true;
+			std::cout << "Enter true" << std::endl;
+			if(textureActivaID == textureInit1ID ){
+				textureActivaID = textureInit2ID;	
+			}else if(textureActivaID == textureInit2ID){
+				iniciaPartida = true;
+				textureActivaID = textureScreen1ID;
+			}else if (textureActivaID == textureInit3ID ){
+				iniciaPartida = true;
+				textureActivaID = textureScreen1ID;
+			}else if (textureActivaID == textureInit4ID){
+				iniciaPartida = true;
+				textureActivaID = textureScreen1ID;
+			}
 		}
 		else if(!presionarOpcion && glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS){
 			presionarOpcion = true;
-			if(textureActivaID == textureInit1ID)
+			if(textureActivaID == textureInit2ID){
+				textureActivaID = textureInit3ID;
+			}else if(textureActivaID == textureInit3ID){
+				textureActivaID = textureInit4ID;
+			}else if(textureActivaID == textureInit4ID){
 				textureActivaID = textureInit2ID;
-			else if(textureActivaID == textureInit2ID)
-				textureActivaID = textureInit1ID;
+			}	
 		}
-		else if(glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_RELEASE)
+		else if(glfwGetKey(window, GLFW_KEY_ENTER)== GLFW_RELEASE && glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_RELEASE){
+			presionarEnter = false;
 			presionarOpcion = false;
+
+		}
 	}
 
 	if (glfwJoystickPresent(GLFW_JOYSTICK_1) == GL_TRUE) {
