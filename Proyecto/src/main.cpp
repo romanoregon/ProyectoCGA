@@ -91,7 +91,7 @@ Model Pino;
 Model Muro;
 Model Hogera;
 Model Casa;
-Model CasaArbol;
+Model Ventanas;
 
 // Modelos animados
 // Mayow
@@ -151,6 +151,7 @@ glm::mat4 modelMatrixFountain= glm::mat4(1.0f);
 //Model matrix ecenario
 glm::mat4 modelMatrixPino = glm::mat4(1.0f);
 glm::mat4 modelMatrixCasa = glm::mat4(1.0f);
+glm::mat4 modelMatrixVentanas = glm::mat4(1.0f);
 glm::mat4 modelMatrixMuro = glm::mat4(1.0f);
 //glm::mat4 modelMatrix = glm::mat4(1.0f);
 
@@ -161,14 +162,8 @@ int animationMain1Index = 1;
 int animationMain2Index = 1;
 int animationZombieIndex = 1;
 int animationZombie1Index = 1;
-int modelSelected = 0;
+int modelSelected = 0,mapa = 0;
 bool enableCountSelected = true;
-
-// Variables to animations keyframes
-bool saveFrame = false, availableSave = true;
-std::ofstream myfile;
-std::string fileName = "";
-bool record = false;
 
 //coordenadas de los arboles primera midad
 std::vector<glm::vec3> PinoPos1 = {
@@ -236,9 +231,7 @@ std::vector<glm::vec3> Casas = {
 
 // Blending model unsorted
 std::map<std::string, glm::vec3> blendingUnsorted = {
-		{"aircraft", glm::vec3(10.0, 0.0, -17.5)},
-		{"lambo", glm::vec3(23.0, 0.0, 0.0)},
-		{"heli", glm::vec3(5.0, 10.0, -5.0)}
+		{"Casa", Casas[mapa]}//glm::vec3(32.8125,0,36.71875)}
 };
 
 double deltaTime;
@@ -401,6 +394,8 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	//casa abandonada
 	Casa.loadModel("../models/Casa_avandonada/CasaAban.obj");
 	Casa.setShader(&shaderMulLighting);
+	Ventanas.loadModel("../models/Casa_avandonada/CasaAbanVentanas.obj");
+	Ventanas.setShader(&shaderMulLighting);
 
 	// Mayow
 	mayowModelAnimate.loadModel("../models/mayow/personaje2.fbx");
@@ -891,7 +886,6 @@ bool processInput(bool continueApplication) {
 		else if(glfwGetKey(window, GLFW_KEY_ENTER)== GLFW_RELEASE && glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_RELEASE){
 			presionarEnter = false;
 			presionarOpcion = false;
-
 		}
 	}
 
@@ -941,7 +935,7 @@ bool processInput(bool continueApplication) {
 	offsetX = 0;
 	offsetY = 0;
 
-	// Seleccionar modelo
+/*	// Seleccionar modelo
 	if (enableCountSelected && glfwGetKey(window, GLFW_KEY_TAB) == GLFW_PRESS){
 		enableCountSelected = false;
 		modelSelected++;
@@ -959,7 +953,7 @@ bool processInput(bool continueApplication) {
 	}
 	else if(glfwGetKey(window, GLFW_KEY_TAB) == GLFW_RELEASE)
 		enableCountSelected = true;
-
+*/
 	// Controles de mayow
 	if (modelSelected == 0 && glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
 		modelMatrixMayow = glm::rotate(modelMatrixMayow, 0.1f, glm::vec3(0, 1, 0));
@@ -1104,14 +1098,11 @@ void renderSolidScene(){
 		Muro.setScale(glm::vec3(0.08));			
 		Muro.render();
 	}
+
+	//casas
 	glDisable(GL_CULL_FACE);
-	//casa abandonada
-	for(int i = 0; i< Casas.size() ; i++ ){
-		Casas[i].y =terrain.getHeightTerrain(Casas[i].x,Casas[i].z);
-		Casa.setPosition(Casas[i]);
-		Casa.setScale(glm::vec3(3.0));			
-		Casa.render();
-	}
+	modelMatrixCasa[3][1] = terrain.getHeightTerrain(modelMatrixCasa[3][0], modelMatrixCasa[3][2]);
+	Casa.render(modelMatrixCasa);
 	glEnable(GL_CULL_FACE);
 
 	/*****************************************
@@ -1235,13 +1226,8 @@ void renderAlphaScene(bool render = true){
 	/**********
 	 * Update the position with alpha objects
 	 */
-	// Update the aircraft
-	//blendingUnsorted.find("aircraft")->second = glm::vec3(modelMatrixAircraft[3]);
-	// Update the lambo
-	//blendingUnsorted.find("lambo")->second = glm::vec3(modelMatrixLambo[3]);
-	// Update the helicopter
-	//blendingUnsorted.find("heli")->second = glm::vec3(modelMatrixHeli[3]);
-
+	// Update the Casa
+	blendingUnsorted.find("Casa")->second = glm::vec3(modelMatrixVentanas[3]);
 	/**********
 	 * Sorter with alpha objects
 	 */
@@ -1255,13 +1241,20 @@ void renderAlphaScene(bool render = true){
 	/**********
 	 * Render de las transparencias
 	 */
-//	glEnable(GL_BLEND);
-//	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-//	glDisable(GL_CULL_FACE);
-//	for(std::map<float, std::pair<std::string, glm::vec3> >::reverse_iterator it = blendingSorted.rbegin(); it != blendingSorted.rend(); it++){
-
-//	glEnable(GL_CULL_FACE);
-//	glDisable(GL_BLEND);
+	glEnable(GL_BLEND);
+	//glDepthFunc( GL_LEQUAL );
+	glBlendFunc(GL_SRC_ALPHA,  GL_ONE);//GL_ONE);//GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
+	//glDisable(GL_CULL_FACE);
+	for(std::map<float, std::pair<std::string, glm::vec3> >::reverse_iterator it = blendingSorted.rbegin(); it != blendingSorted.rend(); it++){
+		if(it->second.first.compare("Casa") == 0){
+			// Render for the casa model
+			glm::mat4 modelMatrixCasaBlending = glm::mat4(modelMatrixVentanas);
+			modelMatrixCasaBlending[3][1] = terrain.getHeightTerrain(modelMatrixCasaBlending[3][0], modelMatrixCasaBlending[3][2]);
+			Ventanas.render(modelMatrixCasaBlending);
+		}
+	}
+	//glEnable(GL_CULL_FACE);
+	glDisable(GL_BLEND);
 
 	if(render){
 		/************Render de imagen de frente**************/
@@ -1290,8 +1283,19 @@ void applicationLoop() {
 	glm::vec3 target;
 	float angleTarget;
 
-	modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(-10.0f, 0.0f, -20.0f));
+	//personaje
+	modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(32.8125,0,36.71875));//glm::vec3(-10.0f, 0.0f, -20.0f));
 	modelMatrixMayow = glm::rotate(modelMatrixMayow, glm::radians(-90.0f), glm::vec3(0, 1, 0));
+	//casa
+	//if(){
+		modelMatrixCasa = glm::translate(modelMatrixCasa,glm::vec3(32.8125,0,36.71875));
+		modelMatrixVentanas = glm::translate(modelMatrixVentanas,glm::vec3(32.8125,0,36.71875));
+	//}else{
+	//	modelMatrixCasa = glm::translate(modelMatrixCasa,glm::vec3(-73.828125,0,-51.171875));
+	//	modelMatrixVentanas = glm::translate(modelMatrixVentanas,glm::vec3(-73.828125,0,-51.171875));
+	//}
+	modelMatrixCasa = glm::scale(modelMatrixCasa,glm::vec3(3.0f));
+	modelMatrixVentanas = glm::scale(modelMatrixVentanas,glm::vec3(3.0f));
 
 	modelMatrixMain = glm::translate(modelMatrixMain, glm::vec3(10.0f, 0.0f, 0.0f));
 	modelMatrixMain = glm::rotate(modelMatrixMain, glm::radians(-90.0f), glm::vec3(0, 1, 0));
