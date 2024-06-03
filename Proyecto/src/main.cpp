@@ -7,6 +7,10 @@
 #include <string>
 #include <iostream>
 
+// contains new std::shuffle definition
+#include <algorithm>
+#include <random>
+
 //glfw include
 #include <GLFW/glfw3.h>
 
@@ -73,7 +77,8 @@ Shader shaderDepth;
 // Shader para visualizar el buffer de profundidad
 Shader shaderViewDepth;
 //Shader para las particulas de fountain
-/*Shader shaderParticlesFountain;*/
+//Shader shaderParticlesFountain;
+Shader shaderParticlesFire;
 
 std::shared_ptr<Camera> camera(new ThirdPersonCamera());
 float distanceFromTarget = 7.0;
@@ -231,7 +236,17 @@ std::vector<glm::vec3> Casas = {
 
 // Blending model unsorted
 std::map<std::string, glm::vec3> blendingUnsorted = {
-		{"Casa", Casas[mapa]}//glm::vec3(32.8125,0,36.71875)}
+		{"Casa", Casas[mapa]},//glm::vec3(32.8125,0,36.71875)}
+		{"Hogera1", Hogeras[0]},
+		{"Hogera2", Hogeras[1]},
+		{"Hogera3", Hogeras[2]},
+		{"Hogera4", Hogeras[3]},
+		{"Hogera5", Hogeras[4]},
+		{"Hogera6", Hogeras[5]},
+		{"Hogera7", Hogeras[6]},
+		{"Hogera8", Hogeras[7]},
+		{"Hogera9", Hogeras[8]},
+		{"Hogera10", Hogeras[9]}
 };
 
 double deltaTime;
@@ -279,6 +294,23 @@ std::vector<bool> sourcesPlay = {true, true, true};
 // Framesbuffers
 GLuint depthMap, depthMapFBO;
 
+//definicion de variables para las particulas
+GLuint initVel, startTime;
+GLuint VAOParticles;
+GLuint nParticles = 3000;
+double currTimeParticlesAnimation, lastTimeParticlesAnimation;
+
+// Definition for the particle system fire
+GLuint initVelFire, startTimeFire;
+GLuint VAOParticlesFire;
+GLuint nParticlesFire = 2000;
+GLuint posBuf[2], velBuf[2], age[2];
+GLuint particleArray[2];
+GLuint feedback[2];
+GLuint drawBuf = 1;
+float particleSize = 0.5, particleLifetime = 3.0;
+double currTimeParticlesAnimationFire, lastTimeParticlesAnimationFire;
+
 // Se definen todos las funciones.
 void reshapeCallback(GLFWwindow *Window, int widthRes, int heightRes);
 void keyCallback(GLFWwindow *window, int key, int scancode, int action,
@@ -292,6 +324,97 @@ void destroy();
 bool processInput(bool continueApplication = true);
 
 // Implementacion de todas las funciones.
+
+void initParticleBuffers(){
+
+	// Generate the buffers
+	glGenBuffers(2, posBuf);    // position buffers
+	glGenBuffers(2, velBuf);    // velocity buffers
+	glGenBuffers(2, age);       // age buffers
+
+	// Allocate space for all buffers
+	int size = nParticlesFire * sizeof(GLfloat);
+	glBindBuffer(GL_ARRAY_BUFFER, posBuf[0]);
+	glBufferData(GL_ARRAY_BUFFER, 3 * size, 0, GL_DYNAMIC_COPY);
+	glBindBuffer(GL_ARRAY_BUFFER, posBuf[1]);
+	glBufferData(GL_ARRAY_BUFFER, 3 * size, 0, GL_DYNAMIC_COPY);
+	glBindBuffer(GL_ARRAY_BUFFER, velBuf[0]);
+	glBufferData(GL_ARRAY_BUFFER, 3 * size, 0, GL_DYNAMIC_COPY);
+	glBindBuffer(GL_ARRAY_BUFFER, velBuf[1]);
+	glBufferData(GL_ARRAY_BUFFER, 3 * size, 0, GL_DYNAMIC_COPY);
+	glBindBuffer(GL_ARRAY_BUFFER, age[0]);
+	glBufferData(GL_ARRAY_BUFFER, size, 0, GL_DYNAMIC_COPY);
+	glBindBuffer(GL_ARRAY_BUFFER, age[1]);
+	glBufferData(GL_ARRAY_BUFFER, size, 0, GL_DYNAMIC_COPY);
+
+	// Fill the first age buffer
+	std::vector<GLfloat> initialAge(nParticlesFire);
+	float rate = particleLifetime / nParticlesFire;
+	for(unsigned int i = 0; i < nParticlesFire; i++ ) {
+		int index = i - nParticlesFire;
+		float result = rate * index;
+		initialAge[i] = result;
+	}
+	// Shuffle them for better looking results
+	//Random::shuffle(initialAge);
+	auto rng = std::default_random_engine {};
+	std::shuffle(initialAge.begin(), initialAge.end(), rng);
+	glBindBuffer(GL_ARRAY_BUFFER, age[0]);
+	glBufferSubData(GL_ARRAY_BUFFER, 0, size, initialAge.data());
+
+	glBindBuffer(GL_ARRAY_BUFFER,0);
+
+	// Create vertex arrays for each set of buffers
+	glGenVertexArrays(2, particleArray);
+
+	// Set up particle array 0
+	glBindVertexArray(particleArray[0]);
+	glBindBuffer(GL_ARRAY_BUFFER, posBuf[0]);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
+
+	glBindBuffer(GL_ARRAY_BUFFER, velBuf[0]);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(1);
+
+	glBindBuffer(GL_ARRAY_BUFFER, age[0]);
+	glVertexAttribPointer(2, 1, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(2);
+
+	// Set up particle array 1
+	glBindVertexArray(particleArray[1]);
+	glBindBuffer(GL_ARRAY_BUFFER, posBuf[1]);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
+
+	glBindBuffer(GL_ARRAY_BUFFER, velBuf[1]);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(1);
+
+	glBindBuffer(GL_ARRAY_BUFFER, age[1]);
+	glVertexAttribPointer(2, 1, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(2);
+
+	glBindVertexArray(0);
+
+	// Setup the feedback objects
+	glGenTransformFeedbacks(2, feedback);
+
+	// Transform feedback 0
+	glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, feedback[0]);
+	glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 0, posBuf[0]);
+	glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 1, velBuf[0]);
+	glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 2, age[0]);
+
+	// Transform feedback 1
+	glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, feedback[1]);
+	glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 0, posBuf[1]);
+	glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 1, velBuf[1]);
+	glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 2, age[1]);
+
+	glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, 0);
+}
+
 void init(int width, int height, std::string strTitle, bool bFullScreen) {
 
 	if (!glfwInit()) {
@@ -353,7 +476,8 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	shaderTexture.initialize("../Shaders/texturizado.vs", "../Shaders/texturizado.fs");
 	shaderViewDepth.initialize("../Shaders/texturizado.vs", "../Shaders/texturizado_depth_view.fs");
 	shaderDepth.initialize("../Shaders/shadow_mapping_depth.vs", "../Shaders/shadow_mapping_depth.fs");
-	/*shaderParticlesFountain.initialize("../Shaders/particlesFountain.vs", "../Shaders/particlesFountain.fs");*/
+	shaderParticlesFire.initialize("../Shaders/particlesFire.vs", "../Shaders/particlesFire.fs", {"Position", "Velocity", "Age"});
+	//shaderParticlesFountain.initialize("../Shaders/particlesFountain.vs", "../Shaders/particlesFountain.fs");
 
 	// Inicializacion de los objetos.
 	skyboxSphere.init();
@@ -1198,13 +1322,6 @@ void renderSolidScene(){
 	zombie1ModelAnimate.render(modelMatrixZombie1Body);
 	animationZombie1Index = 2; //El 2 es la siguiente animacion, 0 la primera
 
-	// Fountain
-	//glDisable(GL_CULL_FACE);
-	//modelMatrixFountain[3][1] = terrain.getHeightTerrain(modelMatrixFountain[3][0] , modelMatrixFountain[3][2]) + 0.2;
-	//glm::mat4 modelMatrixFountainCopy = glm::scale(modelMatrixFountain, glm::vec3(10.0f, 10.0f, 10.0f));
-	//modelFountain.render(modelMatrixFountainCopy);
-	//glEnable(GL_CULL_FACE);
-
 	/*******************************************
 	 * Skybox
 	 *******************************************/
@@ -1287,13 +1404,13 @@ void applicationLoop() {
 	modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(32.8125,0,36.71875));//glm::vec3(-10.0f, 0.0f, -20.0f));
 	modelMatrixMayow = glm::rotate(modelMatrixMayow, glm::radians(-90.0f), glm::vec3(0, 1, 0));
 	//casa
-	//if(){
+	if(mapa == 0){
 		modelMatrixCasa = glm::translate(modelMatrixCasa,glm::vec3(32.8125,0,36.71875));
 		modelMatrixVentanas = glm::translate(modelMatrixVentanas,glm::vec3(32.8125,0,36.71875));
-	//}else{
-	//	modelMatrixCasa = glm::translate(modelMatrixCasa,glm::vec3(-73.828125,0,-51.171875));
-	//	modelMatrixVentanas = glm::translate(modelMatrixVentanas,glm::vec3(-73.828125,0,-51.171875));
-	//}
+	}else{
+		modelMatrixCasa = glm::translate(modelMatrixCasa,glm::vec3(-73.828125,0,-51.171875));
+		modelMatrixVentanas = glm::translate(modelMatrixVentanas,glm::vec3(-73.828125,0,-51.171875));
+	}
 	modelMatrixCasa = glm::scale(modelMatrixCasa,glm::vec3(3.0f));
 	modelMatrixVentanas = glm::scale(modelMatrixVentanas,glm::vec3(3.0f));
 
@@ -1649,30 +1766,6 @@ void applicationLoop() {
 		mayowCollider.c = glm::vec3(modelmatrixColliderMayow[3]);
 		addOrUpdateColliders(collidersOBB, "mayow", mayowCollider, modelMatrixMayow);
 
-		/*******************************************
-		 * Render de colliders
-		 *******************************************/
-		for (std::map<std::string, std::tuple<AbstractModel::OBB, glm::mat4, glm::mat4> >::iterator it =
-				collidersOBB.begin(); it != collidersOBB.end(); it++) {
-			glm::mat4 matrixCollider = glm::mat4(1.0);
-			matrixCollider = glm::translate(matrixCollider, std::get<0>(it->second).c);
-			matrixCollider = matrixCollider * glm::mat4(std::get<0>(it->second).u);
-			matrixCollider = glm::scale(matrixCollider, std::get<0>(it->second).e * 2.0f);
-			boxCollider.setColor(glm::vec4(1.0, 1.0, 1.0, 1.0));
-			boxCollider.enableWireMode();
-			boxCollider.render(matrixCollider);
-		}
-
-		for (std::map<std::string, std::tuple<AbstractModel::SBB, glm::mat4, glm::mat4> >::iterator it =
-				collidersSBB.begin(); it != collidersSBB.end(); it++) {
-			glm::mat4 matrixCollider = glm::mat4(1.0);
-			matrixCollider = glm::translate(matrixCollider, std::get<0>(it->second).c);
-			matrixCollider = glm::scale(matrixCollider, glm::vec3(std::get<0>(it->second).ratio * 2.0f));
-			sphereCollider.setColor(glm::vec4(1.0, 1.0, 1.0, 1.0));
-			sphereCollider.enableWireMode();
-			sphereCollider.render(matrixCollider);
-		}
-
 		/**********Render de transparencias***************/
 		renderAlphaScene();
 
@@ -1750,60 +1843,6 @@ void applicationLoop() {
 				}
 			}
 		}
-
-		glm::mat4 modelMatrixRayMay = glm::mat4(modelMatrixMayow);
-		modelMatrixRayMay = glm::translate(modelMatrixRayMay, glm::vec3(0, 1, 0));
-		float maxDistanceRay = 10.0;
-		glm::vec3 rayDirection = modelMatrixRayMay[2];
-		glm::vec3 ori = modelMatrixRayMay[3];
-		glm::vec3 rmd = ori + rayDirection * (maxDistanceRay / 2.0f);
-		glm::vec3 targetRay = ori + rayDirection * maxDistanceRay;
-		modelMatrixRayMay[3] = glm::vec4(rmd, 1.0);
-		modelMatrixRayMay = glm::rotate(modelMatrixRayMay, glm::radians(90.0f), 
-			glm::vec3(1, 0, 0));
-		modelMatrixRayMay = glm::scale(modelMatrixRayMay, 
-			glm::vec3(0.05, maxDistanceRay, 0.05));
-		rayModel.render(modelMatrixRayMay);
-
-		std::map<std::string, std::tuple<AbstractModel::SBB, glm::mat4, glm::mat4>>::
-			iterator itSBB;
-		for (itSBB = collidersSBB.begin(); itSBB != collidersSBB.end(); itSBB++) {
-			float tRint;
-			if (raySphereIntersect(ori, targetRay, rayDirection,
-				std::get<0>(itSBB->second), tRint)) {
-				std::cout << "Collision del rayo con el modelo " << itSBB->first 
-				<< std::endl;
-			}
-		}
-		/*std::map<std::string, std::tuple<AbstractModel::OBB, glm::mat4, glm::mat4>>::
-			iterator itOBB;
-		for (itOBB = collidersOBB.begin(); itOBB != collidersOBB.end(); itOBB++) {
-			if (testRayOBB(ori, targetRay, std::get<0>(itOBB->second))) {
-				std::cout << "Collision del rayo con el modelo " << itOBB->first
-					<< std::endl;
-			}
-		}*/
-
-		// Esto es para ilustrar la transformacion inversa de los coliders
-		/*glm::vec3 cinv = glm::inverse(mayowCollider.u) * glm::vec4(rockCollider.c, 1.0);
-		glm::mat4 invColliderS = glm::mat4(1.0);
-		invColliderS = glm::translate(invColliderS, cinv);
-		invColliderS =  invColliderS * glm::mat4(mayowCollider.u);
-		invColliderS = glm::scale(invColliderS, glm::vec3(rockCollider.ratio * 2.0, rockCollider.ratio * 2.0, rockCollider.ratio * 2.0));
-		sphereCollider.setColor(glm::vec4(1.0, 1.0, 0.0, 1.0));
-		sphereCollider.enableWireMode();
-		sphereCollider.render(invColliderS);
-		glm::vec3 cinv2 = glm::inverse(mayowCollider.u) * glm::vec4(mayowCollider.c, 1.0);
-		glm::mat4 invColliderB = glm::mat4(1.0);
-		invColliderB = glm::translate(invColliderB, cinv2);
-		invColliderB = glm::scale(invColliderB, mayowCollider.e * 2.0f);
-		boxCollider.setColor(glm::vec4(1.0, 1.0, 0.0, 1.0));
-		boxCollider.enableWireMode();
-		boxCollider.render(invColliderB);
-		// Se regresa el color blanco
-		sphereCollider.setColor(glm::vec4(1.0, 1.0, 1.0, 1.0));
-		boxCollider.setColor(glm::vec4(1.0, 1.0, 1.0, 1.0));*/
-
 
 		// Constantes de animaciones
 		animationMayowIndex = 1;
