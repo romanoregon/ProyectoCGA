@@ -1,77 +1,77 @@
 [
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Bones.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Bones.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/CGALib",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -g -fPIC -o CMakeFiles/CGALib.dir/src/Bones.cpp.o -c /home/roa/Documentos/ProyectoCGA/CGALib/src/Bones.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/CGALib/src/Bones.cpp"
 },
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Box.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Box.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/CGALib",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -g -fPIC -o CMakeFiles/CGALib.dir/src/Box.cpp.o -c /home/roa/Documentos/ProyectoCGA/CGALib/src/Box.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/CGALib/src/Box.cpp"
 },
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Cylinder.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Cylinder.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/CGALib",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -g -fPIC -o CMakeFiles/CGALib.dir/src/Cylinder.cpp.o -c /home/roa/Documentos/ProyectoCGA/CGALib/src/Cylinder.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/CGALib/src/Cylinder.cpp"
 },
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/FirstPersonCamera.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/FirstPersonCamera.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/CGALib",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -g -fPIC -o CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.o -c /home/roa/Documentos/ProyectoCGA/CGALib/src/FirstPersonCamera.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/CGALib/src/FirstPersonCamera.cpp"
 },
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/FontTypeRendering.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/FontTypeRendering.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/CGALib",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -g -fPIC -o CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.o -c /home/roa/Documentos/ProyectoCGA/CGALib/src/FontTypeRendering.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/CGALib/src/FontTypeRendering.cpp"
 },
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Mesh.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Mesh.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/CGALib",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -g -fPIC -o CMakeFiles/CGALib.dir/src/Mesh.cpp.o -c /home/roa/Documentos/ProyectoCGA/CGALib/src/Mesh.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/CGALib/src/Mesh.cpp"
 },
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Model.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Model.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/CGALib",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -g -fPIC -o CMakeFiles/CGALib.dir/src/Model.cpp.o -c /home/roa/Documentos/ProyectoCGA/CGALib/src/Model.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/CGALib/src/Model.cpp"
 },
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Shader.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Shader.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/CGALib",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -g -fPIC -o CMakeFiles/CGALib.dir/src/Shader.cpp.o -c /home/roa/Documentos/ProyectoCGA/CGALib/src/Shader.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/CGALib/src/Shader.cpp"
 },
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/ShadowBox.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/ShadowBox.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/CGALib",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -g -fPIC -o CMakeFiles/CGALib.dir/src/ShadowBox.cpp.o -c /home/roa/Documentos/ProyectoCGA/CGALib/src/ShadowBox.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/CGALib/src/ShadowBox.cpp"
 },
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Sphere.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Sphere.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/CGALib",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -g -fPIC -o CMakeFiles/CGALib.dir/src/Sphere.cpp.o -c /home/roa/Documentos/ProyectoCGA/CGALib/src/Sphere.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/CGALib/src/Sphere.cpp"
 },
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Terrain.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Terrain.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/CGALib",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -g -fPIC -o CMakeFiles/CGALib.dir/src/Terrain.cpp.o -c /home/roa/Documentos/ProyectoCGA/CGALib/src/Terrain.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/CGALib/src/Terrain.cpp"
 },
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/Texture.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/Texture.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/CGALib",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -g -fPIC -o CMakeFiles/CGALib.dir/src/Texture.cpp.o -c /home/roa/Documentos/ProyectoCGA/CGALib/src/Texture.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/CGALib/src/Texture.cpp"
 },
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/ThirdPersonCamera.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/ThirdPersonCamera.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/CGALib",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -g -fPIC -o CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.o -c /home/roa/Documentos/ProyectoCGA/CGALib/src/ThirdPersonCamera.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/CGALib/src/ThirdPersonCamera.cpp"
 },
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roman/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roman/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -O3 -DNDEBUG -fPIC -o CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o -c /home/roman/Documentos/ProyectoCGA/CGALib/src/TimeManager.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/CGALib/src/TimeManager.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/CGALib",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -DCGALib_EXPORTS -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2 -g -fPIC -o CMakeFiles/CGALib.dir/src/TimeManager.cpp.o -c /home/roa/Documentos/ProyectoCGA/CGALib/src/TimeManager.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/CGALib/src/TimeManager.cpp"
 },
 {
-  "directory": "/home/roman/Documentos/ProyectoCGA/build",
-  "command": "/usr/bin/g++-13 -DBUILDING_DLL -I/home/roman/Documentos/ProyectoCGA/CGALib/include -I/usr/include/freetype2 -O3 -DNDEBUG -o Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.o -c /home/roman/Documentos/ProyectoCGA/Proyecto/src/main.cpp",
-  "file": "/home/roman/Documentos/ProyectoCGA/Proyecto/src/main.cpp"
+  "directory": "/home/roa/Documentos/ProyectoCGA/build/Proyecto",
+  "command": "/usr/bin/c++ -DBUILDING_DLL -I/home/roa/Documentos/ProyectoCGA/CGALib/include -I/usr/include/freetype2 -g -o CMakeFiles/Proyecto.dir/src/main.cpp.o -c /home/roa/Documentos/ProyectoCGA/Proyecto/src/main.cpp",
+  "file": "/home/roa/Documentos/ProyectoCGA/Proyecto/src/main.cpp"
 }
 ]

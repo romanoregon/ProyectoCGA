@@ -56,7 +56,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-O3 -DNDEBUG -fPIC"
+					"fragment" : "-g -fPIC"
 				}
 			],
 			"defines" : 
@@ -73,11 +73,11 @@
 			[
 				{
 					"backtrace" : 4,
-					"path" : "/home/roman/Documentos/ProyectoCGA/CGALib/CGALib"
+					"path" : "/home/roa/Documentos/ProyectoCGA/CGALib/CGALib"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/home/roman/Documentos/ProyectoCGA/CGALib/./include"
+					"path" : "/home/roa/Documentos/ProyectoCGA/CGALib/./include"
 				},
 				{
 					"backtrace" : 4,

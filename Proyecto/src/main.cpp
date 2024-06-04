@@ -77,7 +77,7 @@ Shader shaderDepth;
 // Shader para visualizar el buffer de profundidad
 Shader shaderViewDepth;
 //Shader para las particulas de fountain
-//Shader shaderParticlesFountain;
+Shader shaderParticlesFountain;
 Shader shaderParticlesFire;
 
 std::shared_ptr<Camera> camera(new ThirdPersonCamera());
@@ -118,7 +118,7 @@ GLuint textureCespedID;
 GLuint textureTerrainRID, textureTerrainGID, textureTerrainBID, textureTerrainBlendMapID;
 GLuint skyboxTextureID;
 GLuint textureInit1ID,textureInit2ID,textureInit3ID,textureInit4ID,textureActivaID,textureScreen1ID,textureScreen2ID,textureScreen3ID;
-GLuint textureParticleFountainID;
+GLuint textureParticleFountainID, textureParticleFireID,texId;
 
 bool iniciaPartida = false, presionarOpcion = false, presionarEnter = false;; 
 
@@ -158,6 +158,7 @@ glm::mat4 modelMatrixPino = glm::mat4(1.0f);
 glm::mat4 modelMatrixCasa = glm::mat4(1.0f);
 glm::mat4 modelMatrixVentanas = glm::mat4(1.0f);
 glm::mat4 modelMatrixMuro = glm::mat4(1.0f);
+glm::mat4 modelMatrixHogera = glm::mat4(1.0f);
 //glm::mat4 modelMatrix = glm::mat4(1.0f);
 
 //variables de animacion modelos
@@ -252,6 +253,7 @@ std::map<std::string, glm::vec3> blendingUnsorted = {
 double deltaTime;
 double currTime, lastTime;
 
+
 // Jump variables
 bool isJump = false;
 float GRAVITY = 1.81;
@@ -295,10 +297,10 @@ std::vector<bool> sourcesPlay = {true, true, true};
 GLuint depthMap, depthMapFBO;
 
 //definicion de variables para las particulas
-GLuint initVel, startTime;
-GLuint VAOParticles;
-GLuint nParticles = 3000;
-double currTimeParticlesAnimation, lastTimeParticlesAnimation;
+//GLuint initVel, startTime;
+//GLuint VAOParticles;
+//FVAOParticlesFire/GLuint nParticles = 3000;
+//double currTimeParticlesAnimation, lastTimeParticlesAnimation;
 
 // Definition for the particle system fire
 GLuint initVelFire, startTimeFire;
@@ -477,7 +479,7 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	shaderViewDepth.initialize("../Shaders/texturizado.vs", "../Shaders/texturizado_depth_view.fs");
 	shaderDepth.initialize("../Shaders/shadow_mapping_depth.vs", "../Shaders/shadow_mapping_depth.fs");
 	shaderParticlesFire.initialize("../Shaders/particlesFire.vs", "../Shaders/particlesFire.fs", {"Position", "Velocity", "Age"});
-	//shaderParticlesFountain.initialize("../Shaders/particlesFountain.vs", "../Shaders/particlesFountain.fs");
+	shaderParticlesFountain.initialize("../Shaders/particlesFountain.vs", "../Shaders/particlesFountain.fs");
 
 	// Inicializacion de los objetos.
 	skyboxSphere.init();
@@ -551,6 +553,11 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	camera->setPosition(glm::vec3(0.0, 3.0, 4.0));
 	camera->setDistanceFromTarget(distanceFromTarget);
 	camera->setSensitivity(1.0);
+
+	// Definimos el tamanio de la imagen
+//	int imageWidth, imageHeight;
+//	FIBITMAP *bitmap;
+//	unsigned char *data;
 	
 	// Carga de texturas para el skybox
 	Texture skyboxTexture = Texture("");
@@ -795,6 +802,69 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 		std::cout << "Fallo la carga de textura" << std::endl;
 	textureScreen3.freeImage(); // Liberamos memoria
 
+	// Definiendo la textura
+	Texture textureFire("../Textures/fuego2.png");
+	textureFire.loadImage(); // Cargar la textura
+	glGenTextures(1, &textureParticleFireID); // Creando el id de la textura del landingpad
+	glBindTexture(GL_TEXTURE_2D, textureParticleFireID); // Se enlaza la textura
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // Wrapping en el eje u
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); // Wrapping en el eje v
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // Filtering de minimización
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // Filtering de maximimizacion
+	if(textureFire.getData()){
+		// Transferir los datos de la imagen a la tarjeta
+		glTexImage2D(GL_TEXTURE_2D, 0, textureFire.getChannels() == 3 ? GL_RGB : GL_RGBA, textureFire.getWidth(), textureFire.getHeight(), 0,
+		textureFire.getChannels() == 3 ? GL_RGB : GL_RGBA, GL_UNSIGNED_BYTE, textureFire.getData());
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else 
+		std::cout << "Fallo la carga de textura" << std::endl;
+	textureFire.freeImage(); // Liberamos memoria
+
+	std::uniform_real_distribution<float> distr01 = std::uniform_real_distribution<float>(0.0f, 1.0f);
+	std::mt19937 generator;
+	std::random_device rd;
+	generator.seed(rd());
+	int size = nParticlesFire * 2;
+	std::vector<GLfloat> randData(size);
+	for( int i = 0; i < randData.size(); i++ ) {
+		randData[i] = distr01(generator);
+	}
+
+	glGenTextures(1, &texId);
+	glBindTexture(GL_TEXTURE_1D, texId);
+	glTexStorage1D(GL_TEXTURE_1D, 1, GL_R32F, size);
+	glTexSubImage1D(GL_TEXTURE_1D, 0, 0, size, GL_RED, GL_FLOAT, randData.data());
+	glTexParameteri(GL_TEXTURE_1D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_1D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
+	shaderParticlesFire.setInt("Pass", 1);
+	shaderParticlesFire.setInt("ParticleTex", 0);
+	shaderParticlesFire.setInt("RandomTex", 1);
+	shaderParticlesFire.setFloat("ParticleLifetime", particleLifetime);
+	shaderParticlesFire.setFloat("ParticleSize", particleSize);
+	shaderParticlesFire.setVectorFloat3("Accel", glm::value_ptr(glm::vec3(0.0f,0.1f,0.0f)));
+	shaderParticlesFire.setVectorFloat3("Emitter", glm::value_ptr(glm::vec3(0.0f)));
+
+	glm::mat3 basis;
+	glm::vec3 u, v, n;
+	v = glm::vec3(0,1,0);
+	n = glm::cross(glm::vec3(1,0,0), v);
+	if( glm::length(n) < 0.00001f ) {
+		n = glm::cross(glm::vec3(0,1,0), v);
+	}
+	u = glm::cross(v,n);
+	basis[0] = glm::normalize(u);
+	basis[1] = glm::normalize(v);
+	basis[2] = glm::normalize(n);
+	shaderParticlesFire.setMatrix3("EmitterBasis", 1, false, glm::value_ptr(basis));
+
+	/*******************************************
+	 * Inicializacion de los buffers del fuego
+	 *******************************************/
+	initParticleBuffers();
+
+
 	/*******************************************
 	 * OpenAL init
 	 *******************************************/
@@ -888,7 +958,8 @@ void destroy() {
 	shaderMulLighting.destroy();
 	shaderSkybox.destroy();
 	shaderTerrain.destroy();
-	/*shaderParticlesFountain.destroy();*/
+	shaderParticlesFire.destroy();
+	shaderParticlesFountain.destroy();
 
 	// Basic objects Delete
 	skyboxSphere.destroy();
@@ -922,11 +993,21 @@ void destroy() {
 	glDeleteTextures(1, &textureScreen1ID);
 	glDeleteTextures(1, &textureScreen2ID);
 	glDeleteTextures(1, &textureScreen3ID);
-	glDeleteTextures(1, &textureParticleFountainID);
+	glDeleteTextures(1, &textureParticleFireID);
 
 	// Cube Maps Delete
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 	glDeleteTextures(1, &skyboxTextureID);
+
+	// Remove the buffer of the fire particles
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glDeleteBuffers(2, posBuf);
+	glDeleteBuffers(2, velBuf);
+	glDeleteBuffers(2, age);
+	glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, 0);
+	glDeleteTransformFeedbacks(2, feedback);
+	glBindVertexArray(0);
+	glDeleteVertexArrays(1, &VAOParticlesFire);
 }
 
 void reshapeCallback(GLFWwindow *Window, int widthRes, int heightRes) {
@@ -1345,6 +1426,17 @@ void renderAlphaScene(bool render = true){
 	 */
 	// Update the Casa
 	blendingUnsorted.find("Casa")->second = glm::vec3(modelMatrixVentanas[3]);
+	blendingUnsorted.find("Hogera1")->second = glm::vec3(-82.4,0,78.1);
+	blendingUnsorted.find("Hogera1")->second = glm::vec3(-73.4,0,23.4);
+	blendingUnsorted.find("Hogera1")->second = glm::vec3(9.0,0,72.3);
+	blendingUnsorted.find("Hogera1")->second = glm::vec3(-5.5,0,16.0);
+	blendingUnsorted.find("Hogera1")->second = glm::vec3(79.3,0,52.3);
+	blendingUnsorted.find("Hogera1")->second = glm::vec3(-73.4,0,-19.9);
+	blendingUnsorted.find("Hogera1")->second = glm::vec3(-34.0,0,-82.8);
+	blendingUnsorted.find("Hogera1")->second = glm::vec3(10.2,0,-52.7);
+	blendingUnsorted.find("Hogera1")->second = glm::vec3(50.0,0,-18.8);
+	blendingUnsorted.find("Hogera1")->second = glm::vec3(64.5,0,-59.4);
+
 	/**********
 	 * Sorter with alpha objects
 	 */
@@ -1359,8 +1451,8 @@ void renderAlphaScene(bool render = true){
 	 * Render de las transparencias
 	 */
 	glEnable(GL_BLEND);
-	//glDepthFunc( GL_LEQUAL );
-	glBlendFunc(GL_SRC_ALPHA,  GL_ONE);//GL_ONE);//GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
+	glDisable(GL_CULL_FACE);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);//GL_ONE);//GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
 	//glDisable(GL_CULL_FACE);
 	for(std::map<float, std::pair<std::string, glm::vec3> >::reverse_iterator it = blendingSorted.rbegin(); it != blendingSorted.rend(); it++){
 		if(it->second.first.compare("Casa") == 0){
@@ -1368,9 +1460,477 @@ void renderAlphaScene(bool render = true){
 			glm::mat4 modelMatrixCasaBlending = glm::mat4(modelMatrixVentanas);
 			modelMatrixCasaBlending[3][1] = terrain.getHeightTerrain(modelMatrixCasaBlending[3][0], modelMatrixCasaBlending[3][2]);
 			Ventanas.render(modelMatrixCasaBlending);
+		}else if (it->second.first.compare("Hogera1") == 0){
+		/**********
+		 * Init Render particles systems
+		 */
+		 lastTimeParticlesAnimationFire = currTimeParticlesAnimationFire;
+		 currTimeParticlesAnimationFire = TimeManager::Instance().GetTime();
+
+		 shaderParticlesFire.setInt("Pass", 1);
+		 shaderParticlesFire.setFloat("Time", currTimeParticlesAnimationFire);
+		 shaderParticlesFire.setFloat("DeltaT", currTimeParticlesAnimationFire - lastTimeParticlesAnimationFire);
+
+		 glActiveTexture(GL_TEXTURE1);
+		 glBindTexture(GL_TEXTURE_1D, texId);
+		 glEnable(GL_RASTERIZER_DISCARD);
+		 glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, feedback[drawBuf]);
+		 glBeginTransformFeedback(GL_POINTS);
+		 glBindVertexArray(particleArray[1 - drawBuf]);
+		 glVertexAttribDivisor(0, 0);
+		 glVertexAttribDivisor(1, 0);
+		 glVertexAttribDivisor(2, 0);
+		 glDrawArrays(GL_POINTS, 0, nParticlesFire);
+		 glEndTransformFeedback();
+		 glDisable(GL_RASTERIZER_DISCARD);
+
+		 shaderParticlesFire.setInt("Pass", 2);
+		 glm::mat4 modelFireParticles = glm::mat4(1.0);; //modelMatrixDoor;
+		 modelFireParticles = glm::translate(modelFireParticles, it->second.second);
+		 modelFireParticles[3][1] = terrain.getHeightTerrain(modelFireParticles[3][0], modelFireParticles[3][2]);
+		 modelFireParticles = glm::scale(modelFireParticles, glm::vec3(1.0, 1.0, 1.0));
+		 shaderParticlesFire.setMatrix4("model", 1, false, glm::value_ptr(modelFireParticles));
+
+		 shaderParticlesFire.turnOn();
+		 glActiveTexture(GL_TEXTURE0);
+		 glBindTexture(GL_TEXTURE_2D, textureParticleFireID);
+		 glDepthMask(GL_FALSE);
+		 glBindVertexArray(particleArray[drawBuf]);
+		 glVertexAttribDivisor(0, 1);
+		 glVertexAttribDivisor(1, 1);
+		 glVertexAttribDivisor(2, 1);
+		 glDrawArraysInstanced(GL_TRIANGLES, 0, 6, nParticlesFire);
+		 glBindVertexArray(0);
+		 glDepthMask(GL_TRUE);
+		 drawBuf = 1 - drawBuf;
+		 shaderParticlesFire.turnOff();
+
+		}else if (it->second.first.compare("Hogera2") == 0){
+		/**********
+		 * Init Render particles systems
+		 */
+ 		 lastTimeParticlesAnimationFire = currTimeParticlesAnimationFire;
+		 currTimeParticlesAnimationFire = TimeManager::Instance().GetTime();
+
+		 shaderParticlesFire.setInt("Pass", 1);
+		 shaderParticlesFire.setFloat("Time", currTimeParticlesAnimationFire);
+		 shaderParticlesFire.setFloat("DeltaT", currTimeParticlesAnimationFire - lastTimeParticlesAnimationFire);
+
+		 glActiveTexture(GL_TEXTURE1);
+		 glBindTexture(GL_TEXTURE_1D, texId);
+		 glEnable(GL_RASTERIZER_DISCARD);
+		 glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, feedback[drawBuf]);
+		 glBeginTransformFeedback(GL_POINTS);
+		 glBindVertexArray(particleArray[1 - drawBuf]);
+		 glVertexAttribDivisor(0, 0);
+		 glVertexAttribDivisor(1, 0);
+		 glVertexAttribDivisor(2, 0);
+		 glDrawArrays(GL_POINTS, 0, nParticlesFire);
+		 glEndTransformFeedback();
+		 glDisable(GL_RASTERIZER_DISCARD);
+
+		 shaderParticlesFire.setInt("Pass", 2);
+		 glm::mat4 modelFireParticles = glm::mat4(1.0); //modelMatrixDoor;
+		 modelFireParticles = glm::translate(modelFireParticles, it->second.second);
+		 modelFireParticles[3][1] = terrain.getHeightTerrain(modelFireParticles[3][0], modelFireParticles[3][2]);
+		 modelFireParticles = glm::scale(modelFireParticles, glm::vec3(1.0, 1.0, 1.0));
+		 shaderParticlesFire.setMatrix4("model", 1, false, glm::value_ptr(modelFireParticles));
+
+		 shaderParticlesFire.turnOn();
+		 glActiveTexture(GL_TEXTURE0);
+		 glBindTexture(GL_TEXTURE_2D, textureParticleFireID);
+		 glDepthMask(GL_FALSE);
+		 glBindVertexArray(particleArray[drawBuf]);
+		 glVertexAttribDivisor(0, 1);
+		 glVertexAttribDivisor(1, 1);
+		 glVertexAttribDivisor(2, 1);
+		 glDrawArraysInstanced(GL_TRIANGLES, 0, 6, nParticlesFire);
+		 glBindVertexArray(0);
+		 glDepthMask(GL_TRUE);
+		 drawBuf = 1 - drawBuf;
+		 shaderParticlesFire.turnOff();
+ 
+
+
+
+		}else if (it->second.first.compare("Hogera3") == 0){
+		/**********
+		 * Init Render particles systems
+		 */
+		 lastTimeParticlesAnimationFire = currTimeParticlesAnimationFire;
+		 currTimeParticlesAnimationFire = TimeManager::Instance().GetTime();
+
+		 shaderParticlesFire.setInt("Pass", 1);
+		 shaderParticlesFire.setFloat("Time", currTimeParticlesAnimationFire);
+		 shaderParticlesFire.setFloat("DeltaT", currTimeParticlesAnimationFire - lastTimeParticlesAnimationFire);
+
+		 glActiveTexture(GL_TEXTURE1);
+		 glBindTexture(GL_TEXTURE_1D, texId);
+		 glEnable(GL_RASTERIZER_DISCARD);
+		 glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, feedback[drawBuf]);
+		 glBeginTransformFeedback(GL_POINTS);
+		 glBindVertexArray(particleArray[1 - drawBuf]);
+		 glVertexAttribDivisor(0, 0);
+		 glVertexAttribDivisor(1, 0);
+		 glVertexAttribDivisor(2, 0);
+		 glDrawArrays(GL_POINTS, 0, nParticlesFire);
+		 glEndTransformFeedback();
+		 glDisable(GL_RASTERIZER_DISCARD);
+
+		 shaderParticlesFire.setInt("Pass", 2);
+		 glm::mat4 modelFireParticles = glm::mat4(1.0); //modelMatrixDoor;
+		 modelFireParticles = glm::translate(modelFireParticles, it->second.second);
+		 modelFireParticles[3][1] = terrain.getHeightTerrain(modelFireParticles[3][0], modelFireParticles[3][2]);
+		 modelFireParticles = glm::scale(modelFireParticles, glm::vec3(1.0, 1.0, 1.0));
+		 shaderParticlesFire.setMatrix4("model", 1, false, glm::value_ptr(modelFireParticles));
+
+		 shaderParticlesFire.turnOn();
+		 glActiveTexture(GL_TEXTURE0);
+		 glBindTexture(GL_TEXTURE_2D, textureParticleFireID);
+		 glDepthMask(GL_FALSE);
+		 glBindVertexArray(particleArray[drawBuf]);
+		 glVertexAttribDivisor(0, 1);
+		 glVertexAttribDivisor(1, 1);
+		 glVertexAttribDivisor(2, 1);
+		 glDrawArraysInstanced(GL_TRIANGLES, 0, 6, nParticlesFire);
+		 glBindVertexArray(0);
+		 glDepthMask(GL_TRUE);
+		 drawBuf = 1 - drawBuf;
+		 shaderParticlesFire.turnOff();
+
+
+
+
+		}else if (it->second.first.compare("Hogera4") == 0){
+		/**********
+		 * Init Render particles systems
+		 */
+ 		 lastTimeParticlesAnimationFire = currTimeParticlesAnimationFire;
+		 currTimeParticlesAnimationFire = TimeManager::Instance().GetTime();
+
+		 shaderParticlesFire.setInt("Pass", 1);
+		 shaderParticlesFire.setFloat("Time", currTimeParticlesAnimationFire);
+		 shaderParticlesFire.setFloat("DeltaT", currTimeParticlesAnimationFire - lastTimeParticlesAnimationFire);
+
+		 glActiveTexture(GL_TEXTURE1);
+		 glBindTexture(GL_TEXTURE_1D, texId);
+		 glEnable(GL_RASTERIZER_DISCARD);
+		 glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, feedback[drawBuf]);
+		 glBeginTransformFeedback(GL_POINTS);
+		 glBindVertexArray(particleArray[1 - drawBuf]);
+		 glVertexAttribDivisor(0, 0);
+		 glVertexAttribDivisor(1, 0);
+		 glVertexAttribDivisor(2, 0);
+		 glDrawArrays(GL_POINTS, 0, nParticlesFire);
+		 glEndTransformFeedback();
+		 glDisable(GL_RASTERIZER_DISCARD);
+
+		 shaderParticlesFire.setInt("Pass", 2);
+		 glm::mat4 modelFireParticles = glm::mat4(1.0); //modelMatrixDoor;
+		 modelFireParticles = glm::translate(modelFireParticles, it->second.second);
+		 modelFireParticles[3][1] = terrain.getHeightTerrain(modelFireParticles[3][0], modelFireParticles[3][2]);
+		 modelFireParticles = glm::scale(modelFireParticles, glm::vec3(1.0, 1.0, 1.0));
+		 shaderParticlesFire.setMatrix4("model", 1, false, glm::value_ptr(modelFireParticles));
+
+		 shaderParticlesFire.turnOn();
+		 glActiveTexture(GL_TEXTURE0);
+		 glBindTexture(GL_TEXTURE_2D, textureParticleFireID);
+		 glDepthMask(GL_FALSE);
+		 glBindVertexArray(particleArray[drawBuf]);
+		 glVertexAttribDivisor(0, 1);
+		 glVertexAttribDivisor(1, 1);
+		 glVertexAttribDivisor(2, 1);
+		 glDrawArraysInstanced(GL_TRIANGLES, 0, 6, nParticlesFire);
+		 glBindVertexArray(0);
+		 glDepthMask(GL_TRUE);
+		 drawBuf = 1 - drawBuf;
+		 shaderParticlesFire.turnOff();
+
+		}else if (it->second.first.compare("Hogera5") == 0){
+		/**********
+		 * Init Render particles systems
+		 */
+		 lastTimeParticlesAnimationFire = currTimeParticlesAnimationFire;
+		 currTimeParticlesAnimationFire = TimeManager::Instance().GetTime();
+
+		 shaderParticlesFire.setInt("Pass", 1);
+		 shaderParticlesFire.setFloat("Time", currTimeParticlesAnimationFire);
+		 shaderParticlesFire.setFloat("DeltaT", currTimeParticlesAnimationFire - lastTimeParticlesAnimationFire);
+
+		 glActiveTexture(GL_TEXTURE1);
+		 glBindTexture(GL_TEXTURE_1D, texId);
+		 glEnable(GL_RASTERIZER_DISCARD);
+		 glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, feedback[drawBuf]);
+		 glBeginTransformFeedback(GL_POINTS);
+		 glBindVertexArray(particleArray[1 - drawBuf]);
+		 glVertexAttribDivisor(0, 0);
+		 glVertexAttribDivisor(1, 0);
+		 glVertexAttribDivisor(2, 0);
+		 glDrawArrays(GL_POINTS, 0, nParticlesFire);
+		 glEndTransformFeedback();
+		 glDisable(GL_RASTERIZER_DISCARD);
+
+		 shaderParticlesFire.setInt("Pass", 2);
+		 glm::mat4 modelFireParticles = glm::mat4(1.0); //modelMatrixDoor;
+		 modelFireParticles = glm::translate(modelFireParticles, it->second.second);
+		 modelFireParticles[3][1] = terrain.getHeightTerrain(modelFireParticles[3][0], modelFireParticles[3][2]);
+		 modelFireParticles = glm::scale(modelFireParticles, glm::vec3(1.0, 1.0, 1.0));
+		 shaderParticlesFire.setMatrix4("model", 1, false, glm::value_ptr(modelFireParticles));
+
+		 shaderParticlesFire.turnOn();
+		 glActiveTexture(GL_TEXTURE0);
+		 glBindTexture(GL_TEXTURE_2D, textureParticleFireID);
+		 glDepthMask(GL_FALSE);
+		 glBindVertexArray(particleArray[drawBuf]);
+		 glVertexAttribDivisor(0, 1);
+		 glVertexAttribDivisor(1, 1);
+		 glVertexAttribDivisor(2, 1);
+		 glDrawArraysInstanced(GL_TRIANGLES, 0, 6, nParticlesFire);
+		 glBindVertexArray(0);
+		 glDepthMask(GL_TRUE);
+		 drawBuf = 1 - drawBuf;
+		 shaderParticlesFire.turnOff();
+
+
+
+
+		}else if (it->second.first.compare("Hogera6") == 0){
+		/**********
+		 * Init Render particles systems
+		 */
+		 lastTimeParticlesAnimationFire = currTimeParticlesAnimationFire;
+		 currTimeParticlesAnimationFire = TimeManager::Instance().GetTime();
+
+		 shaderParticlesFire.setInt("Pass", 1);
+		 shaderParticlesFire.setFloat("Time", currTimeParticlesAnimationFire);
+		 shaderParticlesFire.setFloat("DeltaT", currTimeParticlesAnimationFire - lastTimeParticlesAnimationFire);
+
+		 glActiveTexture(GL_TEXTURE1);
+		 glBindTexture(GL_TEXTURE_1D, texId);
+		 glEnable(GL_RASTERIZER_DISCARD);
+		 glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, feedback[drawBuf]);
+		 glBeginTransformFeedback(GL_POINTS);
+		 glBindVertexArray(particleArray[1 - drawBuf]);
+		 glVertexAttribDivisor(0, 0);
+		 glVertexAttribDivisor(1, 0);
+		 glVertexAttribDivisor(2, 0);
+		 glDrawArrays(GL_POINTS, 0, nParticlesFire);
+		 glEndTransformFeedback();
+		 glDisable(GL_RASTERIZER_DISCARD);
+
+		 shaderParticlesFire.setInt("Pass", 2);
+		 glm::mat4 modelFireParticles = glm::mat4(1.0); //modelMatrixDoor;
+		 modelFireParticles = glm::translate(modelFireParticles, it->second.second);
+		 modelFireParticles[3][1] = terrain.getHeightTerrain(modelFireParticles[3][0], modelFireParticles[3][2]);
+		 modelFireParticles = glm::scale(modelFireParticles, glm::vec3(1.0, 1.0, 1.0));
+		 shaderParticlesFire.setMatrix4("model", 1, false, glm::value_ptr(modelFireParticles));
+
+		 shaderParticlesFire.turnOn();
+		 glActiveTexture(GL_TEXTURE0);
+		 glBindTexture(GL_TEXTURE_2D, textureParticleFireID);
+		 glDepthMask(GL_FALSE);
+		 glBindVertexArray(particleArray[drawBuf]);
+		 glVertexAttribDivisor(0, 1);
+		 glVertexAttribDivisor(1, 1);
+		 glVertexAttribDivisor(2, 1);
+		 glDrawArraysInstanced(GL_TRIANGLES, 0, 6, nParticlesFire);
+		 glBindVertexArray(0);
+		 glDepthMask(GL_TRUE);
+		 drawBuf = 1 - drawBuf;
+		 shaderParticlesFire.turnOff();
+
+
+
+
+		}else if (it->second.first.compare("Hogera7") == 0){
+		/**********
+		 * Init Render particles systems
+		 */
+		 lastTimeParticlesAnimationFire = currTimeParticlesAnimationFire;
+		 currTimeParticlesAnimationFire = TimeManager::Instance().GetTime();
+
+		 shaderParticlesFire.setInt("Pass", 1);
+		 shaderParticlesFire.setFloat("Time", currTimeParticlesAnimationFire);
+		 shaderParticlesFire.setFloat("DeltaT", currTimeParticlesAnimationFire - lastTimeParticlesAnimationFire);
+
+		 glActiveTexture(GL_TEXTURE1);
+		 glBindTexture(GL_TEXTURE_1D, texId);
+		 glEnable(GL_RASTERIZER_DISCARD);
+		 glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, feedback[drawBuf]);
+		 glBeginTransformFeedback(GL_POINTS);
+		 glBindVertexArray(particleArray[1 - drawBuf]);
+		 glVertexAttribDivisor(0, 0);
+		 glVertexAttribDivisor(1, 0);
+		 glVertexAttribDivisor(2, 0);
+		 glDrawArrays(GL_POINTS, 0, nParticlesFire);
+		 glEndTransformFeedback();
+		 glDisable(GL_RASTERIZER_DISCARD);
+
+		 shaderParticlesFire.setInt("Pass", 2);
+		 glm::mat4 modelFireParticles = glm::mat4(1.0); //modelMatrixDoor;
+		 modelFireParticles = glm::translate(modelFireParticles, it->second.second);
+		 modelFireParticles[3][1] = terrain.getHeightTerrain(modelFireParticles[3][0], modelFireParticles[3][2]);
+		 modelFireParticles = glm::scale(modelFireParticles, glm::vec3(1.0, 1.0, 1.0));
+		 shaderParticlesFire.setMatrix4("model", 1, false, glm::value_ptr(modelFireParticles));
+
+		 shaderParticlesFire.turnOn();
+		 glActiveTexture(GL_TEXTURE0);
+		 glBindTexture(GL_TEXTURE_2D, textureParticleFireID);
+		 glDepthMask(GL_FALSE);
+		 glBindVertexArray(particleArray[drawBuf]);
+		 glVertexAttribDivisor(0, 1);
+		 glVertexAttribDivisor(1, 1);
+		 glVertexAttribDivisor(2, 1);
+		 glDrawArraysInstanced(GL_TRIANGLES, 0, 6, nParticlesFire);
+		 glBindVertexArray(0);
+		 glDepthMask(GL_TRUE);
+		 drawBuf = 1 - drawBuf;
+		 shaderParticlesFire.turnOff();
+
+
+
+
+		}else if (it->second.first.compare("Hogera8") == 0){
+		/**********
+		 * Init Render particles systems
+		 */
+		 lastTimeParticlesAnimationFire = currTimeParticlesAnimationFire;
+		 currTimeParticlesAnimationFire = TimeManager::Instance().GetTime();
+
+		 shaderParticlesFire.setInt("Pass", 1);
+		 shaderParticlesFire.setFloat("Time", currTimeParticlesAnimationFire);
+		 shaderParticlesFire.setFloat("DeltaT", currTimeParticlesAnimationFire - lastTimeParticlesAnimationFire);
+
+		 glActiveTexture(GL_TEXTURE1);
+		 glBindTexture(GL_TEXTURE_1D, texId);
+		 glEnable(GL_RASTERIZER_DISCARD);
+		 glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, feedback[drawBuf]);
+		 glBeginTransformFeedback(GL_POINTS);
+		 glBindVertexArray(particleArray[1 - drawBuf]);
+		 glVertexAttribDivisor(0, 0);
+		 glVertexAttribDivisor(1, 0);
+		 glVertexAttribDivisor(2, 0);
+		 glDrawArrays(GL_POINTS, 0, nParticlesFire);
+		 glEndTransformFeedback();
+		 glDisable(GL_RASTERIZER_DISCARD);
+
+		 shaderParticlesFire.setInt("Pass", 2);
+		 glm::mat4 modelFireParticles = glm::mat4(1.0); //modelMatrixDoor;
+		 modelFireParticles = glm::translate(modelFireParticles, it->second.second);
+		 modelFireParticles[3][1] = terrain.getHeightTerrain(modelFireParticles[3][0], modelFireParticles[3][2]);
+		 modelFireParticles = glm::scale(modelFireParticles, glm::vec3(1.0, 1.0, 1.0));
+		 shaderParticlesFire.setMatrix4("model", 1, false, glm::value_ptr(modelFireParticles));
+
+		 shaderParticlesFire.turnOn();
+		 glActiveTexture(GL_TEXTURE0);
+		 glBindTexture(GL_TEXTURE_2D, textureParticleFireID);
+		 glDepthMask(GL_FALSE);
+		 glBindVertexArray(particleArray[drawBuf]);
+		 glVertexAttribDivisor(0, 1);
+		 glVertexAttribDivisor(1, 1);
+		 glVertexAttribDivisor(2, 1);
+		 glDrawArraysInstanced(GL_TRIANGLES, 0, 6, nParticlesFire);
+		 glBindVertexArray(0);
+		 glDepthMask(GL_TRUE);
+		 drawBuf = 1 - drawBuf;
+		 shaderParticlesFire.turnOff();
+
+
+
+
+		}else if (it->second.first.compare("Hogera9") == 0){
+		/**********
+		 * Init Render particles systems
+		 */
+		 lastTimeParticlesAnimationFire = currTimeParticlesAnimationFire;
+		 currTimeParticlesAnimationFire = TimeManager::Instance().GetTime();
+
+		 shaderParticlesFire.setInt("Pass", 1);
+		 shaderParticlesFire.setFloat("Time", currTimeParticlesAnimationFire);
+		 shaderParticlesFire.setFloat("DeltaT", currTimeParticlesAnimationFire - lastTimeParticlesAnimationFire);
+
+		 glActiveTexture(GL_TEXTURE1);
+		 glBindTexture(GL_TEXTURE_1D, texId);
+		 glEnable(GL_RASTERIZER_DISCARD);
+		 glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, feedback[drawBuf]);
+		 glBeginTransformFeedback(GL_POINTS);
+		 glBindVertexArray(particleArray[1 - drawBuf]);
+		 glVertexAttribDivisor(0, 0);
+		 glVertexAttribDivisor(1, 0);
+		 glVertexAttribDivisor(2, 0);
+		 glDrawArrays(GL_POINTS, 0, nParticlesFire);
+		 glEndTransformFeedback();
+		 glDisable(GL_RASTERIZER_DISCARD);
+
+		 shaderParticlesFire.setInt("Pass", 2);
+		 glm::mat4 modelFireParticles = glm::mat4(1.0); //modelMatrixDoor;
+		 modelFireParticles = glm::translate(modelFireParticles, it->second.second);
+		 modelFireParticles[3][1] = terrain.getHeightTerrain(modelFireParticles[3][0], modelFireParticles[3][2]);
+		 modelFireParticles = glm::scale(modelFireParticles, glm::vec3(1.0, 1.0, 1.0));
+		 shaderParticlesFire.setMatrix4("model", 1, false, glm::value_ptr(modelFireParticles));
+
+		 shaderParticlesFire.turnOn();
+		 glActiveTexture(GL_TEXTURE0);
+		 glBindTexture(GL_TEXTURE_2D, textureParticleFireID);
+		 glDepthMask(GL_FALSE);
+		 glBindVertexArray(particleArray[drawBuf]);
+		 glVertexAttribDivisor(0, 1);
+		 glVertexAttribDivisor(1, 1);
+		 glVertexAttribDivisor(2, 1);
+		 glDrawArraysInstanced(GL_TRIANGLES, 0, 6, nParticlesFire);
+		 glBindVertexArray(0);
+		 glDepthMask(GL_TRUE);
+		 drawBuf = 1 - drawBuf;
+		 shaderParticlesFire.turnOff();
+
+		}else if (it->second.first.compare("Hogera10") == 0){
+		/**********
+		 * Init Render particles systems
+		 */
+		 lastTimeParticlesAnimationFire = currTimeParticlesAnimationFire;
+		 currTimeParticlesAnimationFire = TimeManager::Instance().GetTime();
+
+		 shaderParticlesFire.setInt("Pass", 1);
+		 shaderParticlesFire.setFloat("Time", currTimeParticlesAnimationFire);
+		 shaderParticlesFire.setFloat("DeltaT", currTimeParticlesAnimationFire - lastTimeParticlesAnimationFire);
+
+		 glActiveTexture(GL_TEXTURE1);
+		 glBindTexture(GL_TEXTURE_1D, texId);
+		 glEnable(GL_RASTERIZER_DISCARD);
+		 glBindTransformFeedback(GL_TRANSFORM_FEEDBACK, feedback[drawBuf]);
+		 glBeginTransformFeedback(GL_POINTS);
+		 glBindVertexArray(particleArray[1 - drawBuf]);
+		 glVertexAttribDivisor(0, 0);
+		 glVertexAttribDivisor(1, 0);
+		 glVertexAttribDivisor(2, 0);
+		 glDrawArrays(GL_POINTS, 0, nParticlesFire);
+		 glEndTransformFeedback();
+		 glDisable(GL_RASTERIZER_DISCARD);
+
+		 shaderParticlesFire.setInt("Pass", 2);
+		 glm::mat4 modelFireParticles = glm::mat4(1.0); //modelMatrixDoor;
+		 modelFireParticles = glm::translate(modelFireParticles, it->second.second);
+		 modelFireParticles[3][1] = terrain.getHeightTerrain(modelFireParticles[3][0], modelFireParticles[3][2]);
+		 modelFireParticles = glm::scale(modelFireParticles, glm::vec3(1.0, 1.0, 1.0));
+		 shaderParticlesFire.setMatrix4("model", 1, false, glm::value_ptr(modelFireParticles));
+
+		 shaderParticlesFire.turnOn();
+		 glActiveTexture(GL_TEXTURE0);
+		 glBindTexture(GL_TEXTURE_2D, textureParticleFireID);
+		 glDepthMask(GL_FALSE);
+		 glBindVertexArray(particleArray[drawBuf]);
+		 glVertexAttribDivisor(0, 1);
+		 glVertexAttribDivisor(1, 1);
+		 glVertexAttribDivisor(2, 1);
+		 glDrawArraysInstanced(GL_TRIANGLES, 0, 6, nParticlesFire);
+		 glBindVertexArray(0);
+		 glDepthMask(GL_TRUE);
+		 drawBuf = 1 - drawBuf;
+		 shaderParticlesFire.turnOff();
+
 		}
 	}
-	//glEnable(GL_CULL_FACE);
+	glEnable(GL_CULL_FACE);
 	glDisable(GL_BLEND);
 
 	if(render){
@@ -1401,8 +1961,9 @@ void applicationLoop() {
 	float angleTarget;
 
 	//personaje
-	modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(32.8125,0,36.71875));//glm::vec3(-10.0f, 0.0f, -20.0f));
+	modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(79.3,0,52.3));//glm::vec3(-10.0f, 0.0f, -20.0f));
 	modelMatrixMayow = glm::rotate(modelMatrixMayow, glm::radians(-90.0f), glm::vec3(0, 1, 0));
+	
 	//casa
 	if(mapa == 0){
 		modelMatrixCasa = glm::translate(modelMatrixCasa,glm::vec3(32.8125,0,36.71875));
@@ -1433,6 +1994,10 @@ void applicationLoop() {
 	lastTime = TimeManager::Instance().GetTime();
 
 	textureActivaID = textureInit1ID;
+
+	// Time for the particles animation
+	currTimeParticlesAnimationFire = lastTime;
+	lastTimeParticlesAnimationFire = lastTime;
 
 	glm::vec3 lightPos = glm::vec3(10.0, 10.0, -10.0);
 
@@ -1513,11 +2078,10 @@ void applicationLoop() {
 				glm::value_ptr(view));
 		shaderTerrain.setMatrix4("lightSpaceMatrix", 1, false,
 				glm::value_ptr(lightSpaceMatrix));
-		// Settea la matriz de vista y projection al shader para el fountain
-		/*shaderParticlesFountain.setMatrix4("projection", 1, false,
-				glm::value_ptr(projection));
-		shaderParticlesFountain.setMatrix4("view", 1, false,
-				glm::value_ptr(view));*/
+		// Settea la matriz de vista y projection al shader para las hogeras
+		shaderParticlesFire.setInt("Pass", 2);
+		shaderParticlesFire.setMatrix4("projection", 1, false, glm::value_ptr(projection));
+		shaderParticlesFire.setMatrix4("view", 1, false, glm::value_ptr(view));
 
 		/*******************************************
 		 * Propiedades de neblina
