@@ -8,28 +8,24 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Bones.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.obj" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.obj.d"
-  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Box.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.obj" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.obj.d"
-  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Cylinder.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.obj" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.obj.d"
-  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/FirstPersonCamera.cpp" "CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.obj" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.obj.d"
-  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/FontTypeRendering.cpp" "CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.obj" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.obj.d"
-  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Mesh.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.obj" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.obj.d"
-  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Model.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.obj" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.obj.d"
-  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Shader.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.obj" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.obj.d"
-  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/ShadowBox.cpp" "CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.obj" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.obj.d"
-  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Sphere.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.obj" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.obj.d"
-  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Terrain.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.obj" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.obj.d"
-  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/Texture.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.obj" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.obj.d"
-  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/ThirdPersonCamera.cpp" "CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.obj" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.obj.d"
-  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/src/TimeManager.cpp" "CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.obj" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.obj.d"
+  "/home/roa/Documentos/ProyectoCGA/CGALib/src/Bones.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.o" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.o.d"
+  "/home/roa/Documentos/ProyectoCGA/CGALib/src/Box.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.o" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.o.d"
+  "/home/roa/Documentos/ProyectoCGA/CGALib/src/Cylinder.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.o" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.o.d"
+  "/home/roa/Documentos/ProyectoCGA/CGALib/src/FirstPersonCamera.cpp" "CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.o" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.o.d"
+  "/home/roa/Documentos/ProyectoCGA/CGALib/src/FontTypeRendering.cpp" "CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.o" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.o.d"
+  "/home/roa/Documentos/ProyectoCGA/CGALib/src/Mesh.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.o" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.o.d"
+  "/home/roa/Documentos/ProyectoCGA/CGALib/src/Model.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.o" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.o.d"
+  "/home/roa/Documentos/ProyectoCGA/CGALib/src/Shader.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.o" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.o.d"
+  "/home/roa/Documentos/ProyectoCGA/CGALib/src/ShadowBox.cpp" "CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.o" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.o.d"
+  "/home/roa/Documentos/ProyectoCGA/CGALib/src/Sphere.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.o" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.o.d"
+  "/home/roa/Documentos/ProyectoCGA/CGALib/src/Terrain.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.o" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.o.d"
+  "/home/roa/Documentos/ProyectoCGA/CGALib/src/Texture.cpp" "CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.o" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.o.d"
+  "/home/roa/Documentos/ProyectoCGA/CGALib/src/ThirdPersonCamera.cpp" "CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.o" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.o.d"
+  "/home/roa/Documentos/ProyectoCGA/CGALib/src/TimeManager.cpp" "CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o" "gcc" "CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o.d"
   )
 
-# Targets to which this target links which contain Fortran sources.
-set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
-  )
-
-# Targets to which this target links which contain Fortran sources.
-set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.

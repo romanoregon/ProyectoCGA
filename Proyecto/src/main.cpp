@@ -910,7 +910,7 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	}
 
 	alSourcef(source[0], AL_PITCH, 1.0f);
-	alSourcef(source[0], AL_GAIN, 1.0f);
+	alSourcef(source[0], AL_GAIN, 0.5f);
 	alSourcefv(source[0], AL_POSITION, source0Pos);
 	alSourcefv(source[0], AL_VELOCITY, source0Vel);
 	alSourcei(source[0], AL_BUFFER, buffer[1]);
@@ -1148,10 +1148,10 @@ bool processInput(bool continueApplication) {
 		if(modelSelected == 0){
 			if(fabs(axes[1]) > 0.2){
 				modelMatrixMain = glm::translate(modelMatrixMain, glm::vec3(0, 0, -axes[1] * 0.1));
-				animationMainIndex = 1;
+				animationMainIndex = 2;
 			}if(fabs(axes[0]) > 0.2){
 				modelMatrixMain = glm::rotate(modelMatrixMain, glm::radians(-axes[0] * 0.5f), glm::vec3(0, 1, 0));
-				animationMainIndex = 1;
+				animationMainIndex = 2;
 			}		
 		}
 		if (modelSelected == 1){
@@ -1224,64 +1224,64 @@ bool processInput(bool continueApplication) {
 		// Controles de mayow
 		if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
 			modelMatrixMain = glm::rotate(modelMatrixMain, 0.1f, glm::vec3(0, 1, 0));
-			animationMainIndex = 1;
-			alSourceStop(source[2]);
+			animationMainIndex = 2;
+			
 		} else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS){
 			modelMatrixMain = glm::rotate(modelMatrixMain, -0.1f, glm::vec3(0, 1, 0));
-			animationMainIndex = 1;
-			alSourceStop(source[2]);
+			animationMainIndex = 2;
+			
 		}
 		if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
 			modelMatrixMain = glm::translate(modelMatrixMain, glm::vec3(0.0, 0.0, 0.06));
-			animationMainIndex = 1;
-			alSourceStop(source[2]);
+			animationMainIndex = 2;
+			
 		}
 		else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
 			modelMatrixMain = glm::translate(modelMatrixMain, glm::vec3(0.0, 0.0, -0.06));
-			animationMainIndex = 1;
-			alSourceStop(source[2]);
+			animationMainIndex = 2;
+			
 		}
 	}else if(modelSelected == 1){
 		// Controles de mayow
 		if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
 			modelMatrixMain1 = glm::rotate(modelMatrixMain1, 0.1f, glm::vec3(0, 1, 0));
 			animationMain1Index = 1;
-			alSourceStop(source[2]);
+			
 		} else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS){
 			modelMatrixMain1 = glm::rotate(modelMatrixMain1, -0.1f, glm::vec3(0, 1, 0));
 			animationMain1Index = 1;
-			alSourceStop(source[2]);
+			
 		}
 		if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
 			modelMatrixMain1 = glm::translate(modelMatrixMain1, glm::vec3(0.0, 0.0, 0.06));
 			animationMain1Index = 2;
-			alSourceStop(source[2]);
+			
 		}
 		else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
 			modelMatrixMain1 = glm::translate(modelMatrixMain1, glm::vec3(0.0, 0.0, -0.06));
 			animationMain1Index = 2;
-			alSourceStop(source[2]);
+			
 		}
 	}else if(modelSelected == 2){
 		// Controles de mayow
 		if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
 			modelMatrixMain2 = glm::rotate(modelMatrixMain2, 0.1f, glm::vec3(0, 1, 0));
 			animationMain2Index = 1;
-			alSourceStop(source[2]);
+			
 		} else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS){
 			modelMatrixMain2 = glm::rotate(modelMatrixMain2, -0.1f, glm::vec3(0, 1, 0));
 			animationMain2Index = 1;
-			alSourceStop(source[2]);
+			
 		}
 		if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
 			modelMatrixMain2 = glm::translate(modelMatrixMain2, glm::vec3(0.0, 0.0, 0.06));
 			animationMain2Index = 1;
-			alSourceStop(source[2]);
+			
 		}
 		else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
 			modelMatrixMain2 = glm::translate(modelMatrixMain2, glm::vec3(0.0, 0.0, -0.06));
 			animationMain2Index = 1;
-			alSourceStop(source[2]);
+			
 		}
 	}
 
@@ -2125,10 +2125,10 @@ void applicationLoop() {
 
 	float speed = 0.5f; // velocidad del Zombie
 
-	modelMatrixZombie = glm::translate(modelMatrixZombie, glm::vec3(-20.0f, 0.0f, -10.0f));
+	modelMatrixZombie = glm::translate(modelMatrixZombie, glm::vec3(-15.6f, 0.0f, -18.9f));
 	modelMatrixZombie = glm::rotate(modelMatrixZombie, glm::radians(-90.0f), glm::vec3(0, 1, 0));
 
-	modelMatrixZombie1 = glm::translate(modelMatrixZombie1, glm::vec3(-30.0f, 0.0f, -10.0f));
+	modelMatrixZombie1 = glm::translate(modelMatrixZombie1, glm::vec3(-15.6f, 0.0f, -18.9f));
 	modelMatrixZombie1 = glm::rotate(modelMatrixZombie1, glm::radians(-90.0f), glm::vec3(0, 1, 0));
 
 
