@@ -11,7 +11,7 @@
 						1,
 						2
 					],
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0.0"
@@ -21,7 +21,7 @@
 				},
 				{
 					"build" : "CGALib",
-					"jsonFile" : "directory-CGALib-Debug-a44a7ab7607dc5913aba.json",
+					"jsonFile" : "directory-CGALib-Release-a44a7ab7607dc5913aba.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0.0"
@@ -36,7 +36,7 @@
 				},
 				{
 					"build" : "Proyecto",
-					"jsonFile" : "directory-Proyecto-Debug-7c261c164c2b9452f1af.json",
+					"jsonFile" : "directory-Proyecto-Release-7c261c164c2b9452f1af.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.0.0"
@@ -50,7 +50,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "Release",
 			"projects" : 
 			[
 				{
@@ -73,14 +73,14 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "CGALib::@1a9f62cd0483ef4537e7",
-					"jsonFile" : "target-CGALib-Debug-e30e87664905fc294221.json",
+					"jsonFile" : "target-CGALib-Release-849b73a7291f857e8e4a.json",
 					"name" : "CGALib",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "Proyecto::@b3d659ccca68cc8557a5",
-					"jsonFile" : "target-Proyecto-Debug-c9bea38dbf99c963bd85.json",
+					"jsonFile" : "target-Proyecto-Release-05dac6d8a6ae24beffaa.json",
 					"name" : "Proyecto",
 					"projectIndex" : 0
 				}

@@ -56,7 +56,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -fPIC"
+					"fragment" : "-O3 -DNDEBUG -fPIC"
 				}
 			],
 			"defines" : 

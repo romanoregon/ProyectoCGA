@@ -6,5 +6,5 @@ CXX_DEFINES = -DBUILDING_DLL
 
 CXX_INCLUDES = -I/home/roa/Documentos/ProyectoCGA/CGALib/include -I/usr/include/freetype2
 
-CXX_FLAGS = -g
+CXX_FLAGS = -O3 -DNDEBUG
 

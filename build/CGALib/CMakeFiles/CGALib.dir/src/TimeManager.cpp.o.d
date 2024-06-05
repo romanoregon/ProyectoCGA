@@ -62,8 +62,8 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
- /usr/include/c++/11/tuple /usr/include/c++/11/utility \
- /usr/include/c++/11/bits/stl_relops.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar2.h /usr/include/c++/11/tuple \
+ /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
  /usr/include/c++/11/bits/stl_pair.h /usr/include/c++/11/initializer_list \
  /usr/include/c++/11/array /usr/include/c++/11/bits/functexcept.h \
  /usr/include/c++/11/bits/stl_algobase.h \
@@ -108,4 +108,6 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
- /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2.h

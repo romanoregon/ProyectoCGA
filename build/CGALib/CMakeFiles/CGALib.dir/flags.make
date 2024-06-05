@@ -6,5 +6,5 @@ CXX_DEFINES = -DBUILDING_DLL -DCGALib_EXPORTS
 
 CXX_INCLUDES = -I/home/roa/Documentos/ProyectoCGA/CGALib/CGALib -I/home/roa/Documentos/ProyectoCGA/CGALib/./include -I/usr/include/freetype2
 
-CXX_FLAGS = -g -fPIC
+CXX_FLAGS = -O3 -DNDEBUG -fPIC
 

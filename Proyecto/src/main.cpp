@@ -175,22 +175,30 @@ bool enableCountSelected = true;
 
 //coordenadas de los arboles primera midad
 std::vector<glm::vec3> PinoPos1 = {
-	glm::vec3(-94.5,0,7.0),glm::vec3(-94.1,0,19.1),glm::vec3(-96.1,0,36.7),
-	glm::vec3(-73.8,0,28.9),glm::vec3(-69.1,0,8.2),glm::vec3(-59.0,0,7.8),
-	glm::vec3(-30.5,0,7.0),glm::vec3(-17.6,0,6.3),glm::vec3(-6.6,0,9.8),
-	glm::vec3(-20.7,0,24.6),glm::vec3(-12.9,0,25.8),glm::vec3(-3.1,0,26.2),
-	glm::vec3(14.8,0,18.0),glm::vec3(20.7,0,9.0),glm::vec3(27.7,0,10.9),
-	glm::vec3(47.7,0,16.8),glm::vec3(-23.4,0,46.9),glm::vec3(-73.8,0,51.2),
-	glm::vec3(-31.3,0,50.8),glm::vec3(-87.1,0,52.0),glm::vec3(-94.9,0,72.3),
-	glm::vec3(-51.6,0,60.2),glm::vec3(-90.1,0,75.0),glm::vec3(-84.0,0,68.4),
-	glm::vec3(-94.1,0,95.7),glm::vec3(-84.8,0,88.3),glm::vec3(-73.4,0,94.5),
-	glm::vec3(-42.2,0,95.7),glm::vec3(-39.5,0,86.3),glm::vec3(-44.9,0,81.6),
-	glm::vec3(-19.9,0,91.8),glm::vec3(-14.5,0,96.1),glm::vec3(-6.3,0,95.7),
-	glm::vec3(-2.0,0,65.2),glm::vec3(-11.3,0,60.5),glm::vec3(-0.4,0,56.3),
-	glm::vec3(18.4,0,94.1),glm::vec3(25.4,0,60.9),glm::vec3(17.6,0,71.1),
-	glm::vec3(46.9,0,92.6),glm::vec3(42.2,0,83.2),glm::vec3(47.3,0,73.0),
-	glm::vec3(57.8,0,84.0),glm::vec3(61.3,0,94.1),glm::vec3(66.0,0,86.3),
-	glm::vec3(94.1,0,90.6),glm::vec3(93.8,0,80.9),glm::vec3(93.8,0,68.4),
+	glm::vec3(-94.5,0,7.0),glm::vec3(-94.1,0,19.1),
+	glm::vec3(-96.1,0,36.7),glm::vec3(-73.8,0,28.9),
+	glm::vec3(-69.1,0,8.2),glm::vec3(-59.0,0,7.8),
+	glm::vec3(-30.5,0,7.0),glm::vec3(-17.6,0,6.3),
+	glm::vec3(-6.6,0,9.8),glm::vec3(-20.7,0,24.6),
+	glm::vec3(-12.9,0,25.8),glm::vec3(-3.1,0,26.2),
+	glm::vec3(14.8,0,18.0),glm::vec3(20.7,0,9.0),
+	glm::vec3(27.7,0,10.9),glm::vec3(47.7,0,16.8),
+	glm::vec3(-23.4,0,46.9),glm::vec3(-73.8,0,51.2),
+	glm::vec3(-31.3,0,50.8),glm::vec3(-87.1,0,52.0),
+	glm::vec3(-94.9,0,72.3),glm::vec3(-51.6,0,60.2),
+	glm::vec3(-90.1,0,75.0),glm::vec3(-84.0,0,68.4),
+	glm::vec3(-94.1,0,95.7),glm::vec3(-84.8,0,88.3),
+	glm::vec3(-73.4,0,94.5),glm::vec3(-42.2,0,95.7),
+	glm::vec3(-39.5,0,86.3),glm::vec3(-44.9,0,81.6),
+	glm::vec3(-19.9,0,91.8),glm::vec3(-14.5,0,96.1),
+	glm::vec3(-6.3,0,95.7),glm::vec3(-2.0,0,65.2),
+	glm::vec3(-11.3,0,60.5),glm::vec3(-0.4,0,56.3),
+	glm::vec3(18.4,0,94.1),glm::vec3(25.4,0,60.9),//
+	glm::vec3(17.6,0,71.1),glm::vec3(46.9,0,92.6),
+	glm::vec3(42.2,0,83.2),glm::vec3(47.3,0,73.0),
+	glm::vec3(57.8,0,84.0),glm::vec3(61.3,0,94.1),
+	glm::vec3(66.0,0,86.3),glm::vec3(94.1,0,90.6),
+	glm::vec3(93.8,0,80.9),glm::vec3(93.8,0,68.4),
 	glm::vec3(73.0,0,63.7),glm::vec3(75.4,0,56.6)
 };
 //coordenadas segunda mitad del mapa
@@ -239,14 +247,14 @@ std::vector<glm::vec3> Casas = {
 
 //parte baja del mapa
 std::vector<glm::vec3> Llaves1 = {
-	glm::vec3(-74.2,0,26.5),
-	glm::vec3(-39.6,0,-85.1),
-	glm::vec3(81.0,0,47.6)
+	glm::vec3(85.1,0,50.5),
+	glm::vec3(26.6,0,72.2),
+	glm::vec3(-75.4,0,58.2)
 };
 //parte de arriba
 std::vector<glm::vec3> Llaves2 = {
 	glm::vec3(86.3,0.0,17.3),
-	glm::vec3(15.4,0,50.1),
+	glm::vec3(25.4,0,50.1),
 	glm::vec3(-46.0,0.0,21.4)
 };
 
@@ -543,6 +551,8 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	Casa.setShader(&shaderMulLighting);
 	Ventanas.loadModel("../models/Casa_avandonada/CasaAbanVentanas.obj");
 	Ventanas.setShader(&shaderMulLighting);
+	Llave.loadModel("../models/Llave/13075_Open_End_wrench_v2_l3.obj");
+	Llave.setShader(&shaderMulLighting);
 
 	// Mayow
 /* 	mayowModelAnimate.loadModel("../models/mayow/personaje2.fbx");
@@ -1016,6 +1026,11 @@ void destroy() {
 	main2ModelAnimate.destroy();
 	zombieModelAnimate.destroy();
 	zombie1ModelAnimate.destroy();
+	Casa.destroy();
+	Llave.destroy();
+	Pino.destroy();
+	Hogera.destroy();
+	Ventanas.destroy();
 
 	// Terrains objects Delete
 	terrain.destroy();
@@ -1344,6 +1359,8 @@ void prepareScene(){
 	Hogera.setShader(&shaderMulLighting);
 	//arboles
 	Pino.setShader(&shaderMulLighting);
+	//Llave
+	Llave.setShader(&shaderMulLighting);
 	// Fountain
 	//modelFountain.setShader(&shaderMulLighting);
 }
@@ -1375,6 +1392,8 @@ void prepareDepthScene(){
 	Hogera.setShader(&shaderDepth);
 	//arboles
 	Pino.setShader(&shaderDepth);
+	//Llave
+	Llave.setShader(&shaderDepth);
 	// Fountain
 	//modelFountain.setShader(&shaderDepth);
 }
@@ -1452,6 +1471,22 @@ void renderSolidScene(){
 		Muro.setPosition(Muros[i]);
 		Muro.setScale(glm::vec3(0.08));			
 		Muro.render();
+	}
+
+	if(mapa == 0){
+		for(int i = 0; i< Llaves1.size() ; i++ ){
+			Llaves1[i].y =terrain.getHeightTerrain(Llaves1[i].x,Llaves1[i].z) + 8.0f;
+			Llave.setPosition(Llaves1[i]);
+			Llave.setScale(glm::vec3(0.3));			
+			Llave.render();
+		}
+	}else{
+		for(int i = 0; i< Llaves2.size() ; i++ ){
+			Llaves2[i].y =terrain.getHeightTerrain(Llaves2[i].x,Llaves2[i].z) + 8.0f;
+			Llave.setPosition(Llaves2[i]);
+			Llave.setScale(glm::vec3(1.0));			
+			Llave.render();
+		}
 	}
 
 	//casas
@@ -2128,7 +2163,7 @@ void applicationLoop() {
 /* 	modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(70.3,0,52.3));//glm::vec3(-10.0f, 0.0f, -20.0f));
 	modelMatrixMayow = glm::rotate(modelMatrixMayow, glm::radians(-90.0f), glm::vec3(0, 1, 0)); */
 
-	modelMatrixMain = glm::translate(modelMatrixMain, glm::vec3(10.0f, 0.0f, 0.0f));
+	modelMatrixMain = glm::translate(modelMatrixMain, glm::vec3(70.3,0.0,52.3));
 	modelMatrixMain = glm::rotate(modelMatrixMain, glm::radians(-90.0f), glm::vec3(0, 1, 0));
 	
 	modelMatrixMain1 = glm::translate(modelMatrixMain1, glm::vec3(70.3,0.0,52.3));
@@ -2140,10 +2175,10 @@ void applicationLoop() {
 
 	float speed = 0.5f; // velocidad del Zombie
 
-	modelMatrixZombie = glm::translate(modelMatrixZombie, glm::vec3(-15.6f, 0.0f, -18.9f));
+	modelMatrixZombie = glm::translate(modelMatrixZombie, glm::vec3(16.6f, 0.0f, 64.9f));
 	modelMatrixZombie = glm::rotate(modelMatrixZombie, glm::radians(-90.0f), glm::vec3(0, 1, 0));
 
-	modelMatrixZombie1 = glm::translate(modelMatrixZombie1, glm::vec3(-15.6f, 0.0f, -18.9f));
+	modelMatrixZombie1 = glm::translate(modelMatrixZombie1, glm::vec3(15.6f, 0.0f, 64.9f));
 	modelMatrixZombie1 = glm::rotate(modelMatrixZombie1, glm::radians(-90.0f), glm::vec3(0, 1, 0));
 
 
@@ -2490,6 +2525,38 @@ void applicationLoop() {
 			muroCollider.e = Muro.getObb().e * glm::vec3(0.078, 0.078, 0.078);
 			std::get<0>(collidersOBB.find("Muro-" + std::to_string(i))->second) = muroCollider;
 		}
+		//Llaves colliders
+		if(mapa == 0){
+			for (int i = 0; i < Llaves1.size(); i++){
+				AbstractModel::OBB LlaveCollider;
+				glm::mat4 modelMatrixColliderLlave= glm::mat4(1.0);
+				modelMatrixColliderLlave = glm::translate(modelMatrixColliderLlave, Llaves1[i]);
+				//modelMatrixColliderLlave = glm::rotate(modelMatrixColliderLlave, glm::radians(lamp1Orientation[i]),glm::vec3(0, 1, 0));
+				addOrUpdateColliders(collidersOBB, "Llave1-" + std::to_string(i), LlaveCollider, modelMatrixColliderLlave);
+				// Set the orientation of collider before doing the scale
+				LlaveCollider.u = glm::quat_cast(modelMatrixColliderLlave);
+				modelMatrixColliderLlave = glm::scale(modelMatrixColliderLlave, glm::vec3(0.078, 0.078, 0.078));
+				modelMatrixColliderLlave = glm::translate(modelMatrixColliderLlave, Llave.getObb().c);
+				LlaveCollider.c = glm::vec3(modelMatrixColliderLlave[3]);
+				LlaveCollider.e = Llave.getObb().e * glm::vec3(0.078, 0.078, 0.078);
+				std::get<0>(collidersOBB.find("Llave-" + std::to_string(i))->second) = LlaveCollider;
+			}
+		}else{
+			for (int i = 0; i < Llaves2.size(); i++){
+				AbstractModel::OBB LlaveCollider;
+				glm::mat4 modelMatrixColliderLlave= glm::mat4(1.0);
+				modelMatrixColliderLlave = glm::translate(modelMatrixColliderLlave, Llaves2[i]);
+				//modelMatrixColliderLlave = glm::rotate(modelMatrixColliderLlave, glm::radians(lamp1Orientation[i]),glm::vec3(0, 1, 0));
+				addOrUpdateColliders(collidersOBB, "Llave2-" + std::to_string(i), LlaveCollider, modelMatrixColliderLlave);
+				// Set the orientation of collider before doing the scale
+				LlaveCollider.u = glm::quat_cast(modelMatrixColliderLlave);
+				modelMatrixColliderLlave = glm::scale(modelMatrixColliderLlave, glm::vec3(0.078, 0.078, 0.078));
+				modelMatrixColliderLlave = glm::translate(modelMatrixColliderLlave, Llave.getObb().c);
+				LlaveCollider.c = glm::vec3(modelMatrixColliderLlave[3]);
+				LlaveCollider.e = Llave.getObb().e * glm::vec3(0.078, 0.078, 0.078);
+				std::get<0>(collidersOBB.find("Llave-" + std::to_string(i))->second) = LlaveCollider;
+			}
+		}
 		// Collider de mayow
 /* 			AbstractModel::OBB mayowCollider;
 			glm::mat4 modelmatrixColliderMayow = glm::mat4(modelMatrixMayow);
@@ -2554,24 +2621,47 @@ void applicationLoop() {
 			addOrUpdateColliders(collidersOBB, "main2", main2Collider, modelMatrixMain2);
 		}
 		//colliders Zombies
-/* 		for(int i=0 ; i < zombies.size(); i++){
-			AbstractModel::OBB mayowCollider;
-			glm::mat4 modelmatrixColliderMayow = glm::mat4(modelMatrixMayow);
-			modelmatrixColliderMayow = glm::rotate(modelmatrixColliderMayow,
-			glm::radians(-90.0f), glm::vec3(1, 0, 0));
-			// Set the orientation of collider before doing the scale
-			mayowCollider.u = glm::quat_cast(modelmatrixColliderMayow);
-			modelmatrixColliderMayow = glm::scale(modelmatrixColliderMayow, glm::vec3(0.021, 0.021, 0.021));
-			modelmatrixColliderMayow = glm::translate(modelmatrixColliderMayow,
-			glm::vec3(mayowModelAnimate.getObb().c.x,mayowModelAnimate.getObb().c.y,mayowModelAnimate.getObb().c.z));
-			mayowCollider.e = mayowModelAnimate.getObb().e * glm::vec3(0.021, 0.021, 0.021) * glm::vec3(0.787401574, 0.787401574, 0.787401574);
-			mayowCollider.c = glm::vec3(modelmatrixColliderMayow[3]);
-			addOrUpdateColliders(collidersOBB, "mayow", mayowCollider, modelMatrixMayow);
-		} */
+		AbstractModel::OBB zombieCollider;
+		glm::mat4 modelmatrixColliderZombie = glm::mat4(modelMatrixZombie);
+		modelmatrixColliderZombie = glm::rotate(modelmatrixColliderZombie,
+		glm::radians(-90.0f), glm::vec3(1, 0, 0));
+		// Set the orientation of collider before doing the scale
+		zombieCollider.u = glm::quat_cast(modelmatrixColliderZombie);
+		modelmatrixColliderZombie = glm::scale(modelmatrixColliderZombie, glm::vec3(0.021, 0.021, 0.021));
+		modelmatrixColliderZombie = glm::translate(modelmatrixColliderZombie,
+		glm::vec3(zombie1ModelAnimate.getObb().c.x,zombie1ModelAnimate.getObb().c.y,zombie1ModelAnimate.getObb().c.z));
+		zombieCollider.e = zombie1ModelAnimate.getObb().e * glm::vec3(0.021, 0.021, 0.021) * glm::vec3(0.787401574, 0.787401574, 0.787401574);
+		zombieCollider.c = glm::vec3(modelmatrixColliderZombie[3]);
+		addOrUpdateColliders(collidersOBB,"Zombie", zombieCollider, modelMatrixZombie);
+
 
 		/**********Render de transparencias***************/
 		renderAlphaScene();
 
+		/*******************************************
+		 * Render de colliders
+		 *******************************************/
+/* 		for (std::map<std::string, std::tuple<AbstractModel::OBB, glm::mat4, glm::mat4> >::iterator it =
+				collidersOBB.begin(); it != collidersOBB.end(); it++) {
+			glm::mat4 matrixCollider = glm::mat4(1.0);
+			matrixCollider = glm::translate(matrixCollider, std::get<0>(it->second).c);
+			matrixCollider = matrixCollider * glm::mat4(std::get<0>(it->second).u);
+			matrixCollider = glm::scale(matrixCollider, std::get<0>(it->second).e * 2.0f);
+			boxCollider.setColor(glm::vec4(1.0, 1.0, 1.0, 1.0));
+			boxCollider.enableWireMode();
+			boxCollider.render(matrixCollider);
+		}
+
+		for (std::map<std::string, std::tuple<AbstractModel::SBB, glm::mat4, glm::mat4> >::iterator it =
+				collidersSBB.begin(); it != collidersSBB.end(); it++) {
+			glm::mat4 matrixCollider = glm::mat4(1.0);
+			matrixCollider = glm::translate(matrixCollider, std::get<0>(it->second).c);
+			matrixCollider = glm::scale(matrixCollider, glm::vec3(std::get<0>(it->second).ratio * 2.0f));
+			sphereCollider.setColor(glm::vec4(1.0, 1.0, 1.0, 1.0));
+			sphereCollider.enableWireMode();
+			sphereCollider.render(matrixCollider);
+		}
+ */
 		/*********************Prueba de colisiones****************************/
 		for (std::map<std::string,
 			std::tuple<AbstractModel::SBB, glm::mat4, glm::mat4>>::iterator it =
@@ -2641,9 +2731,13 @@ void applicationLoop() {
 				if (!itCollision->second){
 					addOrUpdateColliders(collidersOBB, itCollision->first);
 				}else{
-					if (itCollision->first.compare("main") == 0){
+					if (itCollision->first.compare("main") == 0 ){
 						//if (modelSelected == 0)
-							modelMatrixMain = std::get<1>(obbBuscado->second);
+						modelMatrixMain = std::get<1>(obbBuscado->second);
+
+						/* if (itCollision->first.compare("Llave-") == 0){
+
+						} */
 					}
 					if (itCollision->first.compare("main1") == 0){
 						//if (modelSelected == 1)
@@ -2654,9 +2748,16 @@ void applicationLoop() {
 							modelMatrixMain2 = std::get<1>(obbBuscado->second);
 						
 					}
+					if (itCollision->first.compare("Zombie") == 0){
+						//if (modelSelected == 2)
+							//modelMatrixZombie = std::get<1>(obbBuscado->second);
+						
+					}
 				}
 			}
 		}
+
+
 
 		// Constantes de animaciones
 		//animationMayowIndex = 1;

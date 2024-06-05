@@ -53,6 +53,7 @@ CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.o: ../CGALib/src/Bones.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/cstdint \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
   /usr/include/stdint.h \
@@ -133,8 +134,11 @@ CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.o: ../CGALib/src/Bones.cpp \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/cstdio \
   /usr/include/stdio.h \
@@ -143,6 +147,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.o: ../CGALib/src/Bones.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -184,6 +190,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.o: ../CGALib/src/Bones.cpp \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/assimp/defs.h \
   /usr/include/assimp/config.h \
   /usr/include/assimp/vector2.h \
@@ -455,6 +463,7 @@ CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.o: ../CGALib/src/Box.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/exception \
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/exception_ptr.h \
@@ -560,8 +569,11 @@ CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.o: ../CGALib/src/Box.cpp \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/cstdio \
   /usr/include/stdio.h \
@@ -570,6 +582,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.o: ../CGALib/src/Box.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -878,6 +892,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.o: ../CGALib/src/Box.cpp \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/glm/gtc/type_ptr.inl
 
 CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.o: ../CGALib/src/Cylinder.cpp \
@@ -938,6 +954,7 @@ CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.o: ../CGALib/src/Cylinder.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
@@ -945,7 +962,9 @@ CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.o: ../CGALib/src/Cylinder.cpp \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/specfun.h \
   /usr/include/c++/11/bits/stl_algobase.h \
   /usr/include/c++/11/bits/functexcept.h \
@@ -992,6 +1011,7 @@ CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.o: ../CGALib/src/Cylinder.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/exception \
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/exception_ptr.h \
@@ -1058,6 +1078,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.o: ../CGALib/src/Cylinder.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -1341,6 +1363,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.o: ../CGALib/src/Cylinder.cpp \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/glm/gtc/type_ptr.inl
 
 CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.o: ../CGALib/src/FirstPersonCamera.cpp \
@@ -1402,6 +1426,7 @@ CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.o: ../CGALib/src/FirstPer
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
@@ -1409,7 +1434,9 @@ CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.o: ../CGALib/src/FirstPer
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/specfun.h \
   /usr/include/c++/11/bits/stl_algobase.h \
   /usr/include/c++/11/bits/functexcept.h \
@@ -1455,6 +1482,7 @@ CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.o: ../CGALib/src/FirstPer
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/exception \
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/exception_ptr.h \
@@ -1521,6 +1549,8 @@ CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.o: ../CGALib/src/FirstPer
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -1751,6 +1781,8 @@ CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.o: ../CGALib/src/FirstPer
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/glm/gtc/type_ptr.inl
 
 CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.o: ../CGALib/src/FontTypeRendering.cpp \
@@ -1802,6 +1834,7 @@ CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.o: ../CGALib/src/FontType
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/exception \
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/exception_ptr.h \
@@ -1899,8 +1932,11 @@ CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.o: ../CGALib/src/FontType
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/cstdio \
   /usr/include/stdio.h \
@@ -1909,6 +1945,8 @@ CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.o: ../CGALib/src/FontType
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -1955,8 +1993,11 @@ CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.o: ../CGALib/src/FontType
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/c++/11/stdlib.h \
   /usr/include/setjmp.h \
+  /usr/include/x86_64-linux-gnu/bits/setjmp2.h \
   /usr/include/freetype2/freetype/config/integer-types.h \
   /usr/include/freetype2/freetype/config/public-macros.h \
   /usr/include/freetype2/freetype/config/mac-support.h \
@@ -2019,6 +2060,7 @@ CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.o: ../CGALib/src/Mesh.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/cstdint \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
   /usr/include/stdint.h \
@@ -2099,8 +2141,11 @@ CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.o: ../CGALib/src/Mesh.cpp \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/cstdio \
   /usr/include/stdio.h \
@@ -2109,6 +2154,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.o: ../CGALib/src/Mesh.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -2430,6 +2477,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.o: ../CGALib/src/Mesh.cpp \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/glm/gtc/type_ptr.inl \
   ../CGALib/include/Headers/Texture.h \
   ../CGALib/include/Headers/Bones.h \
@@ -2521,6 +2570,7 @@ CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.o: ../CGALib/src/Model.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/cstdint \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
   /usr/include/stdint.h \
@@ -2601,8 +2651,11 @@ CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.o: ../CGALib/src/Model.cpp \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/cstdio \
   /usr/include/stdio.h \
@@ -2611,6 +2664,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.o: ../CGALib/src/Model.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -2932,6 +2987,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.o: ../CGALib/src/Model.cpp \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/glm/gtc/type_ptr.inl \
   ../CGALib/include/Headers/Texture.h \
   ../CGALib/include/Headers/Bones.h \
@@ -3031,6 +3088,7 @@ CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.o: ../CGALib/src/Shader.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/cstdint \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
   /usr/include/stdint.h \
@@ -3111,8 +3169,11 @@ CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.o: ../CGALib/src/Shader.cpp \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/cstdio \
   /usr/include/stdio.h \
@@ -3121,6 +3182,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.o: ../CGALib/src/Shader.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -3258,6 +3321,7 @@ CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.o: ../CGALib/src/ShadowBox.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
@@ -3265,7 +3329,9 @@ CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.o: ../CGALib/src/ShadowBox.cpp \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/specfun.h \
   /usr/include/c++/11/bits/stl_algobase.h \
   /usr/include/c++/11/bits/functexcept.h \
@@ -3311,6 +3377,7 @@ CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.o: ../CGALib/src/ShadowBox.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/exception \
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/exception_ptr.h \
@@ -3377,6 +3444,8 @@ CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.o: ../CGALib/src/ShadowBox.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -3607,6 +3676,8 @@ CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.o: ../CGALib/src/ShadowBox.cpp \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/glm/gtc/type_ptr.inl
 
 CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.o: ../CGALib/src/Sphere.cpp \
@@ -3667,6 +3738,7 @@ CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.o: ../CGALib/src/Sphere.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
@@ -3674,7 +3746,9 @@ CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.o: ../CGALib/src/Sphere.cpp \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/specfun.h \
   /usr/include/c++/11/bits/stl_algobase.h \
   /usr/include/c++/11/bits/functexcept.h \
@@ -3721,6 +3795,7 @@ CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.o: ../CGALib/src/Sphere.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/exception \
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/exception_ptr.h \
@@ -3787,6 +3862,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.o: ../CGALib/src/Sphere.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -4070,6 +4147,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.o: ../CGALib/src/Sphere.cpp \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/glm/gtc/type_ptr.inl
 
 CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.o: ../CGALib/src/Terrain.cpp \
@@ -4110,6 +4189,7 @@ CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.o: ../CGALib/src/Terrain.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/exception \
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/exception_ptr.h \
@@ -4215,8 +4295,11 @@ CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.o: ../CGALib/src/Terrain.cpp \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/cstdio \
   /usr/include/stdio.h \
@@ -4225,6 +4308,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.o: ../CGALib/src/Terrain.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -4533,6 +4618,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.o: ../CGALib/src/Terrain.cpp \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/glm/gtc/type_ptr.inl \
   ../CGALib/include/Headers/Texture.h
 
@@ -4588,6 +4675,7 @@ CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.o: ../CGALib/src/Texture.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/cstdint \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
   /usr/include/stdint.h \
@@ -4668,8 +4756,11 @@ CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.o: ../CGALib/src/Texture.cpp \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/cstdio \
   /usr/include/stdio.h \
@@ -4678,6 +4769,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.o: ../CGALib/src/Texture.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -4725,6 +4818,8 @@ CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.o: ../CGALib/src/Texture.cpp \
   /usr/include/c++/11/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
   /usr/include/limits.h \
@@ -4825,6 +4920,7 @@ CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.o: ../CGALib/src/ThirdPer
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
@@ -4832,7 +4928,9 @@ CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.o: ../CGALib/src/ThirdPer
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/specfun.h \
   /usr/include/c++/11/bits/stl_algobase.h \
   /usr/include/c++/11/bits/functexcept.h \
@@ -4878,6 +4976,7 @@ CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.o: ../CGALib/src/ThirdPer
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/exception \
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/exception_ptr.h \
@@ -4944,6 +5043,8 @@ CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.o: ../CGALib/src/ThirdPer
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -5174,6 +5275,8 @@ CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.o: ../CGALib/src/ThirdPer
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/glm/gtc/type_ptr.inl
 
 CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cpp \
@@ -5252,6 +5355,7 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/tuple \
   /usr/include/c++/11/utility \
   /usr/include/c++/11/bits/stl_relops.h \
@@ -5308,7 +5412,9 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
   /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h
 
 
 ../CGALib/include/Headers/ThirdPersonCamera.h:
@@ -5325,15 +5431,19 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 ../CGALib/include/Headers/Terrain.h:
 
-/usr/include/assimp/material.inl:
+../CGALib/src/Terrain.cpp:
 
-/usr/include/assimp/aabb.h:
+../CGALib/include/Headers/Sphere.h:
 
-/usr/include/c++/11/bits/enable_special_members.h:
+../CGALib/include/Headers/ShadowBox.h:
 
-/usr/include/c++/11/bits/basic_ios.tcc:
+../CGALib/src/ShadowBox.cpp:
 
-/usr/include/c++/11/bits/codecvt.h:
+/usr/include/c++/11/bits/this_thread_sleep.h:
+
+/usr/include/c++/11/bits/std_thread.h:
+
+/usr/include/c++/11/thread:
 
 /usr/include/assimp/Compiler/poppack1.h:
 
@@ -5348,6 +5458,14 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 /usr/include/assimp/quaternion.inl:
 
 /usr/include/glm/ext/vector_bool1.hpp:
+
+/usr/include/c++/11/bits/enable_special_members.h:
+
+/usr/include/assimp/aabb.h:
+
+/usr/include/c++/11/bits/basic_ios.tcc:
+
+/usr/include/c++/11/bits/codecvt.h:
 
 /usr/include/c++/11/bits/hashtable.h:
 
@@ -5399,17 +5517,11 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
-/usr/include/assimp/color4.h:
-
-/usr/include/c++/11/bits/stl_bvector.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
-
 /usr/include/assimp/quaternion.h:
 
 /usr/include/glm/gtc/matrix_transform.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:
 
 /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
 
@@ -5418,8 +5530,6 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 /usr/include/c++/11/string_view:
 
 /usr/include/assimp/vector2.h:
-
-/usr/include/string.h:
 
 /usr/include/x86_64-linux-gnu/bits/uio_lim.h:
 
@@ -5451,21 +5561,31 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/glm/ext/vector_uint3.hpp:
 
+../CGALib/src/Shader.cpp:
+
+/usr/include/c++/11/bits/stl_map.h:
+
 /usr/include/glm/ext/matrix_double2x3.hpp:
+
+/usr/include/c++/11/bits/stl_bvector.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
+
+/usr/include/assimp/color4.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
 /usr/include/c++/11/bits/stl_vector.h:
 
 /usr/include/c++/11/bits/stl_uninitialized.h:
-
-/usr/include/glm/ext/matrix_float3x3_precision.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
 /usr/include/glm/mat2x4.hpp:
-
-/usr/include/assimp/mesh.h:
 
 /usr/include/asm-generic/errno.h:
 
@@ -5477,6 +5597,10 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/glm/ext/vector_float1_precision.hpp:
 
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:
+
+/usr/include/string.h:
+
 /usr/include/stdio.h:
 
 /usr/include/c++/11/cstdio:
@@ -5487,9 +5611,11 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/glm/ext/vector_bool4_precision.hpp:
 
-/usr/include/c++/11/iostream:
+/usr/include/c++/11/cwchar:
 
 ../CGALib/include/Headers/AbstractModel.h:
+
+/usr/include/c++/11/iostream:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
@@ -5499,9 +5625,7 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/glm/ext/vector_double2.hpp:
 
-/usr/include/c++/11/unordered_map:
-
-/usr/include/c++/11/cctype:
+/usr/include/x86_64-linux-gnu/sys/types.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
@@ -5514,6 +5638,16 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 /usr/include/glm/mat3x3.hpp:
 
 /usr/include/glm/exponential.hpp:
+
+/usr/include/c++/11/algorithm:
+
+/usr/include/freetype2/freetype/config/public-macros.h:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/c++/11/backward/binders.h:
+
+/usr/include/glm/detail/type_vec3.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
@@ -5559,9 +5693,9 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/glm/detail/type_mat2x3.hpp:
 
-/usr/include/c++/11/bits/std_thread.h:
-
 /usr/include/ctype.h:
+
+/usr/include/x86_64-linux-gnu/bits/strings_fortified.h:
 
 /usr/include/glm/ext/vector_bool3.hpp:
 
@@ -5597,21 +5731,9 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/c++/11/functional:
 
-../CGALib/src/Terrain.cpp:
-
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
-
-/usr/include/c++/11/bits/range_access.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
-
-/usr/include/x86_64-linux-gnu/bits/types.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
-
-/usr/include/glm/detail/func_packing.inl:
 
 /usr/include/stdc-predef.h:
 
@@ -5653,8 +5775,6 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/c++/11/bits/locale_facets.h:
 
-/usr/include/assimp/metadata.h:
-
 /usr/include/c++/11/map:
 
 /usr/include/c++/11/bits/ostream_insert.h:
@@ -5674,6 +5794,8 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h:
 
 /usr/include/c++/11/pstl/glue_algorithm_defs.h:
+
+/usr/include/x86_64-linux-gnu/bits/select2.h:
 
 /usr/include/glm/ext/quaternion_transform.hpp:
 
@@ -5695,15 +5817,19 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/c++/11/bits/stl_function.h:
 
+../CGALib/src/Sphere.cpp:
+
+/usr/include/c++/11/bits/stringfwd.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
 
 /usr/include/glm/detail/qualifier.hpp:
 
 /usr/include/c++/11/bits/locale_facets.tcc:
 
 /usr/include/glm/ext/quaternion_double_precision.hpp:
-
-/usr/include/c++/11/bits/this_thread_sleep.h:
 
 /usr/include/c++/11/bits/stl_multimap.h:
 
@@ -5741,8 +5867,6 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/c++/11/initializer_list:
 
-/usr/include/c++/11/cwchar:
-
 /usr/include/c++/11/bits/stl_algobase.h:
 
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
@@ -5754,6 +5878,8 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 /usr/include/linux/errno.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib.h:
 
 /usr/include/c++/11/bits/functexcept.h:
 
@@ -5777,17 +5903,29 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/glm/detail/type_mat4x3.inl:
 
-/usr/include/glm/ext/vector_uint4.hpp:
-
-/usr/include/c++/11/bits/move.h:
-
 /usr/include/c++/11/bits/hash_bytes.h:
+
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:
 
 /usr/include/c++/11/tuple:
 
 /usr/include/c++/11/bits/stl_tree.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/glm/detail/func_packing.inl:
+
+/usr/include/c++/11/bits/range_access.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+/usr/include/c++/11/unordered_map:
+
+/usr/include/c++/11/cctype:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
@@ -5815,16 +5953,6 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
-/usr/include/c++/11/algorithm:
-
-/usr/include/freetype2/freetype/config/public-macros.h:
-
-/usr/include/x86_64-linux-gnu/bits/select.h:
-
-/usr/include/c++/11/backward/binders.h:
-
-/usr/include/glm/detail/type_vec3.hpp:
-
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
 /usr/include/glm/ext/vector_float4_precision.hpp:
@@ -5836,10 +5964,6 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 /usr/include/glm/gtc/quaternion.inl:
 
 /usr/include/sched.h:
-
-/usr/include/assimp/camera.h:
-
-/usr/include/wctype.h:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
@@ -5860,8 +5984,6 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
 /usr/include/glm/detail/type_mat4x3.hpp:
-
-/usr/include/x86_64-linux-gnu/sys/types.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
@@ -5893,8 +6015,6 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/glm/detail/compute_common.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
-
 ../CGALib/src/ThirdPersonCamera.cpp:
 
 /usr/include/alloca.h:
@@ -5919,14 +6039,6 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/glm/ext/scalar_int_sized.hpp:
 
-../CGALib/include/Headers/ShadowBox.h:
-
-/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
-
-/usr/include/freetype2/ft2build.h:
-
-/usr/include/assimp/anim.h:
-
 ../CGALib/include/Headers/Bones.h:
 
 /usr/include/c++/11/bits/functional_hash.h:
@@ -5938,6 +6050,28 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 /usr/include/c++/11/bits/allocator.h:
 
 /usr/include/glm/detail/func_integer.inl:
+
+/usr/include/assimp/mesh.h:
+
+/usr/include/c++/11/bits/move.h:
+
+/usr/include/glm/ext/vector_uint4.hpp:
+
+/usr/include/wctype.h:
+
+/usr/include/assimp/camera.h:
+
+/usr/include/glm/ext/matrix_float3x3_precision.hpp:
+
+/usr/include/assimp/material.inl:
+
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
+
+/usr/include/freetype2/ft2build.h:
+
+/usr/include/assimp/anim.h:
+
+/usr/include/assimp/metadata.h:
 
 /usr/include/assimp/postprocess.h:
 
@@ -6074,6 +6208,10 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 /usr/include/c++/11/bits/cxxabi_init_exception.h:
 
 /usr/include/glm/ext/matrix_float2x3.hpp:
+
+/usr/include/c++/11/memory:
+
+/usr/include/glm/ext/matrix_double2x4.hpp:
 
 /usr/include/glm/detail/type_mat2x4.hpp:
 
@@ -6213,8 +6351,6 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 
 /usr/include/c++/11/ratio:
 
-/usr/include/c++/11/thread:
-
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
 /usr/include/glm/ext/matrix_float2x2.hpp:
@@ -6248,6 +6384,10 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 /usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
 ../CGALib/include/Headers/Box.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp2.h:
 
 /usr/include/c++/11/ostream:
 
@@ -6286,10 +6426,6 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 /usr/include/c++/11/istream:
 
 /usr/include/c++/11/bits/istream.tcc:
-
-/usr/include/glm/ext/matrix_double2x4.hpp:
-
-/usr/include/c++/11/memory:
 
 /usr/include/c++/11/bits/stl_raw_storage_iter.h:
 
@@ -6402,15 +6538,3 @@ CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.o: ../CGALib/src/TimeManager.cp
 ../CGALib/include/Headers/Model.h:
 
 /usr/include/c++/11/ctime:
-
-/usr/include/c++/11/bits/stl_map.h:
-
-../CGALib/src/Shader.cpp:
-
-../CGALib/src/ShadowBox.cpp:
-
-/usr/include/c++/11/bits/stringfwd.h:
-
-../CGALib/src/Sphere.cpp:
-
-../CGALib/include/Headers/Sphere.h:
