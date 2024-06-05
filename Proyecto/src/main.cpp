@@ -100,7 +100,7 @@ Model Ventanas;
 
 // Modelos animados
 // Mayow
-Model mayowModelAnimate;
+//Model mayowModelAnimate;
 Model mainModelAnimate;
 Model main1ModelAnimate;
 Model main2ModelAnimate;
@@ -108,7 +108,7 @@ Model zombieModelAnimate;
 Model zombie1ModelAnimate;
 
 // Fountain
-Model modelFountain;
+//Model modelFountain;
 // Terrain model instance
 Terrain terrain(-1, -1, 200, 5, "../Textures/Mapas_de_alturas/heightmap.png");
 
@@ -145,13 +145,13 @@ int lastMousePosX, offsetX = 0;
 int lastMousePosY, offsetY = 0;
 
 // Model matrix definitions
-glm::mat4 modelMatrixMayow = glm::mat4(1.0f);
+//glm::mat4 modelMatrixMayow = glm::mat4(1.0f);
 glm::mat4 modelMatrixMain = glm::mat4(1.0f);
 glm::mat4 modelMatrixMain1 = glm::mat4(1.0f);
 glm::mat4 modelMatrixMain2 = glm::mat4(1.0f);
 glm::mat4 modelMatrixZombie = glm::mat4(1.0f);
 glm::mat4 modelMatrixZombie1 = glm::mat4(1.0f);
-glm::mat4 modelMatrixFountain= glm::mat4(1.0f);
+//glm::mat4 modelMatrixFountain= glm::mat4(1.0f);
 
 //Model matrix ecenario
 glm::mat4 modelMatrixPino = glm::mat4(1.0f);
@@ -162,10 +162,10 @@ glm::mat4 modelMatrixHogera = glm::mat4(1.0f);
 //glm::mat4 modelMatrix = glm::mat4(1.0f);
 
 //variables de animacion modelos
-int animationMayowIndex = 1;
+//int animationMayowIndex = 1;
 int animationMainIndex = 1;
 int animationMain1Index = 1;
-int animationMain2Index = 1;
+int animationMain2Index = 2;
 int animationZombieIndex = 1;
 int animationZombie1Index = 1;
 int modelSelected = 0,mapa = 0;
@@ -297,7 +297,7 @@ ALenum format;
 ALvoid *data;
 int ch;
 ALboolean loop;
-std::vector<bool> sourcesPlay = {true, true, true, true, true};
+std::vector<bool> sourcesPlay = {true, false, false, true, true};
 
 // Framesbuffers
 GLuint depthMap, depthMapFBO;
@@ -530,8 +530,8 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	Ventanas.setShader(&shaderMulLighting);
 
 	// Mayow
-	mayowModelAnimate.loadModel("../models/mayow/personaje2.fbx");
-	mayowModelAnimate.setShader(&shaderMulLighting);
+/* 	mayowModelAnimate.loadModel("../models/mayow/personaje2.fbx");
+	mayowModelAnimate.setShader(&shaderMulLighting); */
 	//Main
 	mainModelAnimate.loadModel("../models/Estudiante/1.fbx");
 	mainModelAnimate.setShader(&shaderMulLighting);
@@ -917,7 +917,7 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	alSourcei(source[0], AL_LOOPING, AL_TRUE);
 	alSourcef(source[0], AL_MAX_DISTANCE, 0.0);
  
-/* 	alSourcef(source[1], AL_PITCH, 1.0f);
+ 	alSourcef(source[1], AL_PITCH, 1.0f);
 	alSourcef(source[1], AL_GAIN, 0.5f);
 	alSourcefv(source[1], AL_POSITION, source1Pos);
 	alSourcefv(source[1], AL_VELOCITY, source1Vel);
@@ -947,7 +947,7 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	alSourcefv(source[4], AL_VELOCITY, source4Vel);
 	alSourcei(source[4], AL_BUFFER, buffer[4]);
 	alSourcei(source[4], AL_LOOPING, AL_TRUE);
-	alSourcef(source[4], AL_MAX_DISTANCE, 2000); */
+	alSourcef(source[4], AL_MAX_DISTANCE, 2000);
 
 	/*******************************************
 	 * Inicializacion del framebuffer para
@@ -995,7 +995,7 @@ void destroy() {
 	boxViewDepth.destroy();
 
 	// Custom objects Delete
-	mayowModelAnimate.destroy();
+	//mayowModelAnimate.destroy();
 	mainModelAnimate.destroy();
 	main1ModelAnimate.destroy();
 	main2ModelAnimate.destroy();
@@ -1085,6 +1085,7 @@ bool processInput(bool continueApplication) {
 		return false;
 	}
 
+	//maquina de estados para inicio del juego
 	if(!iniciaPartida){
 		if (!presionarEnter && glfwGetKey(window, GLFW_KEY_ENTER)== GLFW_PRESS){
 			presionarEnter = true;
@@ -1133,7 +1134,7 @@ bool processInput(bool continueApplication) {
 		std::cout << "Right Stick Y axis: " << axes[4] << std::endl;
 		std::cout << "Right Trigger/R2: " << axes[5] << std::endl;
 
-		if(modelSelected == 0){
+/* 		if(modelSelected == 0){
 			if(fabs(axes[1]) > 0.2){
 				modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(0, 0, -axes[1] * 0.1));
 				animationMayowIndex = 1;
@@ -1141,15 +1142,28 @@ bool processInput(bool continueApplication) {
 				modelMatrixMayow = glm::rotate(modelMatrixMayow, glm::radians(-axes[0] * 0.5f), glm::vec3(0, 1, 0));
 				animationMayowIndex = 1;
 			}
-		}else if (modelSelected == 1){
+		} */
+
+		//movimiento personajes con joistick control
+		if(modelSelected == 0){
+			if(fabs(axes[1]) > 0.2){
+				modelMatrixMain = glm::translate(modelMatrixMain, glm::vec3(0, 0, -axes[1] * 0.1));
+				animationMainIndex = 1;
+			}if(fabs(axes[0]) > 0.2){
+				modelMatrixMain = glm::rotate(modelMatrixMain, glm::radians(-axes[0] * 0.5f), glm::vec3(0, 1, 0));
+				animationMainIndex = 1;
+			}		
+		}
+		if (modelSelected == 1){
 			if(fabs(axes[1]) > 0.2){
 				modelMatrixMain1 = glm::translate(modelMatrixMain1, glm::vec3(0, 0, -axes[1] * 0.1));
-				animationMain1Index = 1;
+				animationMain1Index = 2;
 			}if(fabs(axes[0]) > 0.2){
 				modelMatrixMain1 = glm::rotate(modelMatrixMain1, glm::radians(-axes[0] * 0.5f), glm::vec3(0, 1, 0));
-				animationMain1Index = 1;
+				animationMain1Index = 2;
 			}
-		}else if (modelSelected == 2){
+		}
+		if (modelSelected == 2){
 			if(fabs(axes[1]) > 0.2){
 				modelMatrixMain2 = glm::translate(modelMatrixMain2, glm::vec3(0, 0, -axes[1] * 0.1));
 				animationMain2Index = 1;
@@ -1184,68 +1198,89 @@ bool processInput(bool continueApplication) {
 
 	offsetX = 0;
 	offsetY = 0;
-
-	if(modelSelected == 0){
-		// Controles de mayow
-		if (modelSelected == 0 && glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
+	//ejemplo mayow
+/* 		// Controles de mayow
+		if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
 			modelMatrixMayow = glm::rotate(modelMatrixMayow, 0.1f, glm::vec3(0, 1, 0));
 			animationMayowIndex = 0;
 			alSourceStop(source[2]);
-		} else if (modelSelected == 0 && glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS){
+		} else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS){
 			modelMatrixMayow = glm::rotate(modelMatrixMayow, -0.1f, glm::vec3(0, 1, 0));
 			animationMayowIndex = 0;
 			alSourceStop(source[2]);
 		}
-		if (modelSelected == 0 && glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
+		if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
 			modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(0.0, 0.0, 0.06));
 			animationMayowIndex = 0;
 			alSourceStop(source[2]);
 		}
-		else if (modelSelected == 0 && glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
+		else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
 			modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(0.0, 0.0, -0.06));
 			animationMayowIndex = 0;
+			alSourceStop(source[2]);
+		} */
+
+	if(modelSelected == 0){
+		// Controles de mayow
+		if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
+			modelMatrixMain = glm::rotate(modelMatrixMain, 0.1f, glm::vec3(0, 1, 0));
+			animationMainIndex = 1;
+			alSourceStop(source[2]);
+		} else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS){
+			modelMatrixMain = glm::rotate(modelMatrixMain, -0.1f, glm::vec3(0, 1, 0));
+			animationMainIndex = 1;
+			alSourceStop(source[2]);
+		}
+		if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
+			modelMatrixMain = glm::translate(modelMatrixMain, glm::vec3(0.0, 0.0, 0.06));
+			animationMainIndex = 1;
+			alSourceStop(source[2]);
+		}
+		else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
+			modelMatrixMain = glm::translate(modelMatrixMain, glm::vec3(0.0, 0.0, -0.06));
+			animationMainIndex = 1;
 			alSourceStop(source[2]);
 		}
 	}else if(modelSelected == 1){
 		// Controles de mayow
-		if (modelSelected == 1 && glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
+		if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
 			modelMatrixMain1 = glm::rotate(modelMatrixMain1, 0.1f, glm::vec3(0, 1, 0));
-			animationMain1Index = 0;
+			animationMain1Index = 1;
 			alSourceStop(source[2]);
-		} else if (modelSelected == 1 && glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS){
+		} else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS){
 			modelMatrixMain1 = glm::rotate(modelMatrixMain1, -0.1f, glm::vec3(0, 1, 0));
-			animationMain1Index = 0;
+			animationMain1Index = 1;
 			alSourceStop(source[2]);
 		}
-		if (modelSelected == 1 && glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
+		if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
 			modelMatrixMain1 = glm::translate(modelMatrixMain1, glm::vec3(0.0, 0.0, 0.06));
-			animationMain1Index = 0;
+			animationMain1Index = 2;
 			alSourceStop(source[2]);
 		}
-		else if (modelSelected == 1 && glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
+		else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
 			modelMatrixMain1 = glm::translate(modelMatrixMain1, glm::vec3(0.0, 0.0, -0.06));
-			animationMain1Index = 0;
+			animationMain1Index = 2;
 			alSourceStop(source[2]);
 		}
 	}else if(modelSelected == 2){
 		// Controles de mayow
-		if (modelSelected == 2 && glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
+		if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS){
 			modelMatrixMain2 = glm::rotate(modelMatrixMain2, 0.1f, glm::vec3(0, 1, 0));
-			animationMain2Index = 0;
+			animationMain2Index = 1;
 			alSourceStop(source[2]);
-		} else if (modelSelected == 2 && glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS){
+		} else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS){
 			modelMatrixMain2 = glm::rotate(modelMatrixMain2, -0.1f, glm::vec3(0, 1, 0));
-			animationMain2Index = 0;
+			animationMain2Index = 1;
 			alSourceStop(source[2]);
 		}
-		if (modelSelected == 2 && glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
+		if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS){
 			modelMatrixMain2 = glm::translate(modelMatrixMain2, glm::vec3(0.0, 0.0, 0.06));
-			animationMain2Index = 0;
+			animationMain2Index = 1;
 			alSourceStop(source[2]);
 		}
-		else if (modelSelected == 2 && glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
+		else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS){
 			modelMatrixMain2 = glm::translate(modelMatrixMain2, glm::vec3(0.0, 0.0, -0.06));
-			animationMain2Index = 0;
+			animationMain2Index = 1;
 			alSourceStop(source[2]);
 		}
 	}
@@ -1264,17 +1299,20 @@ bool processInput(bool continueApplication) {
 void prepareScene(){
 
 	terrain.setShader(&shaderTerrain);
-
-	if(modelSelected == 0){
+/* 
 		//Mayow
 		mayowModelAnimate.setShader(&shaderMulLighting);
+	 */
+
+	if(modelSelected == 0){
+		//Main
+		mainModelAnimate.setShader(&shaderMulLighting);
 	}
-/* 		//Main
-		mainModelAnimate.setShader(&shaderMulLighting); */
-	else if (modelSelected == 1){
+	if (modelSelected == 1){
 		//Main1
 		main1ModelAnimate.setShader(&shaderMulLighting);
-	}else if(modelSelected == 2){
+	}
+	if(modelSelected == 2){
 		//Main2
 		main2ModelAnimate.setShader(&shaderMulLighting);
 	}
@@ -1298,16 +1336,16 @@ void prepareScene(){
 void prepareDepthScene(){
 
 	terrain.setShader(&shaderDepth);
-	if(modelSelected == 0){
-	//Mayow
-	mayowModelAnimate.setShader(&shaderDepth);
+ 	if(modelSelected == 0){
+/*	//Mayow
+	mayowModelAnimate.setShader(&shaderDepth); */
 	//Main
-//	mainModelAnimate.setShader(&shaderDepth);
+	mainModelAnimate.setShader(&shaderDepth);
 	//Main1
-	}else if(modelSelected == 1){
+	}if(modelSelected == 1){
 	main1ModelAnimate.setShader(&shaderDepth);
 	//Main2
-	}else if (modelSelected == 2){
+	}if (modelSelected == 2){
 	main2ModelAnimate.setShader(&shaderDepth);
 	}
 	//Zombie
@@ -1410,11 +1448,10 @@ void renderSolidScene(){
 	/*****************************************
 	 * Objetos animados por huesos
 	 * **************************************/
-	void updateZombiePosition(glm::mat4 &modelMatrixZombie, glm::mat4 &modelMatrixMayow, float speed, float deltaTime, Terrain &terrain);
 	float speed = 0.5f; // velocidad del Zombie
-
-	if(modelSelected == 0){
-		glm::vec3 ejey = glm::normalize(terrain.getNormalTerrain(modelMatrixMayow[3][0], modelMatrixMayow[3][2]));
+	void updateZombiePosition(glm::mat4 &modelMatrixZombie, glm::mat4 &modelMatrixMayow, float speed, float deltaTime, Terrain &terrain);
+	//ejemplo mayow
+	/* 	glm::vec3 ejey = glm::normalize(terrain.getNormalTerrain(modelMatrixMayow[3][0], modelMatrixMayow[3][2]));
 		glm::vec3 ejex = glm::vec3(modelMatrixMayow[0]);
 		glm::vec3 ejez = glm::normalize(glm::cross(ejex, ejey));
 		ejex = glm::normalize(glm::cross(ejey, ejez));
@@ -1431,23 +1468,26 @@ void renderSolidScene(){
 		modelMatrixMayowBody = glm::scale(modelMatrixMayowBody, glm::vec3(0.021f));
 		mayowModelAnimate.setAnimationIndex(animationMayowIndex);
 		mayowModelAnimate.render(modelMatrixMayowBody);
-		animationMayowIndex = 1;
+		animationMayowIndex = 1; */
 
-	}else if (modelSelected == 1){
-	glm::vec3 ejey1 = glm::normalize(terrain.getNormalTerrain(modelMatrixMain[3][0], modelMatrixMain[3][2]));
-	glm::vec3 ejex1 = glm::vec3(modelMatrixMain[0]);
-	glm::vec3 ejez1 = glm::normalize(glm::cross(ejex1, ejey1));
-	ejex1 = glm::normalize(glm::cross(ejey1, ejez1));
-	modelMatrixMain[0] = glm::vec4(ejex1, 0.0);
-	modelMatrixMain[1] = glm::vec4(ejey1, 0.0);
-	modelMatrixMain[2] = glm::vec4(ejez1, 0.0);
-	modelMatrixMain[3][1] = terrain.getHeightTerrain(modelMatrixMain[3][0], modelMatrixMain[3][2]);
-	glm::mat4 modelMatrixMainBody = glm::mat4(modelMatrixMain);
-	modelMatrixMainBody = glm::scale(modelMatrixMainBody, glm::vec3(0.021f));
-	mainModelAnimate.setAnimationIndex(animationMainIndex);
-	mainModelAnimate.render(modelMatrixMainBody);
-	animationMainIndex = 2; //El 2 es la siguiente animacion, 0 la primera 
+	if(modelSelected == 0){
 
+		glm::vec3 ejey1 = glm::normalize(terrain.getNormalTerrain(modelMatrixMain[3][0], modelMatrixMain[3][2]));
+		glm::vec3 ejex1 = glm::vec3(modelMatrixMain[0]);
+		glm::vec3 ejez1 = glm::normalize(glm::cross(ejex1, ejey1));
+		ejex1 = glm::normalize(glm::cross(ejey1, ejez1));
+		modelMatrixMain[0] = glm::vec4(ejex1, 0.0);
+		modelMatrixMain[1] = glm::vec4(ejey1, 0.0);
+		modelMatrixMain[2] = glm::vec4(ejez1, 0.0);
+		modelMatrixMain[3][1] = terrain.getHeightTerrain(modelMatrixMain[3][0], modelMatrixMain[3][2]);
+		glm::mat4 modelMatrixMainBody = glm::mat4(modelMatrixMain);
+		modelMatrixMainBody = glm::scale(modelMatrixMainBody, glm::vec3(0.015f));
+		mainModelAnimate.setAnimationIndex(animationMainIndex);
+		mainModelAnimate.render(modelMatrixMainBody);
+		//animationMainIndex = 2; //El 2 es la siguiente animacion, 0 la primera 
+
+	}
+	if (modelSelected == 1){
 		glm::vec3 ejey3 = glm::normalize(terrain.getNormalTerrain(modelMatrixMain1[3][0], modelMatrixMain1[3][2]));
 		glm::vec3 ejex3 = glm::vec3(modelMatrixMain1[0]);
 		glm::vec3 ejez3 = glm::normalize(glm::cross(ejex3, ejey3));
@@ -1457,11 +1497,12 @@ void renderSolidScene(){
 		modelMatrixMain1[2] = glm::vec4(ejez3, 0.0);
 		modelMatrixMain1[3][1] = terrain.getHeightTerrain(modelMatrixMain1[3][0], modelMatrixMain1[3][2]);
 		glm::mat4 modelMatrixMain1Body = glm::mat4(modelMatrixMain1);
-		modelMatrixMain1Body = glm::scale(modelMatrixMain1Body, glm::vec3(0.021f));
+		modelMatrixMain1Body = glm::scale(modelMatrixMain1Body, glm::vec3(0.015f));
 		main1ModelAnimate.setAnimationIndex(animationMain1Index);
 		main1ModelAnimate.render(modelMatrixMain1Body);
-		animationMain1Index = 2; //El 2 es la siguiente animacion, 0 la primera
-	}else if (modelSelected == 2){
+		//animationMain1Index = 2; //El 2 es la siguiente animacion, 0 la primera
+	}
+	if (modelSelected == 2){
 		glm::vec3 ejey4 = glm::normalize(terrain.getNormalTerrain(modelMatrixMain2[3][0], modelMatrixMain2[3][2]));
 		glm::vec3 ejex4 = glm::vec3(modelMatrixMain2[0]);
 		glm::vec3 ejez4 = glm::normalize(glm::cross(ejex4, ejey4));
@@ -1471,13 +1512,18 @@ void renderSolidScene(){
 		modelMatrixMain2[2] = glm::vec4(ejez4, 0.0);
 		modelMatrixMain2[3][1] = terrain.getHeightTerrain(modelMatrixMain2[3][0], modelMatrixMain2[3][2]);
 		glm::mat4 modelMatrixMain2Body = glm::mat4(modelMatrixMain2);
-		modelMatrixMain2Body = glm::scale(modelMatrixMain2Body, glm::vec3(0.021f));
+		modelMatrixMain2Body = glm::scale(modelMatrixMain2Body, glm::vec3(0.015f));
 		main2ModelAnimate.setAnimationIndex(animationMain2Index);
 		main2ModelAnimate.render(modelMatrixMain2Body);
-		animationMain2Index = 1; //El 2 es la siguiente animacion, 0 la primera
+		//animationMain2Index = 2; //El 2 es la siguiente animacion, 0 la primera
 	}
-
-	updateZombiePosition(modelMatrixZombie, modelMatrixMayow, speed, deltaTime, terrain);
+	if (modelSelected == 0)
+		updateZombiePosition(modelMatrixZombie, modelMatrixMain, speed, deltaTime, terrain);
+	if (modelSelected == 1)
+		updateZombiePosition(modelMatrixZombie, modelMatrixMain1, speed, deltaTime, terrain);
+	if (modelSelected)
+		updateZombiePosition(modelMatrixZombie, modelMatrixMain2, speed, deltaTime, terrain);
+	
 	glm::vec3 ejey2 = glm::normalize(terrain.getNormalTerrain(modelMatrixZombie[3][0], modelMatrixZombie[3][2]));
 	glm::vec3 ejex2 = glm::vec3(modelMatrixZombie[0]);
 	glm::vec3 ejez2 = glm::normalize(glm::cross(ejex2, ejey2));
@@ -1487,7 +1533,7 @@ void renderSolidScene(){
 	modelMatrixZombie[2] = glm::vec4(ejez2, 0.0);
 	modelMatrixZombie[3][1] = terrain.getHeightTerrain(modelMatrixZombie[3][0], modelMatrixZombie[3][2]);
 	glm::mat4 modelMatrixZombieBody = glm::mat4(modelMatrixZombie);
-	modelMatrixZombieBody = glm::scale(modelMatrixZombieBody, glm::vec3(0.021f));
+	modelMatrixZombieBody = glm::scale(modelMatrixZombieBody, glm::vec3(0.015f));
 	zombieModelAnimate.setAnimationIndex(animationZombieIndex);
 	zombieModelAnimate.render(modelMatrixZombieBody);
 	animationZombieIndex = 2; //El 2 es la siguiente animacion, 0 la primera
@@ -1501,7 +1547,7 @@ void renderSolidScene(){
 	modelMatrixZombie1[2] = glm::vec4(ejez5, 0.0);
 	modelMatrixZombie1[3][1] = terrain.getHeightTerrain(modelMatrixZombie1[3][0], modelMatrixZombie1[3][2]);
 	glm::mat4 modelMatrixZombie1Body = glm::mat4(modelMatrixZombie1);
-	modelMatrixZombie1Body = glm::scale(modelMatrixZombie1Body, glm::vec3(0.021f));
+	modelMatrixZombie1Body = glm::scale(modelMatrixZombie1Body, glm::vec3(0.015f));
 	zombie1ModelAnimate.setAnimationIndex(animationZombie1Index);
 	zombie1ModelAnimate.render(modelMatrixZombie1Body);
 	animationZombie1Index = 2; //El 2 es la siguiente animacion, 0 la primera
@@ -2043,7 +2089,9 @@ void renderScene(){
 }
 
 void applicationLoop() {
+	//float speed = 0.5f; // velocidad del Zombie
 	void updateZombiePosition(glm::mat4 &modelMatrixZombie, glm::mat4 &modelMatrixMayow, float speed, float deltaTime, Terrain &terrain);
+
 	bool psi = true;
 
 	glm::vec3 axis;
@@ -2062,19 +2110,18 @@ void applicationLoop() {
 	modelMatrixVentanas = glm::scale(modelMatrixVentanas,glm::vec3(3.0f));
 
 	//personaje
-	if (modelSelected == 0){
-		modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(70.3,0,52.3));//glm::vec3(-10.0f, 0.0f, -20.0f));
-		modelMatrixMayow = glm::rotate(modelMatrixMayow, glm::radians(-90.0f), glm::vec3(0, 1, 0));
-	} else if (modelSelected == 1){
-		/* modelMatrixMain = glm::translate(modelMatrixMain, glm::vec3(10.0f, 0.0f, 0.0f));
-		modelMatrixMain = glm::rotate(modelMatrixMain, glm::radians(-90.0f), glm::vec3(0, 1, 0)); */
+/* 	modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(70.3,0,52.3));//glm::vec3(-10.0f, 0.0f, -20.0f));
+	modelMatrixMayow = glm::rotate(modelMatrixMayow, glm::radians(-90.0f), glm::vec3(0, 1, 0)); */
+
+	modelMatrixMain = glm::translate(modelMatrixMain, glm::vec3(10.0f, 0.0f, 0.0f));
+	modelMatrixMain = glm::rotate(modelMatrixMain, glm::radians(-90.0f), glm::vec3(0, 1, 0));
 	
-		modelMatrixMain1 = glm::translate(modelMatrixMain1, glm::vec3(70.3f,0.0f,52.3f));
-		modelMatrixMain1 = glm::rotate(modelMatrixMain1, glm::radians(-90.0f), glm::vec3(0, 1, 0));
-	}else if (modelSelected == 2){
-		modelMatrixMain2 = glm::translate(modelMatrixMain2, glm::vec3(70.3f,0.0f,52.3f));
-		modelMatrixMain2 = glm::rotate(modelMatrixMain2, glm::radians(-90.0f), glm::vec3(0, 1, 0));
-	}
+	modelMatrixMain1 = glm::translate(modelMatrixMain1, glm::vec3(70.3,0.0,52.3));
+	modelMatrixMain1 = glm::rotate(modelMatrixMain1, glm::radians(30.0f), glm::vec3(0, 1, 0));
+
+	modelMatrixMain2 = glm::translate(modelMatrixMain2, glm::vec3(70.3,0.0,52.3));
+	modelMatrixMain2 = glm::rotate(modelMatrixMain2, glm::radians(-90.0f), glm::vec3(0, 1, 0));
+
 
 	float speed = 0.5f; // velocidad del Zombie
 
@@ -2115,17 +2162,21 @@ void applicationLoop() {
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f),
 				(float) screenWidth / (float) screenHeight, 0.01f, 100.0f);
 
-//posible error aqui
-		if(modelSelected == 0){
-			axis = glm::axis(glm::quat_cast(modelMatrixMayow));
+		//maynow ejemplo
+					/* axis = glm::axis(glm::quat_cast(modelMatrixMayow));
 			angleTarget = glm::angle(glm::quat_cast(modelMatrixMayow));
-			target = modelMatrixMayow[3];
+			target = modelMatrixMayow[3]; */
+		if(modelSelected == 0){
+			axis = glm::axis(glm::quat_cast(modelMatrixMain));
+			angleTarget = glm::angle(glm::quat_cast(modelMatrixMain));
+			target = modelMatrixMain[3];
 		}
-		else if(modelSelected == 1){
+		if(modelSelected == 1){
 			axis = glm::axis(glm::quat_cast(modelMatrixMain1));
 			angleTarget = glm::angle(glm::quat_cast(modelMatrixMain1));
 			target = modelMatrixMain1[3];
-		}else if (modelSelected == 2){
+		}
+		if (modelSelected == 2){
 			axis = glm::axis(glm::quat_cast(modelMatrixMain2));
 			angleTarget = glm::angle(glm::quat_cast(modelMatrixMain2));
 			target = modelMatrixMain2[3];
@@ -2264,8 +2315,7 @@ void applicationLoop() {
 		/*****************************************
 		 * Objetos animados por huesos
 		 * **************************************/
-		if (modelSelected == 0){
-			glm::vec3 ejey = glm::normalize(terrain.getNormalTerrain(modelMatrixMayow[3][0], modelMatrixMayow[3][2]));
+/* 			glm::vec3 ejey = glm::normalize(terrain.getNormalTerrain(modelMatrixMayow[3][0], modelMatrixMayow[3][2]));
 			glm::vec3 ejex = glm::vec3(modelMatrixMayow[0]);
 			glm::vec3 ejez = glm::normalize(glm::cross(ejex, ejey));
 			ejex = glm::normalize(glm::cross(ejey, ejez));
@@ -2283,8 +2333,8 @@ void applicationLoop() {
 			modelMatrixMayowBody = glm::scale(modelMatrixMayowBody, glm::vec3(0.021f));
 			mayowModelAnimate.setAnimationIndex(animationMayowIndex);
 			mayowModelAnimate.render(modelMatrixMayowBody);
-			animationMayowIndex = 1;
-		} else if (modelSelected == 1){
+			animationMayowIndex = 1; */
+		if (modelSelected == 0){
 			glm::vec3 ejey1 = glm::normalize(terrain.getNormalTerrain(modelMatrixMain[3][0], modelMatrixMain[3][2]));
 			glm::vec3 ejex1 = glm::vec3(modelMatrixMain[0]);
 			glm::vec3 ejez1 = glm::normalize(glm::cross(ejex1, ejey1));
@@ -2297,8 +2347,9 @@ void applicationLoop() {
 			modelMatrixMainBody = glm::scale(modelMatrixMainBody, glm::vec3(0.021f));
 			mainModelAnimate.setAnimationIndex(animationMainIndex);
 			mainModelAnimate.render(modelMatrixMainBody);
-			animationMainIndex = 2; //El 2 es la siguiente animacion, 0 la primera 
+			//animationMainIndex = 2; //El 2 es la siguiente animacion, 0 la primera 
 
+		} if (modelSelected == 1){
 			glm::vec3 ejey3 = glm::normalize(terrain.getNormalTerrain(modelMatrixMain1[3][0], modelMatrixMain1[3][2]));
 			glm::vec3 ejex3 = glm::vec3(modelMatrixMain1[0]);
 			glm::vec3 ejez3 = glm::normalize(glm::cross(ejex3, ejey3));
@@ -2311,9 +2362,10 @@ void applicationLoop() {
 			modelMatrixMain1Body = glm::scale(modelMatrixMain1Body, glm::vec3(0.021f));
 			main1ModelAnimate.setAnimationIndex(animationMain1Index);
 			main1ModelAnimate.render(modelMatrixMain1Body);
-			animationMain1Index = 2; //El 2 es la siguiente animacion, 0 la primera
+			//animationMain1Index = 2; //El 2 es la siguiente animacion, 0 la primera
 
-		}else if (modelSelected == 2){
+		}
+		if (modelSelected == 2){
 			glm::vec3 ejey4 = glm::normalize(terrain.getNormalTerrain(modelMatrixMain2[3][0], modelMatrixMain2[3][2]));
 			glm::vec3 ejex4 = glm::vec3(modelMatrixMain2[0]);
 			glm::vec3 ejez4 = glm::normalize(glm::cross(ejex4, ejey4));
@@ -2326,10 +2378,15 @@ void applicationLoop() {
 			modelMatrixMain2Body = glm::scale(modelMatrixMain2Body, glm::vec3(0.021f));
 			main2ModelAnimate.setAnimationIndex(animationMain2Index);
 			main2ModelAnimate.render(modelMatrixMain2Body);
-			animationMain2Index = 1; //El 2 es la siguiente animacion, 0 la primera
+			//animationMain2Index = 2; //El 2 es la siguiente animacion, 0 la primera
 		}
 
-		updateZombiePosition(modelMatrixZombie, modelMatrixMayow, speed, deltaTime, terrain);
+		if (modelSelected == 0)
+			updateZombiePosition(modelMatrixZombie, modelMatrixMain, speed, deltaTime, terrain);
+		if (modelSelected == 1)
+			updateZombiePosition(modelMatrixZombie, modelMatrixMain1, speed, deltaTime, terrain);
+		if (modelSelected)
+			updateZombiePosition(modelMatrixZombie, modelMatrixMain2, speed, deltaTime, terrain);
 		glm::vec3 ejey2 = glm::normalize(terrain.getNormalTerrain(modelMatrixZombie[3][0], modelMatrixZombie[3][2]));
 		glm::vec3 ejex2 = glm::vec3(modelMatrixZombie[0]);
 		glm::vec3 ejez2 = glm::normalize(glm::cross(ejex2, ejey2));
@@ -2419,8 +2476,7 @@ void applicationLoop() {
 			std::get<0>(collidersOBB.find("Muro-" + std::to_string(i))->second) = muroCollider;
 		}
 		// Collider de mayow
-		if (modelSelected == 0){
-			AbstractModel::OBB mayowCollider;
+/* 			AbstractModel::OBB mayowCollider;
 			glm::mat4 modelmatrixColliderMayow = glm::mat4(modelMatrixMayow);
 			modelmatrixColliderMayow = glm::rotate(modelmatrixColliderMayow,
 					glm::radians(-90.0f), glm::vec3(1, 0, 0));
@@ -2433,8 +2489,24 @@ void applicationLoop() {
 							mayowModelAnimate.getObb().c.z));
 			mayowCollider.e = mayowModelAnimate.getObb().e * glm::vec3(0.021, 0.021, 0.021) * glm::vec3(0.787401574, 0.787401574, 0.787401574);
 			mayowCollider.c = glm::vec3(modelmatrixColliderMayow[3]);
-			addOrUpdateColliders(collidersOBB, "mayow", mayowCollider, modelMatrixMayow);
-		}else if (modelSelected == 1){
+			addOrUpdateColliders(collidersOBB, "mayow", mayowCollider, modelMatrixMayow); */
+		if (modelSelected == 0){
+			AbstractModel::OBB mainCollider;
+			glm::mat4 modelmatrixColliderMain = glm::mat4(modelMatrixMain);
+			modelmatrixColliderMain = glm::rotate(modelmatrixColliderMain,
+					glm::radians(-90.0f), glm::vec3(1, 0, 0));
+			// Set the orientation of collider before doing the scale
+			mainCollider.u = glm::quat_cast(modelmatrixColliderMain);
+			modelmatrixColliderMain = glm::scale(modelmatrixColliderMain, glm::vec3(0.021, 0.021, 0.021));
+			modelmatrixColliderMain = glm::translate(modelmatrixColliderMain,
+					glm::vec3(mainModelAnimate.getObb().c.x,
+							mainModelAnimate.getObb().c.y,
+							mainModelAnimate.getObb().c.z));
+			mainCollider.e = mainModelAnimate.getObb().e * glm::vec3(0.021, 0.021, 0.021) * glm::vec3(0.787401574, 0.787401574, 0.787401574);
+			mainCollider.c = glm::vec3(modelmatrixColliderMain[3]);
+			addOrUpdateColliders(collidersOBB, "main", mainCollider, modelMatrixMain);
+		}
+		if (modelSelected == 1){
 			AbstractModel::OBB main1Collider;
 			glm::mat4 modelmatrixColliderMain1 = glm::mat4(modelMatrixMain1);
 			modelmatrixColliderMain1 = glm::rotate(modelmatrixColliderMain1,
@@ -2449,7 +2521,8 @@ void applicationLoop() {
 			main1Collider.e = main1ModelAnimate.getObb().e * glm::vec3(0.021, 0.021, 0.021) * glm::vec3(0.787401574, 0.787401574, 0.787401574);
 			main1Collider.c = glm::vec3(modelmatrixColliderMain1[3]);
 			addOrUpdateColliders(collidersOBB, "main1", main1Collider, modelMatrixMain1);
-		}else if (modelSelected == 2){
+		}
+		if (modelSelected == 2){
 			AbstractModel::OBB main2Collider;
 			glm::mat4 modelmatrixColliderMain2 = glm::mat4(modelMatrixMain2);
 			modelmatrixColliderMain2 = glm::rotate(modelmatrixColliderMain2,
@@ -2465,6 +2538,21 @@ void applicationLoop() {
 			main2Collider.c = glm::vec3(modelmatrixColliderMain2[3]);
 			addOrUpdateColliders(collidersOBB, "main2", main2Collider, modelMatrixMain2);
 		}
+		//colliders Zombies
+/* 		for(int i=0 ; i < zombies.size(); i++){
+			AbstractModel::OBB mayowCollider;
+			glm::mat4 modelmatrixColliderMayow = glm::mat4(modelMatrixMayow);
+			modelmatrixColliderMayow = glm::rotate(modelmatrixColliderMayow,
+			glm::radians(-90.0f), glm::vec3(1, 0, 0));
+			// Set the orientation of collider before doing the scale
+			mayowCollider.u = glm::quat_cast(modelmatrixColliderMayow);
+			modelmatrixColliderMayow = glm::scale(modelmatrixColliderMayow, glm::vec3(0.021, 0.021, 0.021));
+			modelmatrixColliderMayow = glm::translate(modelmatrixColliderMayow,
+			glm::vec3(mayowModelAnimate.getObb().c.x,mayowModelAnimate.getObb().c.y,mayowModelAnimate.getObb().c.z));
+			mayowCollider.e = mayowModelAnimate.getObb().e * glm::vec3(0.021, 0.021, 0.021) * glm::vec3(0.787401574, 0.787401574, 0.787401574);
+			mayowCollider.c = glm::vec3(modelmatrixColliderMayow[3]);
+			addOrUpdateColliders(collidersOBB, "mayow", mayowCollider, modelMatrixMayow);
+		} */
 
 		/**********Render de transparencias***************/
 		renderAlphaScene();
@@ -2538,14 +2626,16 @@ void applicationLoop() {
 				if (!itCollision->second){
 					addOrUpdateColliders(collidersOBB, itCollision->first);
 				}else{
-					if (itCollision->first.compare("mayow") == 0){
-						if (modelSelected == 0)
-							modelMatrixMayow = std::get<1>(obbBuscado->second);
-					}else if (itCollision->first.compare("main1") == 0){
-						if (modelSelected == 1)
+					if (itCollision->first.compare("main") == 0){
+						//if (modelSelected == 0)
+							modelMatrixMain = std::get<1>(obbBuscado->second);
+					}
+					if (itCollision->first.compare("main1") == 0){
+						//if (modelSelected == 1)
 							modelMatrixMain1 = std::get<1>(obbBuscado->second);
-					}else if (itCollision->first.compare("main2") == 0){
-						if (modelSelected == 2)
+					}
+					if (itCollision->first.compare("main2") == 0){
+						//if (modelSelected == 2)
 							modelMatrixMain2 = std::get<1>(obbBuscado->second);
 						
 					}
@@ -2555,35 +2645,92 @@ void applicationLoop() {
 
 		// Constantes de animaciones
 		//animationMayowIndex = 1;
+		animationMainIndex = 1;
+		animationMain1Index = 1;
+		animationMain2Index = 2;
 
 		glfwSwapBuffers(window);
-
 		/****************************+
 		 * Open AL sound data
 		 */
 
-/* 		modelMatrixHogera = glm::mat4(1.0f);
-		modelMatrixHogera = glm::translate(modelMatrixHogera,glm::vec3(Hogeras[2]));
-		source0Pos[0] = modelMatrixHogera[3].x;
-		source0Pos[1] = modelMatrixHogera[3].y;
-		source0Pos[2] = modelMatrixHogera[3].z;
-		alSourcefv(source[0], AL_POSITION, source0Pos); */
+		if (modelSelected == 0){
+			// Listener for the Thris person camera
+			listenerPos[0] = modelMatrixMain[3].x;
+			listenerPos[1] = modelMatrixMain[3].y;
+			listenerPos[2] = modelMatrixMain[3].z;
+			alListenerfv(AL_POSITION, listenerPos);
 
-/* 		// Listener for the Thris person camera
-		listenerPos[0] = modelMatrixMayow[3].x;
-		listenerPos[1] = modelMatrixMayow[3].y;
-		listenerPos[2] = modelMatrixMayow[3].z;
-		alListenerfv(AL_POSITION, listenerPos); */
+			glm::vec3 upModel = glm::normalize(modelMatrixMain[1]);
+			glm::vec3 frontModel = glm::normalize(modelMatrixMain[2]);
 
-		glm::vec3 upModel = glm::normalize(modelMatrixMayow[1]);
-		glm::vec3 frontModel = glm::normalize(modelMatrixMayow[2]);
+			listenerOri[0] = frontModel.x;
+			listenerOri[1] = frontModel.y;
+			listenerOri[2] = frontModel.z;
+			listenerOri[3] = upModel.x;
+			listenerOri[4] = upModel.y;
+			listenerOri[5] = upModel.z;
+		}
+		if (modelSelected == 1){
+			// Listener for the Thris person camera
+			listenerPos[0] = modelMatrixMain1[3].x;
+			listenerPos[1] = modelMatrixMain1[3].y;
+			listenerPos[2] = modelMatrixMain1[3].z;
+			alListenerfv(AL_POSITION, listenerPos);
 
-		listenerOri[0] = frontModel.x;
-		listenerOri[1] = frontModel.y;
-		listenerOri[2] = frontModel.z;
-		listenerOri[3] = upModel.x;
-		listenerOri[4] = upModel.y;
-		listenerOri[5] = upModel.z;
+			glm::vec3 upModel = glm::normalize(modelMatrixMain1[1]);
+			glm::vec3 frontModel = glm::normalize(modelMatrixMain1[2]);
+
+			listenerOri[0] = frontModel.x;
+			listenerOri[1] = frontModel.y;
+			listenerOri[2] = frontModel.z;
+			listenerOri[3] = upModel.x;
+			listenerOri[4] = upModel.y;
+			listenerOri[5] = upModel.z;
+
+		}
+		if (modelSelected == 2){
+			// Listener for the Thris person camera
+			listenerPos[0] = modelMatrixMain2[3].x;
+			listenerPos[1] = modelMatrixMain2[3].y;
+			listenerPos[2] = modelMatrixMain2[3].z;
+			alListenerfv(AL_POSITION, listenerPos);
+
+			glm::vec3 upModel = glm::normalize(modelMatrixMain2[1]);
+			glm::vec3 frontModel = glm::normalize(modelMatrixMain2[2]);
+
+			listenerOri[0] = frontModel.x;
+			listenerOri[1] = frontModel.y;
+			listenerOri[2] = frontModel.z;
+			listenerOri[3] = upModel.x;
+			listenerOri[4] = upModel.y;
+			listenerOri[5] = upModel.z;
+		}
+
+		//sinido zombie
+		source3Pos[0] = modelMatrixZombie[3].x;
+		source3Pos[1] = modelMatrixZombie[3].y;
+		source3Pos[2] = modelMatrixZombie[3].z;
+		alSourcefv(source[3], AL_POSITION, source3Pos);
+
+		//sonido pasos
+		if(modelSelected == 0){
+			source3Pos[0] = modelMatrixMain[3].x;
+			source3Pos[1] = modelMatrixMain[3].y;
+			source3Pos[2] = modelMatrixMain[3].z;
+			alSourcefv(source[3], AL_POSITION, source3Pos);
+		}
+		if(modelSelected == 1){
+			source3Pos[0] = modelMatrixMain1[3].x;
+			source3Pos[1] = modelMatrixMain1[3].y;
+			source3Pos[2] = modelMatrixMain1[3].z;
+			alSourcefv(source[3], AL_POSITION, source3Pos);
+		}if(modelSelected == 2){
+			source3Pos[0] = modelMatrixMain2[3].x;
+			source3Pos[1] = modelMatrixMain2[3].y;
+			source3Pos[2] = modelMatrixMain2[3].z;
+			alSourcefv(source[3], AL_POSITION, source3Pos);
+		}
 
 /* 		// Listener for the First person camera
 		 listenerPos[0] = camera->getPosition().x;
@@ -2610,9 +2757,9 @@ void applicationLoop() {
 	}
 }
 
-void updateZombiePosition(glm::mat4 &modelMatrixZombie, glm::mat4 &modelMatrixMayow, float speed, float deltaTime, Terrain &terrain) {
+void updateZombiePosition(glm::mat4 &modelMatrixZombie, glm::mat4 &modelMatrixMain, float speed, float deltaTime, Terrain &terrain) {
 	// Obtener la posición actual de Mayow y Zombie
-	glm::vec3 positionMayow = glm::vec3(modelMatrixMayow[3]);
+	glm::vec3 positionMayow = glm::vec3(modelMatrixMain[3]);
 	glm::vec3 positionZombie = glm::vec3(modelMatrixZombie[3]);
 
 	// Calcular la dirección desde el Zombie hacia Mayow
