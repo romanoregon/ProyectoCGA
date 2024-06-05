@@ -97,6 +97,7 @@ Model Muro;
 Model Hogera;
 Model Casa;
 Model Ventanas;
+Model Llave;
 
 // Modelos animados
 // Mayow
@@ -159,6 +160,7 @@ glm::mat4 modelMatrixCasa = glm::mat4(1.0f);
 glm::mat4 modelMatrixVentanas = glm::mat4(1.0f);
 glm::mat4 modelMatrixMuro = glm::mat4(1.0f);
 glm::mat4 modelMatrixHogera = glm::mat4(1.0f);
+glm::mat4 modelMatrixLlave = glm::mat4(1.0f);
 //glm::mat4 modelMatrix = glm::mat4(1.0f);
 
 //variables de animacion modelos
@@ -233,6 +235,19 @@ std::vector<glm::vec3> Muros = {
 std::vector<glm::vec3> Casas = {
 	glm::vec3(32.8125,0,36.71875),
 	glm::vec3(-73.828125,0,-51.171875)
+};
+
+//parte baja del mapa
+std::vector<glm::vec3> Llaves1 = {
+	glm::vec3(-74.2,0,26.5),
+	glm::vec3(-39.6,0,-85.1),
+	glm::vec3(81.0,0,47.6)
+};
+//parte de arriba
+std::vector<glm::vec3> Llaves2 = {
+	glm::vec3(86.3,0.0,17.3),
+	glm::vec3(15.4,0,50.1),
+	glm::vec3(-46.0,0.0,21.4)
 };
 
 // Blending model unsorted
