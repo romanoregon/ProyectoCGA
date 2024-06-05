@@ -2,7 +2,13 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "CGALib/libCGALib.so"
+			"path" : "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/bin/libCGALib.dll"
+		},
+		{
+			"path" : "CGALib/libCGALib.dll.a"
+		},
+		{
+			"path" : "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/bin/libCGALib.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -11,6 +17,7 @@
 		"commands" : 
 		[
 			"add_library",
+			"link_directories",
 			"target_link_libraries",
 			"add_definitions",
 			"include_directories"
@@ -33,19 +40,25 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 44,
+				"line" : 22,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 1,
+				"line" : 42,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 30,
+				"line" : 1,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 9,
 				"parent" : 0
 			}
 		]
@@ -56,13 +69,13 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -fPIC"
+					"fragment" : "-g"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"define" : "BUILDING_DLL"
 				},
 				{
@@ -72,16 +85,44 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
-					"path" : "/home/roa/Documentos/ProyectoCGA/CGALib/CGALib"
+					"backtrace" : 5,
+					"path" : "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/CGALib"
 				},
 				{
-					"backtrace" : 4,
-					"path" : "/home/roa/Documentos/ProyectoCGA/CGALib/./include"
+					"backtrace" : 5,
+					"path" : "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/./include"
 				},
 				{
-					"backtrace" : 4,
-					"path" : "/usr/include/freetype2"
+					"backtrace" : 5,
+					"path" : "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/../external/assimp/include"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/../external/glfw/include"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/../external/glm"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/../external/glew/include"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/../external/FreeImage/include"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/../external/OpenAL/include"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/../external/Freetype/include"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/../external/freealut/include"
 				}
 			],
 			"language" : "CXX",
@@ -115,49 +156,63 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-lglut",
-				"role" : "libraries"
+				"fragment" : "-LC:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\..\\external\\assimp\\lib",
+				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-lglfw",
-				"role" : "libraries"
+				"fragment" : "-LC:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\..\\external\\glfw\\lib",
+				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-lGLEW",
-				"role" : "libraries"
+				"fragment" : "-LC:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\..\\external\\Freetype\\lib",
+				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-lGLU",
-				"role" : "libraries"
+				"fragment" : "-LC:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\..\\external\\FreeImage\\lib",
+				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-lGL",
+				"fragment" : "-LC:\\Users\\Alfonso\\Documents\\Proyecto\\ProyectoCGA\\CGALib\\..\\external\\glew\\lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lopengl32",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 2,
-				"fragment" : "-lfreeimage",
+				"backtrace" : 3,
+				"fragment" : "-lglfw3dll",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 2,
+				"backtrace" : 3,
+				"fragment" : "-lglew32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
 				"fragment" : "-lassimp",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 2,
+				"backtrace" : 3,
 				"fragment" : "-lfreetype",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
 				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "CGALib",
-	"nameOnDisk" : "libCGALib.so",
+	"nameOnDisk" : "libCGALib.dll",
 	"paths" : 
 	{
 		"build" : "CGALib",
