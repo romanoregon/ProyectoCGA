@@ -1410,6 +1410,9 @@ void renderSolidScene(){
 	/*****************************************
 	 * Objetos animados por huesos
 	 * **************************************/
+	void updateZombiePosition(glm::mat4 &modelMatrixZombie, glm::mat4 &modelMatrixMayow, float speed, float deltaTime, Terrain &terrain);
+	float speed = 0.5f; // velocidad del Zombie
+
 	if(modelSelected == 0){
 		glm::vec3 ejey = glm::normalize(terrain.getNormalTerrain(modelMatrixMayow[3][0], modelMatrixMayow[3][2]));
 		glm::vec3 ejex = glm::vec3(modelMatrixMayow[0]);
@@ -1474,6 +1477,7 @@ void renderSolidScene(){
 		animationMain2Index = 1; //El 2 es la siguiente animacion, 0 la primera
 	}
 
+	updateZombiePosition(modelMatrixZombie, modelMatrixMayow, speed, deltaTime, terrain);
 	glm::vec3 ejey2 = glm::normalize(terrain.getNormalTerrain(modelMatrixZombie[3][0], modelMatrixZombie[3][2]));
 	glm::vec3 ejex2 = glm::vec3(modelMatrixZombie[0]);
 	glm::vec3 ejez2 = glm::normalize(glm::cross(ejex2, ejey2));
@@ -2039,6 +2043,7 @@ void renderScene(){
 }
 
 void applicationLoop() {
+	void updateZombiePosition(glm::mat4 &modelMatrixZombie, glm::mat4 &modelMatrixMayow, float speed, float deltaTime, Terrain &terrain);
 	bool psi = true;
 
 	glm::vec3 axis;
@@ -2070,6 +2075,9 @@ void applicationLoop() {
 		modelMatrixMain2 = glm::translate(modelMatrixMain2, glm::vec3(70.3f,0.0f,52.3f));
 		modelMatrixMain2 = glm::rotate(modelMatrixMain2, glm::radians(-90.0f), glm::vec3(0, 1, 0));
 	}
+
+	float speed = 0.5f; // velocidad del Zombie
+
 	modelMatrixZombie = glm::translate(modelMatrixZombie, glm::vec3(-20.0f, 0.0f, -10.0f));
 	modelMatrixZombie = glm::rotate(modelMatrixZombie, glm::radians(-90.0f), glm::vec3(0, 1, 0));
 
@@ -2321,6 +2329,7 @@ void applicationLoop() {
 			animationMain2Index = 1; //El 2 es la siguiente animacion, 0 la primera
 		}
 
+		updateZombiePosition(modelMatrixZombie, modelMatrixMayow, speed, deltaTime, terrain);
 		glm::vec3 ejey2 = glm::normalize(terrain.getNormalTerrain(modelMatrixZombie[3][0], modelMatrixZombie[3][2]));
 		glm::vec3 ejex2 = glm::vec3(modelMatrixZombie[0]);
 		glm::vec3 ejez2 = glm::normalize(glm::cross(ejex2, ejey2));
@@ -2599,6 +2608,35 @@ void applicationLoop() {
 			}
 		}
 	}
+}
+
+void updateZombiePosition(glm::mat4 &modelMatrixZombie, glm::mat4 &modelMatrixMayow, float speed, float deltaTime, Terrain &terrain) {
+	// Obtener la posición actual de Mayow y Zombie
+	glm::vec3 positionMayow = glm::vec3(modelMatrixMayow[3]);
+	glm::vec3 positionZombie = glm::vec3(modelMatrixZombie[3]);
+
+	// Calcular la dirección desde el Zombie hacia Mayow
+	glm::vec3 direction = glm::normalize(positionMayow - positionZombie);
+
+	// Calcular la nueva posición del Zombie
+	glm::vec3 newPosition = positionZombie + direction * speed * deltaTime;
+
+	// Actualizar la posición del Zombie en el modelo
+	modelMatrixZombie[3] = glm::vec4(newPosition, 1.0f);
+
+	// Calcular la orientación del Zombie
+	glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f); 
+	glm::vec3 right = glm::normalize(glm::cross(up, direction)); 
+	glm::vec3 adjustedUp = glm::normalize(glm::cross(direction, right)); 
+
+	glm::mat4 rotationMatrix = glm::mat4(1.0f);
+	rotationMatrix[0] = glm::vec4(right, 0.0f);
+	rotationMatrix[1] = glm::vec4(adjustedUp, 0.0f);
+	rotationMatrix[2] = glm::vec4(direction, 0.0f);
+
+	modelMatrixZombie = rotationMatrix;
+	modelMatrixZombie[3] = glm::vec4(newPosition, 1.0f);
+
 }
 
 int main(int argc, char **argv) {
