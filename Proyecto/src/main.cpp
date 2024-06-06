@@ -118,7 +118,7 @@ ShadowBox * shadowBox;
 GLuint textureCespedID;
 GLuint textureTerrainRID, textureTerrainGID, textureTerrainBID, textureTerrainBlendMapID;
 GLuint skyboxTextureID;
-GLuint textureInit1ID,textureInit2ID,textureInit3ID,textureInit4ID,textureActivaID,textureScreen1ID,textureScreen2ID,textureScreen3ID;
+GLuint textureInit1ID,textureInit2ID,textureInit3ID,textureInit4ID,textureActivaID,textureScreen1ID,textureScreen2ID,textureScreen3ID, textureScreenGOID;
 GLuint textureParticleFountainID,textureParticleFireID,texId;
 
 bool iniciaPartida = false, presionarOpcion = false, presionarEnter = false;; 
@@ -171,7 +171,7 @@ int animationMain2Index = 2;
 int animationZombieIndex = 1;
 int animationZombie1Index = 1;
 int modelSelected = 0,mapa = 0;
-bool enableCountSelected = true;
+bool enableCountSelected = true, zombiMain = false, zombiMain1=false,zombiMain2=false;
 
 //coordenadas de los arboles primera midad
 std::vector<glm::vec3> PinoPos1 = {
@@ -282,6 +282,7 @@ bool isJump = false;
 float GRAVITY = 1.81;
 double tmv = 0;
 double startTimeJump = 0;
+double timeStop = 0;
 
 // Colliders
 std::map<std::string, std::tuple<AbstractModel::OBB, glm::mat4, glm::mat4> > collidersOBB;
@@ -862,6 +863,26 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 		randData[i] = distr01(generator);
 	}
 
+	// Definiendo la textura
+	Texture textureScreenGO("../Textures/GameOver.png");
+	textureScreenGO.loadImage(); // Cargar la textura
+	glGenTextures(1, &textureScreenGOID); // Creando el id de la textura del landingpad
+	glBindTexture(GL_TEXTURE_2D, textureScreenGOID); // Se enlaza la textura
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // Wrapping en el eje u
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); // Wrapping en el eje v
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // Filtering de minimización
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // Filtering de maximimizacion
+	if(textureScreenGO.getData()){
+		// Transferir los datos de la imagen a la tarjeta
+		glTexImage2D(GL_TEXTURE_2D, 0, textureScreenGO.getChannels() == 3 ? GL_RGB : GL_RGBA, textureScreenGO.getWidth(), textureScreenGO.getHeight(), 0,
+		textureScreenGO.getChannels() == 3 ? GL_RGB : GL_RGBA, GL_UNSIGNED_BYTE, textureScreenGO.getData());
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else 
+		std::cout << "Fallo la carga de textura" << std::endl;
+	textureScreenGO.freeImage(); // Liberamos memoria
+
+
 	glGenTextures(1, &texId);
 	glBindTexture(GL_TEXTURE_1D, texId);
 	glTexStorage1D(GL_TEXTURE_1D, 1, GL_R32F, size);
@@ -1047,6 +1068,7 @@ void destroy() {
 	glDeleteTextures(1, &textureScreen1ID);
 	glDeleteTextures(1, &textureScreen2ID);
 	glDeleteTextures(1, &textureScreen3ID);
+	glDeleteTextures(1, &textureScreenGOID);
 	glDeleteTextures(1, &textureParticleFireID);
 
 	// Cube Maps Delete
@@ -1134,6 +1156,8 @@ bool processInput(bool continueApplication) {
 				iniciaPartida = true;
 				textureActivaID = textureScreen1ID;
 				modelSelected = 2;
+			}else if(textureActivaID == textureScreenGOID){
+				textureActivaID = textureInit1ID;
 			}
 		}
 		else if(!presionarOpcion && glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS){
@@ -1475,14 +1499,14 @@ void renderSolidScene(){
 
 	if(mapa == 0){
 		for(int i = 0; i< Llaves1.size() ; i++ ){
-			Llaves1[i].y =terrain.getHeightTerrain(Llaves1[i].x,Llaves1[i].z) + 8.0f;
+			Llaves1[i].y =terrain.getHeightTerrain(Llaves1[i].x,Llaves1[i].z);
 			Llave.setPosition(Llaves1[i]);
 			Llave.setScale(glm::vec3(0.3));			
 			Llave.render();
 		}
 	}else{
 		for(int i = 0; i< Llaves2.size() ; i++ ){
-			Llaves2[i].y =terrain.getHeightTerrain(Llaves2[i].x,Llaves2[i].z) + 8.0f;
+			Llaves2[i].y =terrain.getHeightTerrain(Llaves2[i].x,Llaves2[i].z);
 			Llave.setPosition(Llaves2[i]);
 			Llave.setScale(glm::vec3(1.0));			
 			Llave.render();
@@ -2172,7 +2196,6 @@ void applicationLoop() {
 	modelMatrixMain2 = glm::translate(modelMatrixMain2, glm::vec3(70.3,0.0,52.3));
 	modelMatrixMain2 = glm::rotate(modelMatrixMain2, glm::radians(-90.0f), glm::vec3(0, 1, 0));
 
-
 	float speed = 0.5f; // velocidad del Zombie
 
 	modelMatrixZombie = glm::translate(modelMatrixZombie, glm::vec3(16.6f, 0.0f, 64.9f));
@@ -2532,7 +2555,7 @@ void applicationLoop() {
 				glm::mat4 modelMatrixColliderLlave= glm::mat4(1.0);
 				modelMatrixColliderLlave = glm::translate(modelMatrixColliderLlave, Llaves1[i]);
 				//modelMatrixColliderLlave = glm::rotate(modelMatrixColliderLlave, glm::radians(lamp1Orientation[i]),glm::vec3(0, 1, 0));
-				addOrUpdateColliders(collidersOBB, "Llave1-" + std::to_string(i), LlaveCollider, modelMatrixColliderLlave);
+				addOrUpdateColliders(collidersOBB, "Llave-" + std::to_string(i), LlaveCollider, modelMatrixColliderLlave);
 				// Set the orientation of collider before doing the scale
 				LlaveCollider.u = glm::quat_cast(modelMatrixColliderLlave);
 				modelMatrixColliderLlave = glm::scale(modelMatrixColliderLlave, glm::vec3(0.078, 0.078, 0.078));
@@ -2547,7 +2570,7 @@ void applicationLoop() {
 				glm::mat4 modelMatrixColliderLlave= glm::mat4(1.0);
 				modelMatrixColliderLlave = glm::translate(modelMatrixColliderLlave, Llaves2[i]);
 				//modelMatrixColliderLlave = glm::rotate(modelMatrixColliderLlave, glm::radians(lamp1Orientation[i]),glm::vec3(0, 1, 0));
-				addOrUpdateColliders(collidersOBB, "Llave2-" + std::to_string(i), LlaveCollider, modelMatrixColliderLlave);
+				addOrUpdateColliders(collidersOBB, "Llave-" + std::to_string(i), LlaveCollider, modelMatrixColliderLlave);
 				// Set the orientation of collider before doing the scale
 				LlaveCollider.u = glm::quat_cast(modelMatrixColliderLlave);
 				modelMatrixColliderLlave = glm::scale(modelMatrixColliderLlave, glm::vec3(0.078, 0.078, 0.078));
@@ -2689,9 +2712,19 @@ void applicationLoop() {
 				collidersOBB.begin(); jt != collidersOBB.end(); jt++) {
 				if (it != jt && 
 					testOBBOBB(std::get<0>(it->second), std::get<0>(jt->second))) {
-					std::cout << "Hay colision entre " << it->first << " y el modelo" <<
+					std::cout << "Hay colision entre " << it->first << " y el modelo l" <<
 						jt->first << std::endl;
 					isColision = true;
+
+					if(it->first.compare("main") == 0 && jt->first.compare("Zombie") == 0 ){
+						zombiMain = true;
+					}
+					if(it->first.compare("main1") == 0 && jt->first.compare("Zombie") == 0 ){
+						zombiMain1 = true;
+					}
+					if(it->first.compare("main2") == 0 && jt->first.compare("Zombie") == 0 ){
+						zombiMain2 = true;
+					}
 				}
 			}
 			addOrUpdateCollisionDetection(collisionDetection, it->first, isColision);
@@ -2734,10 +2767,6 @@ void applicationLoop() {
 					if (itCollision->first.compare("main") == 0 ){
 						//if (modelSelected == 0)
 						modelMatrixMain = std::get<1>(obbBuscado->second);
-
-						/* if (itCollision->first.compare("Llave-") == 0){
-
-						} */
 					}
 					if (itCollision->first.compare("main1") == 0){
 						//if (modelSelected == 1)
@@ -2746,18 +2775,67 @@ void applicationLoop() {
 					if (itCollision->first.compare("main2") == 0){
 						//if (modelSelected == 2)
 							modelMatrixMain2 = std::get<1>(obbBuscado->second);
-						
 					}
-					if (itCollision->first.compare("Zombie") == 0){
-						//if (modelSelected == 2)
-							//modelMatrixZombie = std::get<1>(obbBuscado->second);
-						
+					if (itCollision->first.compare("Zombie") == 0 ){
+						continue;
 					}
 				}
 			}
 		}
 
+		//maquina de estados pantalla
+		if(zombiMain){
+			if(textureActivaID = textureScreen1ID){
+				textureActivaID = textureScreen2ID;
+			}
+			if (textureActivaID = textureScreen2ID){
+				textureActivaID = textureScreen3ID;
+			}
+			if(textureActivaID = textureScreen3ID){
+				textureActivaID = textureScreenGOID;
+			iniciaPartida = false;
+			}
+			modelMatrixZombie = glm::translate(modelMatrixZombie, glm::vec3(0,0,2.0));
+			zombiMain = false;
+		}else if(zombiMain1){
+			if(textureActivaID = textureScreen1ID){
+				textureActivaID = textureScreen2ID;
+			}
+			if (textureActivaID = textureScreen2ID){
+				textureActivaID = textureScreen3ID;
+			}
+			if(textureActivaID = textureScreen3ID){
+				textureActivaID = textureScreenGOID;
+			iniciaPartida = false;
+			}
+			modelMatrixZombie = glm::translate(modelMatrixZombie, glm::vec3(0,0,2.0));
+			zombiMain1 = false;
 
+		}else if (zombiMain2){
+			timeStop += deltaTime;
+			if(textureActivaID == textureScreen1ID){
+				textureActivaID = textureScreen2ID;
+				modelMatrixZombie = glm::translate(modelMatrixZombie, glm::vec3(0,0,-2.0));
+				zombiMain2 = false;
+			}
+			if (timeStop >= 10.0){
+				if (textureActivaID = textureScreen2ID ){
+					textureActivaID = textureScreen3ID;
+					//timeStop = 0.0;
+					zombiMain2 = false;
+				}
+			}if(timeStop >= 15.0){
+				if(textureActivaID == textureScreen3ID ){
+					textureActivaID = textureScreenGOID;
+					iniciaPartida = false;
+					timeStop = 0.0;
+					zombiMain2 = false;
+				}
+				//timeStop = 0.0;
+				zombiMain2 = false;
+			}
+			
+		}
 
 		// Constantes de animaciones
 		//animationMayowIndex = 1;
