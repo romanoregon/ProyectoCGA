@@ -11,7 +11,7 @@ out vec3 fragPos;
 out vec2 our_uv;
 out float visibility;
 
-uniform float density = 0.019;
+uniform float density = 0.19;
 uniform float gradient = 0.5;
 
 uniform mat4 projection;

@@ -1,6 +1,6 @@
 CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.obj: \
- C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\CGALib\src\Mesh.cpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/include/Headers/Mesh.h \
+ C:\Users\roman\OneDrive\Documentos\ProyectoCGA\CGALib\src\Mesh.cpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/CGALib/include/Headers/Mesh.h \
  C:/msys64/ucrt64/include/c++/13.2.0/string \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/requires_hosted.h \
  C:/msys64/ucrt64/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -150,13 +150,13 @@ CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.obj: \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/stl_vector.h \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/stl_bvector.h \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/vector.tcc \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glew/include/GL/glew.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glew/include/GL/glew.h \
  C:/msys64/ucrt64/include/inttypes.h \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdint.h \
  C:/msys64/ucrt64/include/stdint.h C:/msys64/ucrt64/include/GL/glu.h \
  C:/msys64/ucrt64/include/GL/gl.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/glm.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/_fixes.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/glm.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/_fixes.hpp \
  C:/msys64/ucrt64/include/c++/13.2.0/cmath \
  C:/msys64/ucrt64/include/math.h \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/specfun.h \
@@ -173,159 +173,159 @@ CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.obj: \
  C:/msys64/ucrt64/include/c++/13.2.0/tr1/poly_hermite.tcc \
  C:/msys64/ucrt64/include/c++/13.2.0/tr1/poly_laguerre.tcc \
  C:/msys64/ucrt64/include/c++/13.2.0/tr1/riemann_zeta.tcc \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/setup.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/setup.hpp \
  C:/msys64/ucrt64/include/c++/13.2.0/cassert \
  C:/msys64/ucrt64/include/assert.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/simd/platform.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/simd/platform.h \
  C:/msys64/ucrt64/include/c++/13.2.0/cstdint \
  C:/msys64/ucrt64/include/c++/13.2.0/climits \
  C:/msys64/ucrt64/include/c++/13.2.0/cfloat \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/float.h \
  C:/msys64/ucrt64/include/float.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/fwd.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/qualifier.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/setup.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/vec2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_bool2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_vec2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_vec2.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/compute_vector_relational.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_bool2_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_float2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_float2_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_double2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_double2_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_int2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_int2_sized.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/scalar_int_sized.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/setup.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_uint2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_uint2_sized.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/scalar_uint_sized.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/vec3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_bool3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_vec3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_vec3.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_bool3_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_float3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_float3_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_double3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_double3_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_int3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_int3_sized.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_uint3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_uint3_sized.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/vec4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_bool4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_vec4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_vec4.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_bool4_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_float4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_float4_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_double4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_double4_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_int4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_int4_sized.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_uint4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_uint4_sized.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/mat2x2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double2x2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat2x2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat2x2.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/matrix.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/mat2x3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double2x3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat2x3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat2x3.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double2x3_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float2x3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float2x3_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/mat2x4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double2x4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat2x4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat2x4.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double2x4_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float2x4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float2x4_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/mat3x2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double3x2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat3x2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat3x2.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double3x2_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float3x2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float3x2_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/mat3x3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double3x3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat3x3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat3x3.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double3x3_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float3x3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float3x3_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/mat3x4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double3x4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat3x4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat3x4.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double3x4_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float3x4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float3x4_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/mat4x2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double4x2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat4x2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat4x2.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double4x2_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float4x2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float4x2_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/mat4x3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double4x3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat4x3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat4x3.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double4x3_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float4x3.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float4x3_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/mat4x4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double4x4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat4x4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_mat4x4.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double4x4_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float4x4.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float4x4_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/func_matrix.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/geometric.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/func_geometric.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/exponential.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_vec1.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_vec1.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/func_exponential.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/vector_relational.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/func_vector_relational.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/_vectorize.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/common.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/func_common.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/compute_common.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_double2x2_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float2x2.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_float2x2_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/trigonometric.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/func_trigonometric.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/packing.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/func_packing.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_half.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_half.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/integer.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/func_integer.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/gtc/matrix_transform.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_projection.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/gtc/constants.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/scalar_constants.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/scalar_constants.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/gtc/constants.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_projection.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_clip_space.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_clip_space.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_transform.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/matrix_transform.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/gtc/matrix_transform.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/include/Headers/AbstractModel.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/fwd.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/qualifier.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/setup.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/vec2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_bool2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_vec2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_vec2.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/compute_vector_relational.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_bool2_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_float2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_float2_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_double2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_double2_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_int2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_int2_sized.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/scalar_int_sized.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/setup.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_uint2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_uint2_sized.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/scalar_uint_sized.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/vec3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_bool3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_vec3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_vec3.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_bool3_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_float3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_float3_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_double3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_double3_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_int3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_int3_sized.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_uint3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_uint3_sized.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/vec4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_bool4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_vec4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_vec4.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_bool4_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_float4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_float4_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_double4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_double4_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_int4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_int4_sized.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_uint4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_uint4_sized.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/mat2x2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double2x2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat2x2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat2x2.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/matrix.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/mat2x3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double2x3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat2x3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat2x3.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double2x3_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float2x3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float2x3_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/mat2x4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double2x4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat2x4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat2x4.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double2x4_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float2x4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float2x4_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/mat3x2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double3x2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat3x2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat3x2.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double3x2_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float3x2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float3x2_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/mat3x3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double3x3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat3x3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat3x3.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double3x3_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float3x3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float3x3_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/mat3x4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double3x4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat3x4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat3x4.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double3x4_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float3x4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float3x4_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/mat4x2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double4x2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat4x2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat4x2.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double4x2_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float4x2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float4x2_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/mat4x3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double4x3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat4x3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat4x3.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double4x3_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float4x3.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float4x3_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/mat4x4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double4x4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat4x4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_mat4x4.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double4x4_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float4x4.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float4x4_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/func_matrix.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/geometric.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/func_geometric.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/exponential.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_vec1.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_vec1.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/func_exponential.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/vector_relational.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/func_vector_relational.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/_vectorize.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/common.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/func_common.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/compute_common.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_double2x2_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float2x2.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_float2x2_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/trigonometric.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/func_trigonometric.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/packing.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/func_packing.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_half.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_half.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/integer.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/func_integer.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/gtc/matrix_transform.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_projection.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/gtc/constants.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/scalar_constants.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/scalar_constants.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/gtc/constants.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_projection.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_clip_space.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_clip_space.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_transform.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/matrix_transform.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/gtc/matrix_transform.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/CGALib/include/Headers/AbstractModel.h \
  C:/msys64/ucrt64/include/c++/13.2.0/memory \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/stl_tempbuf.h \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/stl_raw_storage_iter.h \
@@ -342,88 +342,88 @@ CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.obj: \
  C:/msys64/ucrt64/include/c++/13.2.0/backward/auto_ptr.h \
  C:/msys64/ucrt64/include/c++/13.2.0/pstl/glue_memory_defs.h \
  C:/msys64/ucrt64/include/c++/13.2.0/pstl/execution_defs.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/include/Headers/Shader.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/CGALib/include/Headers/Shader.h \
  C:/msys64/ucrt64/include/c++/13.2.0/algorithm \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/stl_algo.h \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/algorithmfwd.h \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/stl_heap.h \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/uniform_int_dist.h \
  C:/msys64/ucrt64/include/c++/13.2.0/pstl/glue_algorithm_defs.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/gtc/quaternion.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_relational.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_relational.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_float.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/quaternion_common.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/quaternion_geometric.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/quaternion_geometric.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/quaternion_common.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/quaternion_float.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_quat.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/quaternion_relational.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/quaternion_relational.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/type_quat.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/quaternion_float_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/quaternion_double.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/quaternion_double_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/quaternion_trigonometric.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/quaternion_trigonometric.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/quaternion_transform.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/quaternion_transform.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/gtc/quaternion.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/gtc/epsilon.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/detail/setup.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/gtc/epsilon.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/gtc/type_ptr.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/gtc/vec1.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_bool1.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_bool1_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_float1.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_float1_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_double1.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_double1_precision.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_int1.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_int1_sized.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_uint1.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/ext/vector_uint1_sized.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/gtc/quaternion.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_relational.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_relational.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_float.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/quaternion_common.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/quaternion_geometric.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/quaternion_geometric.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/quaternion_common.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/quaternion_float.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_quat.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/quaternion_relational.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/quaternion_relational.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/type_quat.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/quaternion_float_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/quaternion_double.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/quaternion_double_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/quaternion_trigonometric.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/quaternion_trigonometric.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/quaternion_transform.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/quaternion_transform.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/gtc/quaternion.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/gtc/epsilon.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/detail/setup.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/gtc/epsilon.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/gtc/type_ptr.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/gtc/vec1.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_bool1.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_bool1_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_float1.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_float1_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_double1.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_double1_precision.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_int1.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_int1_sized.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_uint1.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/ext/vector_uint1_sized.hpp \
  C:/msys64/ucrt64/include/c++/13.2.0/cstring \
  C:/msys64/ucrt64/include/string.h \
  C:/msys64/ucrt64/include/sec_api/string_s.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glm/glm/gtc/type_ptr.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/include/Headers/Texture.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/include/Headers/Bones.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glm/glm/gtc/type_ptr.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/CGALib/include/Headers/Texture.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/CGALib/include/Headers/Bones.h \
  C:/msys64/ucrt64/include/c++/13.2.0/map \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/stl_tree.h \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/node_handle.h \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/stl_map.h \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/stl_multimap.h \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/erase_if.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/Importer.hpp \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/types.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/defs.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/config.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/vector2.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/vector3.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/color4.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/matrix3x3.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/matrix4x4.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/quaternion.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/vector2.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/vector3.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/color4.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/matrix3x3.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/matrix4x4.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/MathFunctions.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/quaternion.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/scene.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/texture.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/Compiler/pushpack1.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/Compiler/poppack1.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/mesh.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/aabb.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/light.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/camera.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/material.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/material.inl \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/anim.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/metadata.h \
- C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/assimp/include/assimp/postprocess.h
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/Importer.hpp \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/types.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/defs.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/config.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/vector2.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/vector3.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/color4.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/matrix3x3.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/matrix4x4.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/quaternion.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/vector2.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/vector3.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/color4.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/matrix3x3.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/matrix4x4.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/MathFunctions.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/quaternion.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/scene.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/texture.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/Compiler/pushpack1.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/Compiler/poppack1.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/mesh.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/aabb.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/light.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/camera.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/material.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/material.inl \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/anim.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/metadata.h \
+ C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/assimp/include/assimp/postprocess.h

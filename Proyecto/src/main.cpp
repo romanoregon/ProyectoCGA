@@ -866,7 +866,7 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	}
 
 	// Definiendo la textura
-	Texture textureScreenGO("../Textures/GameOver.png");
+ 	Texture textureScreenGO("../Textures/GameOver.png");
 	textureScreenGO.loadImage(); // Cargar la textura
 	glGenTextures(1, &textureScreenGOID); // Creando el id de la textura del landingpad
 	glBindTexture(GL_TEXTURE_2D, textureScreenGOID); // Se enlaza la textura
@@ -882,9 +882,9 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	}
 	else 
 		std::cout << "Fallo la carga de textura" << std::endl;
-	textureScreenGO.freeImage(); // Liberamos memoria
+	textureScreenGO.freeImage(); // Liberamos memoria */
 
-		// Definiendo la textura
+ 		// Definiendo la textura
 	Texture textureScreenWin("../Textures/Win.png");
 	textureScreenWin.loadImage(); // Cargar la textura
 	glGenTextures(1, &textureScreenWinID); // Creando el id de la textura del landingpad
@@ -901,7 +901,7 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 	}
 	else 
 		std::cout << "Fallo la carga de textura" << std::endl;
-	textureScreenWin.freeImage(); // Liberamos memoria
+	textureScreenWin.freeImage(); // Liberamos memoria */
 
 
 	glGenTextures(1, &texId);
