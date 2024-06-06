@@ -60,6 +60,8 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp",
-        "format": "cpp"
+        "format": "cpp",
+        "list": "cpp",
+        "set": "cpp"
     }
 }

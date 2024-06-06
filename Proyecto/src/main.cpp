@@ -118,7 +118,7 @@ ShadowBox * shadowBox;
 GLuint textureCespedID;
 GLuint textureTerrainRID, textureTerrainGID, textureTerrainBID, textureTerrainBlendMapID;
 GLuint skyboxTextureID;
-GLuint textureInit1ID,textureInit2ID,textureInit3ID,textureInit4ID,textureActivaID,textureScreen1ID,textureScreen2ID,textureScreen3ID, textureScreenGOID;
+GLuint textureInit1ID,textureInit2ID,textureInit3ID,textureInit4ID,textureActivaID,textureScreen1ID,textureScreen2ID,textureScreen3ID, textureScreenGOID, textureScreenWinID;
 GLuint textureParticleFountainID,textureParticleFireID,texId;
 
 bool iniciaPartida = false, presionarOpcion = false, presionarEnter = false;; 
@@ -160,7 +160,9 @@ glm::mat4 modelMatrixCasa = glm::mat4(1.0f);
 glm::mat4 modelMatrixVentanas = glm::mat4(1.0f);
 glm::mat4 modelMatrixMuro = glm::mat4(1.0f);
 glm::mat4 modelMatrixHogera = glm::mat4(1.0f);
-glm::mat4 modelMatrixLlave = glm::mat4(1.0f);
+glm::mat4 modelMatrixLlave1 = glm::mat4(1.0f);
+glm::mat4 modelMatrixLlave2 = glm::mat4(1.0f);
+glm::mat4 modelMatrixLlave3 = glm::mat4(1.0f);
 //glm::mat4 modelMatrix = glm::mat4(1.0f);
 
 //variables de animacion modelos
@@ -170,8 +172,8 @@ int animationMain1Index = 1;
 int animationMain2Index = 2;
 int animationZombieIndex = 1;
 int animationZombie1Index = 1;
-int modelSelected = 0,mapa = 0;
-bool enableCountSelected = true, zombiMain = false, zombiMain1=false,zombiMain2=false;
+int modelSelected = 0,mapa = 0, conteoLlaves = 0;
+bool enableCountSelected = true, zombiMain = false, zombiMain1=false,zombiMain2=false, BLlave3 = false,BLlave2 = false,BLlave1 = false;
 
 //coordenadas de los arboles primera midad
 std::vector<glm::vec3> PinoPos1 = {
@@ -882,6 +884,25 @@ void init(int width, int height, std::string strTitle, bool bFullScreen) {
 		std::cout << "Fallo la carga de textura" << std::endl;
 	textureScreenGO.freeImage(); // Liberamos memoria
 
+		// Definiendo la textura
+	Texture textureScreenWin("../Textures/Win.png");
+	textureScreenWin.loadImage(); // Cargar la textura
+	glGenTextures(1, &textureScreenWinID); // Creando el id de la textura del landingpad
+	glBindTexture(GL_TEXTURE_2D, textureScreenWinID); // Se enlaza la textura
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // Wrapping en el eje u
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); // Wrapping en el eje v
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // Filtering de minimización
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // Filtering de maximimizacion
+	if(textureScreenWin.getData()){
+		// Transferir los datos de la imagen a la tarjeta
+		glTexImage2D(GL_TEXTURE_2D, 0, textureScreenWin.getChannels() == 3 ? GL_RGB : GL_RGBA, textureScreenWin.getWidth(), textureScreenWin.getHeight(), 0,
+		textureScreenWin.getChannels() == 3 ? GL_RGB : GL_RGBA, GL_UNSIGNED_BYTE, textureScreenWin.getData());
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else 
+		std::cout << "Fallo la carga de textura" << std::endl;
+	textureScreenWin.freeImage(); // Liberamos memoria
+
 
 	glGenTextures(1, &texId);
 	glBindTexture(GL_TEXTURE_1D, texId);
@@ -1069,6 +1090,7 @@ void destroy() {
 	glDeleteTextures(1, &textureScreen2ID);
 	glDeleteTextures(1, &textureScreen3ID);
 	glDeleteTextures(1, &textureScreenGOID);
+	glDeleteTextures(1, &textureScreenWinID);
 	glDeleteTextures(1, &textureParticleFireID);
 
 	// Cube Maps Delete
@@ -1157,6 +1179,8 @@ bool processInput(bool continueApplication) {
 				textureActivaID = textureScreen1ID;
 				modelSelected = 2;
 			}else if(textureActivaID == textureScreenGOID){
+				textureActivaID = textureInit1ID;
+			}else if(textureActivaID == textureScreenWinID){
 				textureActivaID = textureInit1ID;
 			}
 		}
@@ -1497,27 +1521,24 @@ void renderSolidScene(){
 		Muro.render();
 	}
 
-	if(mapa == 0){
-		for(int i = 0; i< Llaves1.size() ; i++ ){
-			Llaves1[i].y =terrain.getHeightTerrain(Llaves1[i].x,Llaves1[i].z);
-			Llave.setPosition(Llaves1[i]);
-			Llave.setScale(glm::vec3(0.3));			
-			Llave.render();
-		}
-	}else{
-		for(int i = 0; i< Llaves2.size() ; i++ ){
-			Llaves2[i].y =terrain.getHeightTerrain(Llaves2[i].x,Llaves2[i].z);
-			Llave.setPosition(Llaves2[i]);
-			Llave.setScale(glm::vec3(1.0));			
-			Llave.render();
-		}
-	}
-
 	//casas
 	glDisable(GL_CULL_FACE);
 	modelMatrixCasa[3][1] = terrain.getHeightTerrain(modelMatrixCasa[3][0], modelMatrixCasa[3][2]);
 	Casa.render(modelMatrixCasa);
 	glEnable(GL_CULL_FACE);
+
+	//Llaves
+	if(BLlave1 == false){
+		modelMatrixLlave1[3][1] = terrain.getHeightTerrain(modelMatrixLlave1[3][0], modelMatrixLlave1[3][2]);
+		Llave.render(modelMatrixLlave1);
+	}
+	if(BLlave2 == false){
+		modelMatrixLlave2[3][1] = terrain.getHeightTerrain(modelMatrixLlave2[3][0], modelMatrixLlave2[3][2]);
+		Llave.render(modelMatrixLlave2);
+	}if(BLlave3 == false){
+		modelMatrixLlave3[3][1] = terrain.getHeightTerrain(modelMatrixLlave3[3][0], modelMatrixLlave3[3][2]);
+		Llave.render(modelMatrixLlave3);
+	}
 
 	/*****************************************
 	 * Objetos animados por huesos
@@ -2183,6 +2204,20 @@ void applicationLoop() {
 	modelMatrixCasa = glm::scale(modelMatrixCasa,glm::vec3(3.0f));
 	modelMatrixVentanas = glm::scale(modelMatrixVentanas,glm::vec3(3.0f));
 
+	//Llaves
+	if(mapa == 0){
+		modelMatrixLlave1 = glm::translate(modelMatrixLlave1, glm::vec3(glm::vec3(85.1,0,50.5)));
+		modelMatrixLlave2 = glm::translate(modelMatrixLlave2, glm::vec3(glm::vec3(26.6,0,72.2)));
+		modelMatrixLlave3 = glm::translate(modelMatrixLlave3, glm::vec3(glm::vec3(-75.4,0,58.2)));
+	}else{
+		modelMatrixLlave1 = glm::translate(modelMatrixLlave1, glm::vec3(glm::vec3(86.3,0.0,17.3)));
+		modelMatrixLlave2 = glm::translate(modelMatrixLlave2, glm::vec3(glm::vec3(25.4,0,50.1)));
+		modelMatrixLlave3 = glm::translate(modelMatrixLlave3, glm::vec3(glm::vec3(-46.0,0.0,21.4)));
+	}
+	modelMatrixLlave1 = glm::scale(modelMatrixLlave1,glm::vec3(0.3f));
+	modelMatrixLlave2 = glm::scale(modelMatrixLlave2,glm::vec3(0.3f));
+	modelMatrixLlave3 = glm::scale(modelMatrixLlave3,glm::vec3(0.3f));
+
 	//personaje
 /* 	modelMatrixMayow = glm::translate(modelMatrixMayow, glm::vec3(70.3,0,52.3));//glm::vec3(-10.0f, 0.0f, -20.0f));
 	modelMatrixMayow = glm::rotate(modelMatrixMayow, glm::radians(-90.0f), glm::vec3(0, 1, 0)); */
@@ -2528,7 +2563,7 @@ void applicationLoop() {
 			// Set the orientation of collider before doing the scale
 			hogeraCollider.u = glm::quat_cast(modelMatrixColliderHogera);
 			modelMatrixColliderHogera = glm::scale(modelMatrixColliderHogera, glm::vec3(0.5, 0.5, 0.5));
-			modelMatrixColliderHogera = glm::translate(modelMatrixColliderHogera, Pino.getObb().c);
+			modelMatrixColliderHogera = glm::translate(modelMatrixColliderHogera, Hogera.getObb().c);
 			hogeraCollider.c = glm::vec3(modelMatrixColliderHogera[3]);
 			hogeraCollider.e = Hogera.getObb().e * glm::vec3(0.5, 0.5, 0.5);
 			std::get<0>(collidersOBB.find("Hogera-" + std::to_string(i))->second) = hogeraCollider;
@@ -2550,35 +2585,86 @@ void applicationLoop() {
 		}
 		//Llaves colliders
 		if(mapa == 0){
-			for (int i = 0; i < Llaves1.size(); i++){
-				AbstractModel::OBB LlaveCollider;
-				glm::mat4 modelMatrixColliderLlave= glm::mat4(1.0);
-				modelMatrixColliderLlave = glm::translate(modelMatrixColliderLlave, Llaves1[i]);
-				//modelMatrixColliderLlave = glm::rotate(modelMatrixColliderLlave, glm::radians(lamp1Orientation[i]),glm::vec3(0, 1, 0));
-				addOrUpdateColliders(collidersOBB, "Llave-" + std::to_string(i), LlaveCollider, modelMatrixColliderLlave);
+				//std::cout << "Mapa 0  " << std::endl;
+				AbstractModel::OBB LlaveCollider1;
+				glm::mat4 modelMatrixColliderLlave1= glm::mat4(1.0);
+				modelMatrixColliderLlave1 = glm::translate(modelMatrixColliderLlave1, glm::vec3(85.1,2,50.5));
+				//modelMatrixColliderLlave1 = glm::rotate(modelMatrixColliderLlave1, glm::radians(lamp1Orientation[i]),glm::vec3(0, 1, 0));
+				addOrUpdateColliders(collidersOBB, "Llave0", LlaveCollider1, modelMatrixColliderLlave1);
 				// Set the orientation of collider before doing the scale
-				LlaveCollider.u = glm::quat_cast(modelMatrixColliderLlave);
-				modelMatrixColliderLlave = glm::scale(modelMatrixColliderLlave, glm::vec3(0.078, 0.078, 0.078));
-				modelMatrixColliderLlave = glm::translate(modelMatrixColliderLlave, Llave.getObb().c);
-				LlaveCollider.c = glm::vec3(modelMatrixColliderLlave[3]);
-				LlaveCollider.e = Llave.getObb().e * glm::vec3(0.078, 0.078, 0.078);
-				std::get<0>(collidersOBB.find("Llave-" + std::to_string(i))->second) = LlaveCollider;
-			}
+				LlaveCollider1.u = glm::quat_cast(modelMatrixColliderLlave1);
+				modelMatrixColliderLlave1 = glm::scale(modelMatrixColliderLlave1, glm::vec3(0.078, 0.078, 0.078));
+				modelMatrixColliderLlave1 = glm::translate(modelMatrixColliderLlave1, Llave.getObb().c);
+				LlaveCollider1.c = glm::vec3(modelMatrixColliderLlave1[3]);
+				LlaveCollider1.e = Llave.getObb().e * glm::vec3(0.078, 0.078, 0.078);
+				std::get<0>(collidersOBB.find("Llave0")->second) = LlaveCollider1;
+
+				AbstractModel::OBB LlaveCollider2;
+				glm::mat4 modelMatrixColliderLlave2= glm::mat4(1.0);
+				modelMatrixColliderLlave2 = glm::translate(modelMatrixColliderLlave2, glm::vec3(26.6,2,72.2));
+				//modelMatrixColliderLlave2 = glm::rotate(modelMatrixColliderLlave2, glm::radians(lamp1Orientation[i]),glm::vec3(0, 1, 0));
+				addOrUpdateColliders(collidersOBB, "Llave1", LlaveCollider2, modelMatrixColliderLlave2);
+				// Set the orientation of collider before doing the scale
+				LlaveCollider2.u = glm::quat_cast(modelMatrixColliderLlave2);
+				modelMatrixColliderLlave2 = glm::scale(modelMatrixColliderLlave2, glm::vec3(0.078, 0.078, 0.078));
+				modelMatrixColliderLlave2 = glm::translate(modelMatrixColliderLlave2, Llave.getObb().c);
+				LlaveCollider2.c = glm::vec3(modelMatrixColliderLlave2[3]);
+				LlaveCollider2.e = Llave.getObb().e * glm::vec3(0.078, 0.078, 0.078);
+				std::get<0>(collidersOBB.find("Llave1")->second) = LlaveCollider2;
+
+				AbstractModel::OBB LlaveCollider3;
+				glm::mat4 modelMatrixColliderLlave3= glm::mat4(1.0);
+				modelMatrixColliderLlave3 = glm::translate(modelMatrixColliderLlave3, glm::vec3(-75.4,2,58.2));
+				//modelMatrixColliderLlave3 = glm::rotate(modelMatrixColliderLlave3, glm::radians(lamp1Orientation[i]),glm::vec3(0, 1, 0));
+				addOrUpdateColliders(collidersOBB, "Llave2", LlaveCollider3, modelMatrixColliderLlave3);
+				// Set the orientation of collider before doing the scale
+				LlaveCollider3.u = glm::quat_cast(modelMatrixColliderLlave3);
+				modelMatrixColliderLlave3 = glm::scale(modelMatrixColliderLlave3, glm::vec3(0.078, 0.078, 0.078));
+				modelMatrixColliderLlave3 = glm::translate(modelMatrixColliderLlave3, Llave.getObb().c);
+				LlaveCollider3.c = glm::vec3(modelMatrixColliderLlave3[3]);
+				LlaveCollider3.e = Llave.getObb().e * glm::vec3(0.078, 0.078, 0.078);
+				std::get<0>(collidersOBB.find("Llave2")->second) = LlaveCollider3;
+
 		}else{
-			for (int i = 0; i < Llaves2.size(); i++){
-				AbstractModel::OBB LlaveCollider;
-				glm::mat4 modelMatrixColliderLlave= glm::mat4(1.0);
-				modelMatrixColliderLlave = glm::translate(modelMatrixColliderLlave, Llaves2[i]);
-				//modelMatrixColliderLlave = glm::rotate(modelMatrixColliderLlave, glm::radians(lamp1Orientation[i]),glm::vec3(0, 1, 0));
-				addOrUpdateColliders(collidersOBB, "Llave-" + std::to_string(i), LlaveCollider, modelMatrixColliderLlave);
+				AbstractModel::OBB LlaveCollider1;
+				glm::mat4 modelMatrixColliderLlave1= glm::mat4(1.0);
+				modelMatrixColliderLlave1 = glm::translate(modelMatrixColliderLlave1, glm::vec3(86.3,2.0,17.3));
+				//modelMatrixColliderLlave1 = glm::rotate(modelMatrixColliderLlave1, glm::radians(lamp1Orientation[i]),glm::vec3(0, 1, 0));
+				addOrUpdateColliders(collidersOBB, "Llave0", LlaveCollider1, modelMatrixColliderLlave1);
 				// Set the orientation of collider before doing the scale
-				LlaveCollider.u = glm::quat_cast(modelMatrixColliderLlave);
-				modelMatrixColliderLlave = glm::scale(modelMatrixColliderLlave, glm::vec3(0.078, 0.078, 0.078));
-				modelMatrixColliderLlave = glm::translate(modelMatrixColliderLlave, Llave.getObb().c);
-				LlaveCollider.c = glm::vec3(modelMatrixColliderLlave[3]);
-				LlaveCollider.e = Llave.getObb().e * glm::vec3(0.078, 0.078, 0.078);
-				std::get<0>(collidersOBB.find("Llave-" + std::to_string(i))->second) = LlaveCollider;
-			}
+				LlaveCollider1.u = glm::quat_cast(modelMatrixColliderLlave1);
+				modelMatrixColliderLlave1 = glm::scale(modelMatrixColliderLlave1, glm::vec3(0.078, 0.078, 0.078));
+				modelMatrixColliderLlave1 = glm::translate(modelMatrixColliderLlave1, Llave.getObb().c);
+				LlaveCollider1.c = glm::vec3(modelMatrixColliderLlave1[3]);
+				LlaveCollider1.e = Llave.getObb().e * glm::vec3(0.078, 0.078, 0.078);
+				std::get<0>(collidersOBB.find("Llave0")->second) = LlaveCollider1;
+
+				AbstractModel::OBB LlaveCollider2;
+				glm::mat4 modelMatrixColliderLlave2= glm::mat4(1.0);
+				modelMatrixColliderLlave2 = glm::translate(modelMatrixColliderLlave2,glm::vec3(25.4,2,50.1));
+				//modelMatrixColliderLlave2 = glm::rotate(modelMatrixColliderLlave2, glm::radians(lamp1Orientation[i]),glm::vec3(0, 1, 0));
+				addOrUpdateColliders(collidersOBB, "Llave1", LlaveCollider2, modelMatrixColliderLlave2);
+				// Set the orientation of collider before doing the scale
+				LlaveCollider2.u = glm::quat_cast(modelMatrixColliderLlave2);
+				modelMatrixColliderLlave2 = glm::scale(modelMatrixColliderLlave2, glm::vec3(0.078, 0.078, 0.078));
+				modelMatrixColliderLlave2 = glm::translate(modelMatrixColliderLlave2, Llave.getObb().c);
+				LlaveCollider2.c = glm::vec3(modelMatrixColliderLlave2[3]);
+				LlaveCollider2.e = Llave.getObb().e * glm::vec3(0.078, 0.078, 0.078);
+				std::get<0>(collidersOBB.find("Llave1")->second) = LlaveCollider2;
+
+				AbstractModel::OBB LlaveCollider3;
+				glm::mat4 modelMatrixColliderLlave3= glm::mat4(1.0);
+				modelMatrixColliderLlave3 = glm::translate(modelMatrixColliderLlave3, glm::vec3(-46.0,2.0,21.4));
+				//modelMatrixColliderLlave3 = glm::rotate(modelMatrixColliderLlave3, glm::radians(lamp1Orientation[i]),glm::vec3(0, 1, 0));
+				addOrUpdateColliders(collidersOBB, "Llave2", LlaveCollider3, modelMatrixColliderLlave3);
+				// Set the orientation of collider before doing the scale
+				LlaveCollider3.u = glm::quat_cast(modelMatrixColliderLlave3);
+				modelMatrixColliderLlave3 = glm::scale(modelMatrixColliderLlave3, glm::vec3(0.078, 0.078, 0.078));
+				modelMatrixColliderLlave3 = glm::translate(modelMatrixColliderLlave3, Llave.getObb().c);
+				LlaveCollider3.c = glm::vec3(modelMatrixColliderLlave3[3]);
+				LlaveCollider3.e = Llave.getObb().e * glm::vec3(0.078, 0.078, 0.078);
+				std::get<0>(collidersOBB.find("Llave2")->second) = LlaveCollider3;
+		 
 		}
 		// Collider de mayow
 /* 			AbstractModel::OBB mayowCollider;
@@ -2602,12 +2688,12 @@ void applicationLoop() {
 					glm::radians(-90.0f), glm::vec3(1, 0, 0));
 			// Set the orientation of collider before doing the scale
 			mainCollider.u = glm::quat_cast(modelmatrixColliderMain);
-			modelmatrixColliderMain = glm::scale(modelmatrixColliderMain, glm::vec3(0.021, 0.021, 0.021));
+			modelmatrixColliderMain = glm::scale(modelmatrixColliderMain, glm::vec3(0.011, 0.011, 0.121));
 			modelmatrixColliderMain = glm::translate(modelmatrixColliderMain,
 					glm::vec3(mainModelAnimate.getObb().c.x,
 							mainModelAnimate.getObb().c.y,
 							mainModelAnimate.getObb().c.z));
-			mainCollider.e = mainModelAnimate.getObb().e * glm::vec3(0.021, 0.021, 0.021) * glm::vec3(0.787401574, 0.787401574, 0.787401574);
+			mainCollider.e = mainModelAnimate.getObb().e * glm::vec3(0.011, 0.011, 0.021) * glm::vec3(0.787401574, 0.787401574, 0.787401574);
 			mainCollider.c = glm::vec3(modelmatrixColliderMain[3]);
 			addOrUpdateColliders(collidersOBB, "main", mainCollider, modelMatrixMain);
 		}
@@ -2618,7 +2704,7 @@ void applicationLoop() {
 					glm::radians(-90.0f), glm::vec3(1, 0, 0));
 			// Set the orientation of collider before doing the scale
 			main1Collider.u = glm::quat_cast(modelmatrixColliderMain1);
-			modelmatrixColliderMain1 = glm::scale(modelmatrixColliderMain1, glm::vec3(0.021, 0.021, 0.021));
+			modelmatrixColliderMain1 = glm::scale(modelmatrixColliderMain1, glm::vec3(0.011, 0.011, 0.121));
 			modelmatrixColliderMain1 = glm::translate(modelmatrixColliderMain1,
 					glm::vec3(main1ModelAnimate.getObb().c.x,
 							main1ModelAnimate.getObb().c.y,
@@ -2639,7 +2725,7 @@ void applicationLoop() {
 					glm::vec3(main2ModelAnimate.getObb().c.x,
 							main2ModelAnimate.getObb().c.y,
 							main2ModelAnimate.getObb().c.z));
-			main2Collider.e = main2ModelAnimate.getObb().e * glm::vec3(0.021, 0.021, 0.021) * glm::vec3(0.787401574, 0.787401574, 0.787401574);
+			main2Collider.e = main2ModelAnimate.getObb().e * glm::vec3(0.011, 0.011, 0.121) * glm::vec3(0.787401574, 0.787401574, 0.787401574);
 			main2Collider.c = glm::vec3(modelmatrixColliderMain2[3]);
 			addOrUpdateColliders(collidersOBB, "main2", main2Collider, modelMatrixMain2);
 		}
@@ -2653,18 +2739,12 @@ void applicationLoop() {
 		modelmatrixColliderZombie = glm::scale(modelmatrixColliderZombie, glm::vec3(0.021, 0.021, 0.021));
 		modelmatrixColliderZombie = glm::translate(modelmatrixColliderZombie,
 		glm::vec3(zombie1ModelAnimate.getObb().c.x,zombie1ModelAnimate.getObb().c.y,zombie1ModelAnimate.getObb().c.z));
-		zombieCollider.e = zombie1ModelAnimate.getObb().e * glm::vec3(0.021, 0.021, 0.021) * glm::vec3(0.787401574, 0.787401574, 0.787401574);
+		zombieCollider.e = zombie1ModelAnimate.getObb().e * glm::vec3(0.011, 0.011, 0.121) * glm::vec3(0.787401574, 0.787401574, 0.787401574);
 		zombieCollider.c = glm::vec3(modelmatrixColliderZombie[3]);
 		addOrUpdateColliders(collidersOBB,"Zombie", zombieCollider, modelMatrixZombie);
 
-
-		/**********Render de transparencias***************/
-		renderAlphaScene();
-
-		/*******************************************
-		 * Render de colliders
-		 *******************************************/
-/* 		for (std::map<std::string, std::tuple<AbstractModel::OBB, glm::mat4, glm::mat4> >::iterator it =
+////// Render colliders
+/* 			for (std::map<std::string, std::tuple<AbstractModel::OBB, glm::mat4, glm::mat4> >::iterator it =
 				collidersOBB.begin(); it != collidersOBB.end(); it++) {
 			glm::mat4 matrixCollider = glm::mat4(1.0);
 			matrixCollider = glm::translate(matrixCollider, std::get<0>(it->second).c);
@@ -2683,8 +2763,11 @@ void applicationLoop() {
 			sphereCollider.setColor(glm::vec4(1.0, 1.0, 1.0, 1.0));
 			sphereCollider.enableWireMode();
 			sphereCollider.render(matrixCollider);
-		}
- */
+		} */
+
+		/**********Render de transparencias***************/
+		renderAlphaScene();
+
 		/*********************Prueba de colisiones****************************/
 		for (std::map<std::string,
 			std::tuple<AbstractModel::SBB, glm::mat4, glm::mat4>>::iterator it =
@@ -2716,6 +2799,7 @@ void applicationLoop() {
 						jt->first << std::endl;
 					isColision = true;
 
+					//iteraccion con zombie
 					if(it->first.compare("main") == 0 && jt->first.compare("Zombie") == 0 ){
 						zombiMain = true;
 					}
@@ -2724,6 +2808,32 @@ void applicationLoop() {
 					}
 					if(it->first.compare("main2") == 0 && jt->first.compare("Zombie") == 0 ){
 						zombiMain2 = true;
+					}
+
+					//iteraccion con Llave
+					//main
+					if(it->first.compare("main") == 0 && jt->first.compare("Llave0") == 0 ){
+						BLlave1 = true;
+					}else if (it->first.compare("main") == 0 && jt->first.compare("Llave1") == 0 ){
+						BLlave2 = true;
+					}else if(it->first.compare("main") == 0 && jt->first.compare("Llave2") == 0 ){
+						BLlave3 = true;
+					}
+					//main1
+					if(it->first.compare("main1") == 0 && jt->first.compare("Llave0") == 0 ){
+						BLlave1 = true;
+					}else if (it->first.compare("main1") == 0 && jt->first.compare("Llave1") == 0 ){
+						BLlave2 = true;
+					}else if(it->first.compare("main1") == 0 && jt->first.compare("Llave2") == 0 ){
+						BLlave3 = true;
+					}
+					//main2
+					if(it->first.compare("main2") == 0 && jt->first.compare("Llave0") == 0 ){
+						BLlave1 = true;
+					}else if (it->first.compare("main2") == 0 && jt->first.compare("Llave1") == 0 ){
+						BLlave2 = true;
+					}else if(it->first.compare("main2") == 0 && jt->first.compare("Llave2") == 0 ){
+						BLlave3 = true;
 					}
 				}
 			}
@@ -2776,65 +2886,98 @@ void applicationLoop() {
 						//if (modelSelected == 2)
 							modelMatrixMain2 = std::get<1>(obbBuscado->second);
 					}
-					if (itCollision->first.compare("Zombie") == 0 ){
-						continue;
-					}
 				}
 			}
 		}
 
 		//maquina de estados pantalla
 		if(zombiMain){
-			if(textureActivaID = textureScreen1ID){
-				textureActivaID = textureScreen2ID;
-			}
-			if (textureActivaID = textureScreen2ID){
-				textureActivaID = textureScreen3ID;
-			}
-			if(textureActivaID = textureScreen3ID){
-				textureActivaID = textureScreenGOID;
-			iniciaPartida = false;
-			}
-			modelMatrixZombie = glm::translate(modelMatrixZombie, glm::vec3(0,0,2.0));
-			zombiMain = false;
-		}else if(zombiMain1){
-			if(textureActivaID = textureScreen1ID){
-				textureActivaID = textureScreen2ID;
-			}
-			if (textureActivaID = textureScreen2ID){
-				textureActivaID = textureScreen3ID;
-			}
-			if(textureActivaID = textureScreen3ID){
-				textureActivaID = textureScreenGOID;
-			iniciaPartida = false;
-			}
-			modelMatrixZombie = glm::translate(modelMatrixZombie, glm::vec3(0,0,2.0));
-			zombiMain1 = false;
-
-		}else if (zombiMain2){
 			timeStop += deltaTime;
 			if(textureActivaID == textureScreen1ID){
 				textureActivaID = textureScreen2ID;
-				modelMatrixZombie = glm::translate(modelMatrixZombie, glm::vec3(0,0,-2.0));
+				modelMatrixZombie = glm::translate(modelMatrixZombie,  glm::vec3(3.0f, 0.0f, 3.0f));
 				zombiMain2 = false;
 			}
-			if (timeStop >= 10.0){
-				if (textureActivaID = textureScreen2ID ){
+			if (timeStop >= 4.0){
+				if (textureActivaID == textureScreen2ID ){
 					textureActivaID = textureScreen3ID;
 					//timeStop = 0.0;
 					zombiMain2 = false;
+					modelMatrixZombie = glm::translate(modelMatrixZombie,  glm::vec3(3.0f, 0.0f, 3.0f));
 				}
-			}if(timeStop >= 15.0){
+			}if(timeStop >= 8.0){
 				if(textureActivaID == textureScreen3ID ){
 					textureActivaID = textureScreenGOID;
 					iniciaPartida = false;
 					timeStop = 0.0;
 					zombiMain2 = false;
+					modelMatrixZombie = glm::translate(modelMatrixZombie,  glm::vec3(3.0f, 0.0f, 3.0f));
 				}
-				//timeStop = 0.0;
+			}
+		}else if(zombiMain1){
+			timeStop += deltaTime;
+			if(textureActivaID == textureScreen1ID){
+				textureActivaID = textureScreen2ID;
+				modelMatrixZombie = glm::translate(modelMatrixZombie,  glm::vec3(3.0f, 0.0f, 3.0f));
 				zombiMain2 = false;
 			}
-			
+			if (timeStop >= 4.0){
+				if (textureActivaID == textureScreen2ID ){
+					textureActivaID = textureScreen3ID;
+					//timeStop = 0.0;
+					zombiMain2 = false;
+					modelMatrixZombie = glm::translate(modelMatrixZombie,  glm::vec3(3.0f, 0.0f, 3.0f));
+				}
+			}if(timeStop >= 8.0){
+				if(textureActivaID == textureScreen3ID ){
+					textureActivaID = textureScreenGOID;
+					iniciaPartida = false;
+					timeStop = 0.0;
+					zombiMain2 = false;
+					modelMatrixZombie = glm::translate(modelMatrixZombie,  glm::vec3(3.0f, 0.0f, 3.0f));
+				}
+			}
+
+		}else if (zombiMain2){
+			timeStop += deltaTime;
+			if(textureActivaID == textureScreen1ID){
+				textureActivaID = textureScreen2ID;
+				modelMatrixZombie = glm::translate(modelMatrixZombie,  glm::vec3(3.0f, 0.0f, 3.0f));
+				zombiMain2 = false;
+			}
+			if (timeStop >= 4.0){
+				if (textureActivaID == textureScreen2ID ){
+					textureActivaID = textureScreen3ID;
+					//timeStop = 0.0;
+					zombiMain2 = false;
+					modelMatrixZombie = glm::translate(modelMatrixZombie,  glm::vec3(3.0f, 0.0f, 3.0f));
+				}
+			}if(timeStop >= 8.0){
+				if(textureActivaID == textureScreen3ID ){
+					textureActivaID = textureScreenGOID;
+					iniciaPartida = false;
+					timeStop = 0.0;
+					zombiMain2 = false;
+					modelMatrixZombie = glm::translate(modelMatrixZombie,  glm::vec3(3.0f, 0.0f, 3.0f));
+				}
+			}
+		}
+
+		//conteo llaves
+		if(BLlave1 == true && BLlave2 == false && BLlave3 == false || 
+			BLlave1 == false && BLlave2 == true && BLlave3 == false ||
+			BLlave1 == false && BLlave2 == false && BLlave3 == true){
+
+			conteoLlaves = 2;
+
+		}else if (BLlave1 == true && BLlave2 == true && BLlave3 == false || 
+			BLlave1 == true && BLlave2 == false && BLlave3 == true ||
+			BLlave1 == false && BLlave2 == true && BLlave3 == true){
+
+			conteoLlaves = 1;
+
+		}else if(BLlave1 == true && BLlave2 == true && BLlave3 == true){
+			textureActivaID = textureScreenWinID;
 		}
 
 		// Constantes de animaciones
