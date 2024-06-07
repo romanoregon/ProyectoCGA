@@ -1156,20 +1156,26 @@ void mouseButtonCallback(GLFWwindow *window, int button, int state, int mod) {
 	}
 }
 
+
 bool processInput(bool continueApplication) {
 	if (exitApp || glfwWindowShouldClose(window) != 0) {
 		return false;
 	}
 	
+	
 	//botones del control
 	const unsigned char * buttons = glfwGetJoystickButtons(GLFW_JOYSTICK_1, &buttonCount);
 
+
+
 	//maquina de estados para inicio del juego
 	if(!iniciaPartida){
-		if ((!presionarEnter && glfwGetKey(window, GLFW_KEY_ENTER)== GLFW_PRESS) || !botonStart == true && buttons[7] == GLFW_PRESS){
+
+		if ((!presionarEnter && glfwGetKey(window, GLFW_KEY_ENTER)== GLFW_PRESS)){//  || !botonStart == true ){//&& buttons[7] == GLFW_PRESS){
+
 			presionarEnter = true;
 			botonStart = true;
-			std::cout << "Enter true" << std::endl;
+
 			if(textureActivaID == textureInit1ID ){
 				textureActivaID = textureInit2ID;	
 			}else if(textureActivaID == textureInit2ID){
@@ -1190,7 +1196,8 @@ bool processInput(bool continueApplication) {
 				textureActivaID = textureInit1ID;
 			}
 		}
-		else if(!presionarOpcion && glfwGetKey(window, GLFW_KEY_LEFT_CONTROL ) == GLFW_PRESS || !botonSelec == true && buttons[6] == GLFW_PRESS){
+		else if((!presionarOpcion && glfwGetKey(window, GLFW_KEY_LEFT_CONTROL ) == GLFW_PRESS)){// || (!botonSelec == true) && buttons[6] == GLFW_PRESS)){
+			
 			presionarOpcion = true;
 			botonSelec = true;
 			if(textureActivaID == textureInit2ID){
@@ -1201,13 +1208,16 @@ bool processInput(bool continueApplication) {
 				textureActivaID = textureInit2ID;
 			}	
 		}
-		else if(glfwGetKey(window, GLFW_KEY_ENTER)== GLFW_RELEASE && glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_RELEASE && buttons[7] == GLFW_RELEASE && buttons[6] == GLFW_RELEASE){
+		else if(glfwGetKey(window, GLFW_KEY_ENTER)== GLFW_RELEASE && glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_RELEASE){// || buttons[7] == GLFW_RELEASE && buttons[6] == GLFW_RELEASE){
+			std::cout << " iniciaPartida4  " << std::endl;
 			presionarEnter = false;
 			presionarOpcion = false;
 			botonStart = false;
 			botonSelec = false;
 		}
 	}
+
+
 
 	if (glfwJoystickPresent(GLFW_JOYSTICK_1) == GL_TRUE) {
 		name = glfwGetJoystickName(GLFW_JOYSTICK_1);
@@ -1284,10 +1294,6 @@ bool processInput(bool continueApplication) {
 			startTimeJump = currTime;
 			tmv = 0;
 		} */
-
-
-
-
 
 	}
 
@@ -1436,6 +1442,8 @@ void prepareScene(){
 }
 
 void prepareDepthScene(){
+
+	
 
 	terrain.setShader(&shaderDepth);
  	if(modelSelected == 0){
@@ -2207,6 +2215,7 @@ void renderScene(){
 }
 
 void applicationLoop() {
+	std::cout << "empieza aplication loop" << std::endl;
 	//float speed = 0.5f; // velocidad del Zombie
 	void updateZombiePosition(glm::mat4 &modelMatrixZombie, glm::mat4 &modelMatrixMayow, float speed, float deltaTime, Terrain &terrain);
 
@@ -2275,16 +2284,23 @@ void applicationLoop() {
 
 	shadowBox = new ShadowBox(-lightPos, camera.get(), 15.0f, 0.1f, 45.0f);
 
+std::cout << "despues de carga de modelos" << std::endl;
+
 	while (psi) {
 		currTime = TimeManager::Instance().GetTime();
 		if(currTime - lastTime < 0.016666667){
 			glfwPollEvents();
 			continue;
 		}
+std::cout << " TimeManager   " << std::endl;
+
 		lastTime = currTime;
 		TimeManager::Instance().CalculateFrameRate(true);
 		deltaTime = TimeManager::Instance().DeltaTime;
+std::cout << " processInput   " << std::endl;
 		psi = processInput(true);
+
+std::cout << " collisionDetection   " << std::endl;
 
 		std::map<std::string, bool> collisionDetection;
 
@@ -2293,6 +2309,7 @@ void applicationLoop() {
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f),
 				(float) screenWidth / (float) screenHeight, 0.01f, 100.0f);
 
+std::cout << " antes de mayow ejemplo  " << std::endl;
 		//maynow ejemplo
 					/* axis = glm::axis(glm::quat_cast(modelMatrixMayow));
 			angleTarget = glm::angle(glm::quat_cast(modelMatrixMayow));
@@ -2366,6 +2383,7 @@ void applicationLoop() {
 		shaderParticlesFire.setMatrix4("projection", 1, false, glm::value_ptr(projection));
 		shaderParticlesFire.setMatrix4("view", 1, false, glm::value_ptr(view));
 
+std::cout << " antes de neblina  " << std::endl;
 		/*******************************************
 		 * Propiedades de neblina
 		 *******************************************/
@@ -2394,6 +2412,7 @@ void applicationLoop() {
 		shaderMulLighting.setInt("spotLightCount", 0);
 		shaderTerrain.setInt("spotLightCount", 0);
 
+std::cout << " antes de point ligth  " << std::endl;
 		/*******************************************
 		 * Propiedades PointLights
 		 *******************************************/
@@ -2416,6 +2435,7 @@ void applicationLoop() {
 			shaderTerrain.setFloat("pointLights[" + std::to_string(i) + "].quadratic", 0.02);
 		}
 
+std::cout << "antes de render imagen" << std::endl;
 		/************Render de imagen de frente**************/
 		if(!iniciaPartida){
 			shaderTexture.setMatrix4("projection", 1, false, glm::value_ptr(glm::mat4(1.0)));
