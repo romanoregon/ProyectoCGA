@@ -172,8 +172,10 @@ int animationMain1Index = 1;
 int animationMain2Index = 2;
 int animationZombieIndex = 1;
 int animationZombie1Index = 1;
-int modelSelected = 0,mapa = 0, conteoLlaves = 0;
-bool enableCountSelected = true, zombiMain = false, zombiMain1=false,zombiMain2=false, BLlave3 = false,BLlave2 = false,BLlave1 = false;
+int modelSelected = 0,mapa = 0, conteoLlaves = 3;
+int present,axesCount, buttonCount;
+bool enableCountSelected = true,botonStart = false,botonSelec = false, zombiMain = false, zombiMain1=false,zombiMain2=false, BLlave3 = false,BLlave2 = false,BLlave1 = false;
+const char* name;
 
 //coordenadas de los arboles primera midad
 std::vector<glm::vec3> PinoPos1 = {
@@ -1158,11 +1160,15 @@ bool processInput(bool continueApplication) {
 	if (exitApp || glfwWindowShouldClose(window) != 0) {
 		return false;
 	}
+	
+	//botones del control
+	const unsigned char * buttons = glfwGetJoystickButtons(GLFW_JOYSTICK_1, &buttonCount);
 
 	//maquina de estados para inicio del juego
 	if(!iniciaPartida){
-		if (!presionarEnter && glfwGetKey(window, GLFW_KEY_ENTER)== GLFW_PRESS){
+		if ((!presionarEnter && glfwGetKey(window, GLFW_KEY_ENTER)== GLFW_PRESS) || !botonStart == true && buttons[7] == GLFW_PRESS){
 			presionarEnter = true;
+			botonStart = true;
 			std::cout << "Enter true" << std::endl;
 			if(textureActivaID == textureInit1ID ){
 				textureActivaID = textureInit2ID;	
@@ -1184,8 +1190,9 @@ bool processInput(bool continueApplication) {
 				textureActivaID = textureInit1ID;
 			}
 		}
-		else if(!presionarOpcion && glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS){
+		else if(!presionarOpcion && glfwGetKey(window, GLFW_KEY_LEFT_CONTROL ) == GLFW_PRESS || !botonSelec == true && buttons[6] == GLFW_PRESS){
 			presionarOpcion = true;
+			botonSelec = true;
 			if(textureActivaID == textureInit2ID){
 				textureActivaID = textureInit3ID;
 			}else if(textureActivaID == textureInit3ID){
@@ -1194,23 +1201,28 @@ bool processInput(bool continueApplication) {
 				textureActivaID = textureInit2ID;
 			}	
 		}
-		else if(glfwGetKey(window, GLFW_KEY_ENTER)== GLFW_RELEASE && glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_RELEASE){
+		else if(glfwGetKey(window, GLFW_KEY_ENTER)== GLFW_RELEASE && glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_RELEASE && buttons[7] == GLFW_RELEASE && buttons[6] == GLFW_RELEASE){
 			presionarEnter = false;
 			presionarOpcion = false;
+			botonStart = false;
+			botonSelec = false;
 		}
 	}
 
 	if (glfwJoystickPresent(GLFW_JOYSTICK_1) == GL_TRUE) {
+		name = glfwGetJoystickName(GLFW_JOYSTICK_1);
 		std::cout << "Esta presente el joystick" << std::endl;
-		int axesCount, buttonCount;
 		const float * axes = glfwGetJoystickAxes(GLFW_JOYSTICK_1, &axesCount);
 		std::cout << "Número de ejes disponibles :=>" << axesCount << std::endl;
-		std::cout << "Left Stick X axis: " << axes[0] << std::endl;
-		std::cout << "Left Stick Y axis: " << axes[1] << std::endl;
-		std::cout << "Left Trigger/L2: " << axes[2] << std::endl;
+		std::cout << "Left Stick X axis: "  << axes[0] << std::endl;
+		std::cout << "Left Stick Y axis: "  << axes[1] << std::endl;
+		std::cout << "Left Trigger/L2: "    << axes[2] << std::endl;
 		std::cout << "Right Stick X axis: " << axes[3] << std::endl;
 		std::cout << "Right Stick Y axis: " << axes[4] << std::endl;
-		std::cout << "Right Trigger/R2: " << axes[5] << std::endl;
+		std::cout << "Right Trigger/R2: "   << axes[5] << std::endl;
+
+		std::cout << "Nombre del joystick: " << name << std::endl;
+		std::cout << "Estado del gamepad: " << present << std::endl;
 
 /* 		if(modelSelected == 0){
 			if(fabs(axes[1]) > 0.2){
@@ -1222,13 +1234,23 @@ bool processInput(bool continueApplication) {
 			}
 		} */
 
+/* 		const unsigned char * buttons = glfwGetJoystickButtons(GLFW_JOYSTICK_1, &buttonCount);
+		//std::cout << "Número de botones disponibles :=>" << buttonCount << std::endl;
+		if(buttons[7] == GLFW_PRESS){
+			std::cout << "Se presiona start" << std::endl;
+			botonStart = true;
+		}if(buttons[7] == GLFW_RELEASE){
+			std::cout << "Se deja de presiona start" << std::endl;
+			botonStart = false;
+		} */
+
 		//movimiento personajes con joistick control
 		if(modelSelected == 0){
 			if(fabs(axes[1]) > 0.2){
 				modelMatrixMain = glm::translate(modelMatrixMain, glm::vec3(0, 0, -axes[1] * 0.1));
 				animationMainIndex = 2;
 			}if(fabs(axes[0]) > 0.2){
-				modelMatrixMain = glm::rotate(modelMatrixMain, glm::radians(-axes[0] * 0.5f), glm::vec3(0, 1, 0));
+				modelMatrixMain = glm::rotate(modelMatrixMain, glm::radians(-axes[0] * 1.0f), glm::vec3(0, 1, 0));
 				animationMainIndex = 2;
 			}		
 		}
@@ -1237,7 +1259,7 @@ bool processInput(bool continueApplication) {
 				modelMatrixMain1 = glm::translate(modelMatrixMain1, glm::vec3(0, 0, -axes[1] * 0.1));
 				animationMain1Index = 2;
 			}if(fabs(axes[0]) > 0.2){
-				modelMatrixMain1 = glm::rotate(modelMatrixMain1, glm::radians(-axes[0] * 0.5f), glm::vec3(0, 1, 0));
+				modelMatrixMain1 = glm::rotate(modelMatrixMain1, glm::radians(-axes[0] * 1.0f), glm::vec3(0, 1, 0));
 				animationMain1Index = 2;
 			}
 		}
@@ -1246,7 +1268,7 @@ bool processInput(bool continueApplication) {
 				modelMatrixMain2 = glm::translate(modelMatrixMain2, glm::vec3(0, 0, -axes[1] * 0.1));
 				animationMain2Index = 1;
 			}if(fabs(axes[0]) > 0.2){
-				modelMatrixMain2 = glm::rotate(modelMatrixMain2, glm::radians(-axes[0] * 0.5f), glm::vec3(0, 1, 0));
+				modelMatrixMain2 = glm::rotate(modelMatrixMain2, glm::radians(-axes[0] * 1.0f), glm::vec3(0, 1, 0));
 				animationMain2Index = 1;
 			}
 		}
@@ -1257,16 +1279,16 @@ bool processInput(bool continueApplication) {
 			camera->mouseMoveCamera(0.0, axes[4], deltaTime);
 		}
 
-		const unsigned char * buttons = glfwGetJoystickButtons(GLFW_JOYSTICK_1, &buttonCount);
-		std::cout << "Número de botones disponibles :=>" << buttonCount << std::endl;
-		if(buttons[0] == GLFW_PRESS)
-			std::cout << "Se presiona x" << std::endl;
-
-		if(!isJump && buttons[0] == GLFW_PRESS){
+/* 		if(!isJump && buttons[0] == GLFW_PRESS){
 			isJump = true;
 			startTimeJump = currTime;
 			tmv = 0;
-		}
+		} */
+
+
+
+
+
 	}
 
 	if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
@@ -2174,7 +2196,8 @@ void renderAlphaScene(bool render = true){
 		boxIntro.render();
 		glDisable(GL_BLEND);
 
-		modelText->render("Texto en OpenGL", -1, 0);
+		modelText->render("Encuentra las llaves reparticas en el mapa para salir", -1, 0.97);
+		modelText->render("Llaves faltantes : " + std::to_string(conteoLlaves), -1, 0.93);
 	}
 }
 
@@ -2978,6 +3001,11 @@ void applicationLoop() {
 
 		}else if(BLlave1 == true && BLlave2 == true && BLlave3 == true){
 			textureActivaID = textureScreenWinID;
+			iniciaPartida = false;
+			conteoLlaves = 3;
+			BLlave1 == false;
+			BLlave2 == false;
+			BLlave3 == false;
 		}
 
 		// Constantes de animaciones
