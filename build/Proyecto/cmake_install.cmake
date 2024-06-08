@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/roman/OneDrive/Documentos/ProyectoCGA/Proyecto
+# Install script for directory: C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/Proyecto
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

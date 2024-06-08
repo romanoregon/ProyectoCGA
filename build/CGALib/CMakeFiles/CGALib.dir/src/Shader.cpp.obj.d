@@ -1,6 +1,6 @@
 CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.obj: \
- C:\Users\roman\OneDrive\Documentos\ProyectoCGA\CGALib\src\Shader.cpp \
- C:/Users/roman/OneDrive/Documentos/ProyectoCGA/CGALib/include/Headers/Shader.h \
+ C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\CGALib\src\Shader.cpp \
+ C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/CGALib/include/Headers/Shader.h \
  C:/msys64/ucrt64/include/c++/13.2.0/string \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/requires_hosted.h \
  C:/msys64/ucrt64/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -142,7 +142,7 @@ CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.obj: \
  C:/msys64/ucrt64/include/c++/13.2.0/x86_64-w64-mingw32/bits/basic_file.h \
  C:/msys64/ucrt64/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++io.h \
  C:/msys64/ucrt64/include/c++/13.2.0/bits/fstream.tcc \
- C:/Users/roman/OneDrive/Documentos/ProyectoCGA/external/glew/include/GL/glew.h \
+ C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/external/glew/include/GL/glew.h \
  C:/msys64/ucrt64/include/inttypes.h \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdint.h \
  C:/msys64/ucrt64/include/stdint.h C:/msys64/ucrt64/include/GL/glu.h \

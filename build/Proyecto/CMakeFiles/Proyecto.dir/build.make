@@ -52,10 +52,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\roman\OneDrive\Documentos\ProyectoCGA
+CMAKE_SOURCE_DIR = C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build
+CMAKE_BINARY_DIR = C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build
 
 # Include any dependencies generated for this target.
 include Proyecto/CMakeFiles/Proyecto.dir/depend.make
@@ -70,18 +70,18 @@ include Proyecto/CMakeFiles/Proyecto.dir/flags.make
 
 Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.obj: Proyecto/CMakeFiles/Proyecto.dir/flags.make
 Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.obj: Proyecto/CMakeFiles/Proyecto.dir/includes_CXX.rsp
-Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.obj: C:/Users/roman/OneDrive/Documentos/ProyectoCGA/Proyecto/src/main.cpp
+Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.obj: C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/Proyecto/src/main.cpp
 Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.obj: Proyecto/CMakeFiles/Proyecto.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.obj"
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build\Proyecto && C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.obj -MF CMakeFiles\Proyecto.dir\src\main.cpp.obj.d -o CMakeFiles\Proyecto.dir\src\main.cpp.obj -c C:\Users\roman\OneDrive\Documentos\ProyectoCGA\Proyecto\src\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.obj"
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build\Proyecto && C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.obj -MF CMakeFiles\Proyecto.dir\src\main.cpp.obj.d -o CMakeFiles\Proyecto.dir\src\main.cpp.obj -c C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\Proyecto\src\main.cpp
 
 Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Proyecto.dir/src/main.cpp.i"
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build\Proyecto && C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\roman\OneDrive\Documentos\ProyectoCGA\Proyecto\src\main.cpp > CMakeFiles\Proyecto.dir\src\main.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build\Proyecto && C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\Proyecto\src\main.cpp > CMakeFiles\Proyecto.dir\src\main.cpp.i
 
 Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Proyecto.dir/src/main.cpp.s"
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build\Proyecto && C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\roman\OneDrive\Documentos\ProyectoCGA\Proyecto\src\main.cpp -o CMakeFiles\Proyecto.dir\src\main.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build\Proyecto && C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\Proyecto\src\main.cpp -o CMakeFiles\Proyecto.dir\src\main.cpp.s
 
 # Object files for target Proyecto
 Proyecto_OBJECTS = \
@@ -90,24 +90,24 @@ Proyecto_OBJECTS = \
 # External object files for target Proyecto
 Proyecto_EXTERNAL_OBJECTS =
 
-C:/Users/roman/OneDrive/Documentos/ProyectoCGA/bin/Proyecto.exe: Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.obj
-C:/Users/roman/OneDrive/Documentos/ProyectoCGA/bin/Proyecto.exe: Proyecto/CMakeFiles/Proyecto.dir/build.make
-C:/Users/roman/OneDrive/Documentos/ProyectoCGA/bin/Proyecto.exe: CGALib/libCGALib.dll.a
-C:/Users/roman/OneDrive/Documentos/ProyectoCGA/bin/Proyecto.exe: Proyecto/CMakeFiles/Proyecto.dir/linkLibs.rsp
-C:/Users/roman/OneDrive/Documentos/ProyectoCGA/bin/Proyecto.exe: Proyecto/CMakeFiles/Proyecto.dir/objects1.rsp
-C:/Users/roman/OneDrive/Documentos/ProyectoCGA/bin/Proyecto.exe: Proyecto/CMakeFiles/Proyecto.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable C:\Users\roman\OneDrive\Documentos\ProyectoCGA\bin\Proyecto.exe"
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build\Proyecto && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Proyecto.dir\link.txt --verbose=$(VERBOSE)
+C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/bin/Proyecto.exe: Proyecto/CMakeFiles/Proyecto.dir/src/main.cpp.obj
+C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/bin/Proyecto.exe: Proyecto/CMakeFiles/Proyecto.dir/build.make
+C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/bin/Proyecto.exe: CGALib/libCGALib.dll.a
+C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/bin/Proyecto.exe: Proyecto/CMakeFiles/Proyecto.dir/linkLibs.rsp
+C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/bin/Proyecto.exe: Proyecto/CMakeFiles/Proyecto.dir/objects1.rsp
+C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/bin/Proyecto.exe: Proyecto/CMakeFiles/Proyecto.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\bin\Proyecto.exe"
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build\Proyecto && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Proyecto.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-Proyecto/CMakeFiles/Proyecto.dir/build: C:/Users/roman/OneDrive/Documentos/ProyectoCGA/bin/Proyecto.exe
+Proyecto/CMakeFiles/Proyecto.dir/build: C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/bin/Proyecto.exe
 .PHONY : Proyecto/CMakeFiles/Proyecto.dir/build
 
 Proyecto/CMakeFiles/Proyecto.dir/clean:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build\Proyecto && $(CMAKE_COMMAND) -P CMakeFiles\Proyecto.dir\cmake_clean.cmake
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build\Proyecto && $(CMAKE_COMMAND) -P CMakeFiles\Proyecto.dir\cmake_clean.cmake
 .PHONY : Proyecto/CMakeFiles/Proyecto.dir/clean
 
 Proyecto/CMakeFiles/Proyecto.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\roman\OneDrive\Documentos\ProyectoCGA C:\Users\roman\OneDrive\Documentos\ProyectoCGA\Proyecto C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build\Proyecto C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build\Proyecto\CMakeFiles\Proyecto.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\Proyecto C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build\Proyecto C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build\Proyecto\CMakeFiles\Proyecto.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : Proyecto/CMakeFiles/Proyecto.dir/depend
 

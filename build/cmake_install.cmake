@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/roman/OneDrive/Documentos/ProyectoCGA
+# Install script for directory: C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/roman/OneDrive/Documentos/ProyectoCGA/build/CGALib/cmake_install.cmake")
-  include("C:/Users/roman/OneDrive/Documentos/ProyectoCGA/build/Proyecto/cmake_install.cmake")
+  include("C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib/cmake_install.cmake")
+  include("C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/Proyecto/cmake_install.cmake")
 
 endif()
 
@@ -52,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/roman/OneDrive/Documentos/ProyectoCGA/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

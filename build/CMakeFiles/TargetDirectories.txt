@@ -1,8 +1,8 @@
-C:/Users/roman/OneDrive/Documentos/ProyectoCGA/build/CMakeFiles/edit_cache.dir
-C:/Users/roman/OneDrive/Documentos/ProyectoCGA/build/CMakeFiles/rebuild_cache.dir
-C:/Users/roman/OneDrive/Documentos/ProyectoCGA/build/CGALib/CMakeFiles/CGALib.dir
-C:/Users/roman/OneDrive/Documentos/ProyectoCGA/build/CGALib/CMakeFiles/edit_cache.dir
-C:/Users/roman/OneDrive/Documentos/ProyectoCGA/build/CGALib/CMakeFiles/rebuild_cache.dir
-C:/Users/roman/OneDrive/Documentos/ProyectoCGA/build/Proyecto/CMakeFiles/Proyecto.dir
-C:/Users/roman/OneDrive/Documentos/ProyectoCGA/build/Proyecto/CMakeFiles/edit_cache.dir
-C:/Users/roman/OneDrive/Documentos/ProyectoCGA/build/Proyecto/CMakeFiles/rebuild_cache.dir
+C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CMakeFiles/edit_cache.dir
+C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CMakeFiles/rebuild_cache.dir
+C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib/CMakeFiles/CGALib.dir
+C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib/CMakeFiles/edit_cache.dir
+C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/CGALib/CMakeFiles/rebuild_cache.dir
+C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/Proyecto/CMakeFiles/Proyecto.dir
+C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/Proyecto/CMakeFiles/edit_cache.dir
+C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/build/Proyecto/CMakeFiles/rebuild_cache.dir

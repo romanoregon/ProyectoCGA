@@ -56,10 +56,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\roman\OneDrive\Documentos\ProyectoCGA
+CMAKE_SOURCE_DIR = C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build
+CMAKE_BINARY_DIR = C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,14 +86,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(CMAKE_COMMAND) -E cmake_progress_start C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build\CMakeFiles C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build\CGALib\\CMakeFiles\progress.marks
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CGALib/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build\CMakeFiles 0
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build\CMakeFiles C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build\CGALib\\CMakeFiles\progress.marks
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CGALib/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CGALib/clean
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CGALib/clean
 .PHONY : clean
 
 # The main clean target
@@ -102,22 +102,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CGALib/preinstall
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CGALib/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CGALib/preinstall
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CGALib/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 CGALib/CMakeFiles/CGALib.dir/rule:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CGALib/CMakeFiles/CGALib.dir/rule
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CGALib/CMakeFiles/CGALib.dir/rule
 .PHONY : CGALib/CMakeFiles/CGALib.dir/rule
 
 # Convenience name for target.
@@ -126,7 +126,7 @@ CGALib: CGALib/CMakeFiles/CGALib.dir/rule
 
 # fast build rule for target.
 CGALib/fast:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/build
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/build
 .PHONY : CGALib/fast
 
 src/Bones.obj: src/Bones.cpp.obj
@@ -134,7 +134,7 @@ src/Bones.obj: src/Bones.cpp.obj
 
 # target to build an object file
 src/Bones.cpp.obj:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.obj
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.obj
 .PHONY : src/Bones.cpp.obj
 
 src/Bones.i: src/Bones.cpp.i
@@ -142,7 +142,7 @@ src/Bones.i: src/Bones.cpp.i
 
 # target to preprocess a source file
 src/Bones.cpp.i:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.i
 .PHONY : src/Bones.cpp.i
 
 src/Bones.s: src/Bones.cpp.s
@@ -150,7 +150,7 @@ src/Bones.s: src/Bones.cpp.s
 
 # target to generate assembly for a file
 src/Bones.cpp.s:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Bones.cpp.s
 .PHONY : src/Bones.cpp.s
 
 src/Box.obj: src/Box.cpp.obj
@@ -158,7 +158,7 @@ src/Box.obj: src/Box.cpp.obj
 
 # target to build an object file
 src/Box.cpp.obj:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.obj
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.obj
 .PHONY : src/Box.cpp.obj
 
 src/Box.i: src/Box.cpp.i
@@ -166,7 +166,7 @@ src/Box.i: src/Box.cpp.i
 
 # target to preprocess a source file
 src/Box.cpp.i:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.i
 .PHONY : src/Box.cpp.i
 
 src/Box.s: src/Box.cpp.s
@@ -174,7 +174,7 @@ src/Box.s: src/Box.cpp.s
 
 # target to generate assembly for a file
 src/Box.cpp.s:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Box.cpp.s
 .PHONY : src/Box.cpp.s
 
 src/Cylinder.obj: src/Cylinder.cpp.obj
@@ -182,7 +182,7 @@ src/Cylinder.obj: src/Cylinder.cpp.obj
 
 # target to build an object file
 src/Cylinder.cpp.obj:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.obj
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.obj
 .PHONY : src/Cylinder.cpp.obj
 
 src/Cylinder.i: src/Cylinder.cpp.i
@@ -190,7 +190,7 @@ src/Cylinder.i: src/Cylinder.cpp.i
 
 # target to preprocess a source file
 src/Cylinder.cpp.i:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.i
 .PHONY : src/Cylinder.cpp.i
 
 src/Cylinder.s: src/Cylinder.cpp.s
@@ -198,7 +198,7 @@ src/Cylinder.s: src/Cylinder.cpp.s
 
 # target to generate assembly for a file
 src/Cylinder.cpp.s:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Cylinder.cpp.s
 .PHONY : src/Cylinder.cpp.s
 
 src/FirstPersonCamera.obj: src/FirstPersonCamera.cpp.obj
@@ -206,7 +206,7 @@ src/FirstPersonCamera.obj: src/FirstPersonCamera.cpp.obj
 
 # target to build an object file
 src/FirstPersonCamera.cpp.obj:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.obj
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.obj
 .PHONY : src/FirstPersonCamera.cpp.obj
 
 src/FirstPersonCamera.i: src/FirstPersonCamera.cpp.i
@@ -214,7 +214,7 @@ src/FirstPersonCamera.i: src/FirstPersonCamera.cpp.i
 
 # target to preprocess a source file
 src/FirstPersonCamera.cpp.i:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.i
 .PHONY : src/FirstPersonCamera.cpp.i
 
 src/FirstPersonCamera.s: src/FirstPersonCamera.cpp.s
@@ -222,7 +222,7 @@ src/FirstPersonCamera.s: src/FirstPersonCamera.cpp.s
 
 # target to generate assembly for a file
 src/FirstPersonCamera.cpp.s:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/FirstPersonCamera.cpp.s
 .PHONY : src/FirstPersonCamera.cpp.s
 
 src/FontTypeRendering.obj: src/FontTypeRendering.cpp.obj
@@ -230,7 +230,7 @@ src/FontTypeRendering.obj: src/FontTypeRendering.cpp.obj
 
 # target to build an object file
 src/FontTypeRendering.cpp.obj:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.obj
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.obj
 .PHONY : src/FontTypeRendering.cpp.obj
 
 src/FontTypeRendering.i: src/FontTypeRendering.cpp.i
@@ -238,7 +238,7 @@ src/FontTypeRendering.i: src/FontTypeRendering.cpp.i
 
 # target to preprocess a source file
 src/FontTypeRendering.cpp.i:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.i
 .PHONY : src/FontTypeRendering.cpp.i
 
 src/FontTypeRendering.s: src/FontTypeRendering.cpp.s
@@ -246,7 +246,7 @@ src/FontTypeRendering.s: src/FontTypeRendering.cpp.s
 
 # target to generate assembly for a file
 src/FontTypeRendering.cpp.s:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/FontTypeRendering.cpp.s
 .PHONY : src/FontTypeRendering.cpp.s
 
 src/Mesh.obj: src/Mesh.cpp.obj
@@ -254,7 +254,7 @@ src/Mesh.obj: src/Mesh.cpp.obj
 
 # target to build an object file
 src/Mesh.cpp.obj:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.obj
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.obj
 .PHONY : src/Mesh.cpp.obj
 
 src/Mesh.i: src/Mesh.cpp.i
@@ -262,7 +262,7 @@ src/Mesh.i: src/Mesh.cpp.i
 
 # target to preprocess a source file
 src/Mesh.cpp.i:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.i
 .PHONY : src/Mesh.cpp.i
 
 src/Mesh.s: src/Mesh.cpp.s
@@ -270,7 +270,7 @@ src/Mesh.s: src/Mesh.cpp.s
 
 # target to generate assembly for a file
 src/Mesh.cpp.s:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Mesh.cpp.s
 .PHONY : src/Mesh.cpp.s
 
 src/Model.obj: src/Model.cpp.obj
@@ -278,7 +278,7 @@ src/Model.obj: src/Model.cpp.obj
 
 # target to build an object file
 src/Model.cpp.obj:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.obj
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.obj
 .PHONY : src/Model.cpp.obj
 
 src/Model.i: src/Model.cpp.i
@@ -286,7 +286,7 @@ src/Model.i: src/Model.cpp.i
 
 # target to preprocess a source file
 src/Model.cpp.i:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.i
 .PHONY : src/Model.cpp.i
 
 src/Model.s: src/Model.cpp.s
@@ -294,7 +294,7 @@ src/Model.s: src/Model.cpp.s
 
 # target to generate assembly for a file
 src/Model.cpp.s:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Model.cpp.s
 .PHONY : src/Model.cpp.s
 
 src/Shader.obj: src/Shader.cpp.obj
@@ -302,7 +302,7 @@ src/Shader.obj: src/Shader.cpp.obj
 
 # target to build an object file
 src/Shader.cpp.obj:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.obj
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.obj
 .PHONY : src/Shader.cpp.obj
 
 src/Shader.i: src/Shader.cpp.i
@@ -310,7 +310,7 @@ src/Shader.i: src/Shader.cpp.i
 
 # target to preprocess a source file
 src/Shader.cpp.i:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.i
 .PHONY : src/Shader.cpp.i
 
 src/Shader.s: src/Shader.cpp.s
@@ -318,7 +318,7 @@ src/Shader.s: src/Shader.cpp.s
 
 # target to generate assembly for a file
 src/Shader.cpp.s:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Shader.cpp.s
 .PHONY : src/Shader.cpp.s
 
 src/ShadowBox.obj: src/ShadowBox.cpp.obj
@@ -326,7 +326,7 @@ src/ShadowBox.obj: src/ShadowBox.cpp.obj
 
 # target to build an object file
 src/ShadowBox.cpp.obj:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.obj
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.obj
 .PHONY : src/ShadowBox.cpp.obj
 
 src/ShadowBox.i: src/ShadowBox.cpp.i
@@ -334,7 +334,7 @@ src/ShadowBox.i: src/ShadowBox.cpp.i
 
 # target to preprocess a source file
 src/ShadowBox.cpp.i:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.i
 .PHONY : src/ShadowBox.cpp.i
 
 src/ShadowBox.s: src/ShadowBox.cpp.s
@@ -342,7 +342,7 @@ src/ShadowBox.s: src/ShadowBox.cpp.s
 
 # target to generate assembly for a file
 src/ShadowBox.cpp.s:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/ShadowBox.cpp.s
 .PHONY : src/ShadowBox.cpp.s
 
 src/Sphere.obj: src/Sphere.cpp.obj
@@ -350,7 +350,7 @@ src/Sphere.obj: src/Sphere.cpp.obj
 
 # target to build an object file
 src/Sphere.cpp.obj:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.obj
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.obj
 .PHONY : src/Sphere.cpp.obj
 
 src/Sphere.i: src/Sphere.cpp.i
@@ -358,7 +358,7 @@ src/Sphere.i: src/Sphere.cpp.i
 
 # target to preprocess a source file
 src/Sphere.cpp.i:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.i
 .PHONY : src/Sphere.cpp.i
 
 src/Sphere.s: src/Sphere.cpp.s
@@ -366,7 +366,7 @@ src/Sphere.s: src/Sphere.cpp.s
 
 # target to generate assembly for a file
 src/Sphere.cpp.s:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Sphere.cpp.s
 .PHONY : src/Sphere.cpp.s
 
 src/Terrain.obj: src/Terrain.cpp.obj
@@ -374,7 +374,7 @@ src/Terrain.obj: src/Terrain.cpp.obj
 
 # target to build an object file
 src/Terrain.cpp.obj:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.obj
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.obj
 .PHONY : src/Terrain.cpp.obj
 
 src/Terrain.i: src/Terrain.cpp.i
@@ -382,7 +382,7 @@ src/Terrain.i: src/Terrain.cpp.i
 
 # target to preprocess a source file
 src/Terrain.cpp.i:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.i
 .PHONY : src/Terrain.cpp.i
 
 src/Terrain.s: src/Terrain.cpp.s
@@ -390,7 +390,7 @@ src/Terrain.s: src/Terrain.cpp.s
 
 # target to generate assembly for a file
 src/Terrain.cpp.s:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Terrain.cpp.s
 .PHONY : src/Terrain.cpp.s
 
 src/Texture.obj: src/Texture.cpp.obj
@@ -398,7 +398,7 @@ src/Texture.obj: src/Texture.cpp.obj
 
 # target to build an object file
 src/Texture.cpp.obj:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.obj
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.obj
 .PHONY : src/Texture.cpp.obj
 
 src/Texture.i: src/Texture.cpp.i
@@ -406,7 +406,7 @@ src/Texture.i: src/Texture.cpp.i
 
 # target to preprocess a source file
 src/Texture.cpp.i:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.i
 .PHONY : src/Texture.cpp.i
 
 src/Texture.s: src/Texture.cpp.s
@@ -414,7 +414,7 @@ src/Texture.s: src/Texture.cpp.s
 
 # target to generate assembly for a file
 src/Texture.cpp.s:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/Texture.cpp.s
 .PHONY : src/Texture.cpp.s
 
 src/ThirdPersonCamera.obj: src/ThirdPersonCamera.cpp.obj
@@ -422,7 +422,7 @@ src/ThirdPersonCamera.obj: src/ThirdPersonCamera.cpp.obj
 
 # target to build an object file
 src/ThirdPersonCamera.cpp.obj:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.obj
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.obj
 .PHONY : src/ThirdPersonCamera.cpp.obj
 
 src/ThirdPersonCamera.i: src/ThirdPersonCamera.cpp.i
@@ -430,7 +430,7 @@ src/ThirdPersonCamera.i: src/ThirdPersonCamera.cpp.i
 
 # target to preprocess a source file
 src/ThirdPersonCamera.cpp.i:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.i
 .PHONY : src/ThirdPersonCamera.cpp.i
 
 src/ThirdPersonCamera.s: src/ThirdPersonCamera.cpp.s
@@ -438,7 +438,7 @@ src/ThirdPersonCamera.s: src/ThirdPersonCamera.cpp.s
 
 # target to generate assembly for a file
 src/ThirdPersonCamera.cpp.s:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/ThirdPersonCamera.cpp.s
 .PHONY : src/ThirdPersonCamera.cpp.s
 
 src/TimeManager.obj: src/TimeManager.cpp.obj
@@ -446,7 +446,7 @@ src/TimeManager.obj: src/TimeManager.cpp.obj
 
 # target to build an object file
 src/TimeManager.cpp.obj:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.obj
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.obj
 .PHONY : src/TimeManager.cpp.obj
 
 src/TimeManager.i: src/TimeManager.cpp.i
@@ -454,7 +454,7 @@ src/TimeManager.i: src/TimeManager.cpp.i
 
 # target to preprocess a source file
 src/TimeManager.cpp.i:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.i
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.i
 .PHONY : src/TimeManager.cpp.i
 
 src/TimeManager.s: src/TimeManager.cpp.s
@@ -462,7 +462,7 @@ src/TimeManager.s: src/TimeManager.cpp.s
 
 # target to generate assembly for a file
 src/TimeManager.cpp.s:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.s
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(MAKE) $(MAKESILENT) -f CGALib\CMakeFiles\CGALib.dir\build.make CGALib/CMakeFiles/CGALib.dir/src/TimeManager.cpp.s
 .PHONY : src/TimeManager.cpp.s
 
 # Help Target
@@ -527,6 +527,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /d C:\Users\roman\OneDrive\Documentos\ProyectoCGA\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d C:\Users\Alfonso\Documents\Proyecto\ProyectoCGA\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

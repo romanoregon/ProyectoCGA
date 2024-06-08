@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "C:/Users/roman/OneDrive/Documentos/ProyectoCGA/bin/libCGALib.dll"
-  "C:/Users/roman/OneDrive/Documentos/ProyectoCGA/bin/libCGALib.dll.manifest"
-  "C:/Users/roman/OneDrive/Documentos/ProyectoCGA/bin/libCGALib.pdb"
+  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/bin/libCGALib.dll"
+  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/bin/libCGALib.dll.manifest"
+  "C:/Users/Alfonso/Documents/Proyecto/ProyectoCGA/bin/libCGALib.pdb"
   "CMakeFiles/CGALib.dir/src/Bones.cpp.obj"
   "CMakeFiles/CGALib.dir/src/Bones.cpp.obj.d"
   "CMakeFiles/CGALib.dir/src/Box.cpp.obj"
